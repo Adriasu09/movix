@@ -1,0 +1,8 @@
+@theme {
+  /*  BREAKPOINTS */
+  --breakpoint-xl: 120rem; /* 1920px */
+  --breakpoint-lg: 90rem; /* 1440px */
+  --breakpoint-md: 64rem; /* 1024px */
+  --breakpoint-sm: 48rem; /* 768px */
+  --breakpoint-xs: 36rem; /* 576px */
+}
