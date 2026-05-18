@@ -1,3 +1,9 @@
+import { WelcomeLayout } from "@/layouts/WelcomeLayout";
+
 export const WelcomePage = () => {
-  return <div>WelcomePage</div>;
+  return (
+    <div>
+      <WelcomeLayout />
+    </div>
+  );
 };

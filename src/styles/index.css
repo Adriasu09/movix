@@ -78,12 +78,12 @@
     --text-display-2xl--line-height: 5.25rem; /*  84px */
 
     /* Espaciado desktop */
-    --gap-mvx-xs:  0.5rem;  /*  8px */
-    --gap-mvx-sm:  1rem;    /* 16px */
-    --gap-mvx-md:  1.5rem;  /* 24px */
-    --gap-mvx-lg:  2rem;    /* 32px */
-    --gap-mvx-xl:  3rem;    /* 48px */
-    --gap-mvx-2xl: 4rem;    /* 64px */
+    --spacing-xs:  0.5rem;  /*  8px */
+    --spacing-sm:  1rem;    /* 16px */
+    --spacing-md:  1.5rem;  /* 24px */
+    --spacing-lg:  2rem;    /* 32px */
+    --spacing-xl:  3rem;    /* 48px */
+    --spacing-2xl: 4rem;    /* 64px */
 
     /* Bordes redondeados desktop */
     --radius-mvx-sm:  0.5rem;  /*  8px */
