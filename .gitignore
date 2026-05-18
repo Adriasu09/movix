@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment variables (TMDB key, Supabase credentials)
+.env
+.env.local
+.env.*.local
+
+# Guía local para Claude Code — no se sube al repositorio
+CLAUDE.md
