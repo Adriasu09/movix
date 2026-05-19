@@ -1,10 +1,5 @@
 import { env } from "@/config/env";
 
-// Único punto de entrada HTTP a TMDB. Cada service llama aquí; ningún
-// componente ni hook llama a fetch directamente (requisito del bootcamp).
-// Autentica con el token v4 (Bearer), no con api_key v3.
-// Lanza un Error con `.status`; parseApiError lo traduce a mensaje en ES.
-
 const TIMEOUT_MS = 10000;
 
 export async function tmdbFetch(path, { params, signal } = {}) {

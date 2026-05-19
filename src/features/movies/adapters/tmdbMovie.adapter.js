@@ -36,3 +36,45 @@ export function mapTmdbPaginatedResponse(response = {}, mapperFn) {
     totalResults: response.total_results || 0,
   };
 }
+
+// Miembro del reparto/equipo de una película (/movie/:id/credits).
+// Es dato del dominio "movies"; no se reutiliza el adapter de people para
+// no romper el aislamiento entre features (CLAUDE.md §3).
+function mapCreditMember(member = {}) {
+  return {
+    id: member.id,
+    name: member.name || member.original_name || "Nombre desconocido",
+    profileUrl: getImageUrl(member.profile_path, IMAGE_SIZES.profile.medium),
+    popularity: member.popularity || 0,
+    // Solo en cast:
+    character: member.character || null,
+    order: member.order ?? null,
+    // Solo en crew:
+    job: member.job || null,
+    department: member.department || null,
+  };
+}
+
+// Créditos de TMDB → { cast, crew } con el modelo interno de miembro.
+export function mapTmdbCredits(credits = {}) {
+  return {
+    cast: (credits.cast || []).map(mapCreditMember),
+    crew: (credits.crew || []).map(mapCreditMember),
+  };
+}
+
+// Vídeo de TMDB (/movie/:id/videos) → modelo interno mínimo.
+function mapVideo(video = {}) {
+  return {
+    id: video.id,
+    key: video.key || null,
+    site: video.site || null,
+    type: video.type || null,
+    name: video.name || "",
+    official: video.official || false,
+  };
+}
+
+export function mapTmdbVideos(response = {}) {
+  return (response.results || []).map(mapVideo);
+}
