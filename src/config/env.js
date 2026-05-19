@@ -15,6 +15,7 @@ export const env = {
   // TMDB — datos públicos. Necesarias desde el día 1.
   TMDB_TOKEN: requerida("VITE_TMDB_TOKEN"),
   TMDB_BASE_URL: requerida("VITE_TMDB_BASE_URL"),
+  TMDB_IMAGE_BASE_URL: requerida("VITE_TMDB_IMAGE_BASE_URL"),
 
   // Supabase — auth + favoritos. Vacías hasta D6; opcionales por ahora.
   SUPABASE_URL: import.meta.env.VITE_SUPABASE_URL ?? "",
