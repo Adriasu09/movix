@@ -30,3 +30,4 @@ dist-ssr
 
 # Guía local para Claude Code — no se sube al repositorio
 CLAUDE.md
+.claude/

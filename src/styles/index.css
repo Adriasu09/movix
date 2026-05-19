@@ -43,53 +43,53 @@
 @media (min-width: 64rem) {
   :root {
     /* Fuente principal desktop */
-    --text-main-xs:               0.875rem; /*  14px */
-    --text-main-xs--line-height:  1.25rem;  /*  20px */
+    --text-main-xs: 0.875rem; /*  14px */
+    --text-main-xs--line-height: 1.25rem; /*  20px */
 
-    --text-main-sm:               1rem;     /*  16px */
-    --text-main-sm--line-height:  1.5rem;   /*  24px */
+    --text-main-sm: 1rem; /*  16px */
+    --text-main-sm--line-height: 1.5rem; /*  24px */
 
-    --text-main-md:               1.125rem; /*  18px */
-    --text-main-md--line-height:  1.625rem; /*  26px */
+    --text-main-md: 1.125rem; /*  18px */
+    --text-main-md--line-height: 1.625rem; /*  26px */
 
-    --text-main-lg:               1.375rem; /*  22px */
-    --text-main-lg--line-height:  1.875rem; /*  30px */
+    --text-main-lg: 1.375rem; /*  22px */
+    --text-main-lg--line-height: 1.875rem; /*  30px */
 
-    --text-main-xl:               1.625rem; /*  26px */
-    --text-main-xl--line-height:  2.125rem; /*  34px */
+    --text-main-xl: 1.625rem; /*  26px */
+    --text-main-xl--line-height: 2.125rem; /*  34px */
 
-    --text-main-2xl:              2rem;     /*  32px */
-    --text-main-2xl--line-height: 2.5rem;   /*  40px */
+    --text-main-2xl: 2rem; /*  32px */
+    --text-main-2xl--line-height: 2.5rem; /*  40px */
 
     /* Fuente display desktop */
-    --text-display-sm:               2rem;    /*  32px */
-    --text-display-sm--line-height:  2.25rem; /*  36px */
+    --text-display-sm: 2rem; /*  32px */
+    --text-display-sm--line-height: 2.25rem; /*  36px */
 
-    --text-display-md:               2.5rem;  /*  40px */
-    --text-display-md--line-height:  2.75rem; /*  44px */
+    --text-display-md: 2.5rem; /*  40px */
+    --text-display-md--line-height: 2.75rem; /*  44px */
 
-    --text-display-lg:               3rem;    /*  48px */
-    --text-display-lg--line-height:  3.25rem; /*  52px */
+    --text-display-lg: 3rem; /*  48px */
+    --text-display-lg--line-height: 3.25rem; /*  52px */
 
-    --text-display-xl:               4rem;    /*  64px */
-    --text-display-xl--line-height:  4.25rem; /*  68px */
+    --text-display-xl: 4rem; /*  64px */
+    --text-display-xl--line-height: 4.25rem; /*  68px */
 
-    --text-display-2xl:              5rem;    /*  80px */
+    --text-display-2xl: 5rem; /*  80px */
     --text-display-2xl--line-height: 5.25rem; /*  84px */
 
     /* Espaciado desktop */
-    --spacing-xs:  0.5rem;  /*  8px */
-    --spacing-sm:  1rem;    /* 16px */
-    --spacing-md:  1.5rem;  /* 24px */
-    --spacing-lg:  2rem;    /* 32px */
-    --spacing-xl:  3rem;    /* 48px */
-    --spacing-2xl: 4rem;    /* 64px */
+    --spacing-xs: 0.5rem; /*  8px */
+    --spacing-sm: 1rem; /* 16px */
+    --spacing-md: 1.5rem; /* 24px */
+    --spacing-lg: 2rem; /* 32px */
+    --spacing-xl: 3rem; /* 48px */
+    --spacing-2xl: 4rem; /* 64px */
 
     /* Bordes redondeados desktop */
-    --radius-mvx-sm:  0.5rem;  /*  8px */
-    --radius-mvx-md:  0.75rem; /* 12px */
-    --radius-mvx-lg:  1rem;    /* 16px */
-    --radius-mvx-xl:  1.5rem;  /* 24px */
-    --radius-mvx-2xl: 2rem;    /* 32px */
+    --radius-mvx-sm: 0.5rem; /*  8px */
+    --radius-mvx-md: 0.75rem; /* 12px */
+    --radius-mvx-lg: 1rem; /* 16px */
+    --radius-mvx-xl: 1.5rem; /* 24px */
+    --radius-mvx-2xl: 2rem; /* 32px */
   }
 }

@@ -1,0 +1,35 @@
+{
+  "appName": "Movix",
+  "messages": {
+    "loading": "Cargando...",
+    "error": "Algo salió mal. Por favor, inténtalo de nuevo.",
+    "retry": "Intentar de nuevo",
+    "noData": "Información no disponible",
+    "noPoster": "Póster no disponible",
+    "noBio": "Sin biografía disponible",
+    "endOfResults": "Has llegado al final de los resultados.",
+    "empty": {
+      "movies": "No se encontraron películas.",
+      "favorites": "Aún no tienes películas favoritas.",
+      "search": "No hay resultados para tu búsqueda."
+    }
+  },
+  "navLinks": [
+    { "label": "Inicio", "path": "/" },
+    { "label": "Explorar", "path": "/explore" }
+  ],
+  "filters": {
+    "sortOptions": [
+      { "value": "popularity.desc", "label": "Más populares" },
+      { "value": "vote_average.desc", "label": "Mejor valoradas" },
+      { "value": "primary_release_date.desc", "label": "Más recientes" }
+    ],
+    "ratingOptions": [
+      { "value": "0", "label": "Todas" },
+      { "value": "6", "label": "6+ ⭐" },
+      { "value": "7", "label": "7+ ⭐" },
+      { "value": "8", "label": "8+ ⭐" },
+      { "value": "9", "label": "9+ ⭐" }
+    ]
+  }
+}
