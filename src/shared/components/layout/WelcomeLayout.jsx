@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { WelcomeNavbar } from "./components/WelcomeNavbar";
+import { WelcomeNavbar } from "./WelcomeNavbar";
 
 export const WelcomeLayout = () => {
   return (
