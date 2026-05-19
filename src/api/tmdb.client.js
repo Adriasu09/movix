@@ -40,7 +40,7 @@ export async function tmdbFetch(path, { params, signal } = {}) {
     return res.json();
   } catch (err) {
     if (err.name === "AbortError") {
-      const error = new Error("La solicitud se canceló o tardó demasiado.");
+      const error = new Error("Request aborted or timed out.");
       error.status = 408;
       throw error;
     }
