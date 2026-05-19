@@ -1,13 +1,10 @@
-import { Outlet } from "react-router-dom";
 import { WelcomeNavbar } from "./WelcomeNavbar";
 
-export const WelcomeLayout = () => {
+export const WelcomeLayout = ({ children }) => {
   return (
     <div>
       <WelcomeNavbar />
-      <div className="w-full flex-1">
-        <Outlet />
-      </div>
+      <div className="w-full flex-1">{children}</div>
     </div>
   );
 };
