@@ -7,7 +7,9 @@ export const WelcomeNavbar = () => {
         <Play className="fill-gold-500" />
         <p className="font-display text-display-sm">Movix</p>
       </div>
-      <button className="text-border-gold border border-border-gold px-md rounded-mvx-md">Sign in</button>
+      <button className="text-border-gold border border-border-gold px-md rounded-mvx-md">
+        Sign in
+      </button>
     </div>
   );
 };
