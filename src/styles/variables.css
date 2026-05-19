@@ -1,103 +1,102 @@
 @theme {
-
   /* ─── BREAKPOINTS ──────────────────────────── */
   --breakpoint-xl: 120rem; /* 1920px */
-  --breakpoint-lg:  90rem; /* 1440px */
-  --breakpoint-md:  64rem; /* 1024px */
-  --breakpoint-sm:  48rem; /*  768px */
-  --breakpoint-xs:  36rem; /*  576px */
+  --breakpoint-lg: 90rem; /* 1440px */
+  --breakpoint-md: 64rem; /* 1024px */
+  --breakpoint-sm: 48rem; /*  768px */
+  --breakpoint-xs: 36rem; /*  576px */
 
   /* ─── FUENTES ──────────────────────────────── */
-  --font-display: "Fraunces", Georgia, serif;  /* Títulos, héroe, cartelera */
-  --font-main:    "Inter", system-ui, sans-serif;   /* UI, body, botones         */
+  --font-display: "Fraunces", Georgia, serif; /* Títulos, héroe, cartelera */
+  --font-main: "Inter", system-ui, sans-serif; /* UI, body, botones         */
 
   /* ─── TIPOGRAFÍA MOBILE (base) ─────────────── */
   /* Fuente principal (Inter) */
-  --text-main-xs:               0.75rem;  /*  12px */
-  --text-main-xs--line-height:  1rem;     /*  16px */
+  --text-main-xs: 0.75rem; /*  12px */
+  --text-main-xs--line-height: 1rem; /*  16px */
 
-  --text-main-sm:               0.875rem; /*  14px */
-  --text-main-sm--line-height:  1.25rem;  /*  20px */
+  --text-main-sm: 0.875rem; /*  14px */
+  --text-main-sm--line-height: 1.25rem; /*  20px */
 
-  --text-main-md:               1rem;     /*  16px */
-  --text-main-md--line-height:  1.5rem;   /*  24px */
+  --text-main-md: 1rem; /*  16px */
+  --text-main-md--line-height: 1.5rem; /*  24px */
 
-  --text-main-lg:               1.125rem; /*  18px */
-  --text-main-lg--line-height:  1.625rem; /*  26px */
+  --text-main-lg: 1.125rem; /*  18px */
+  --text-main-lg--line-height: 1.625rem; /*  26px */
 
-  --text-main-xl:               1.375rem; /*  22px */
-  --text-main-xl--line-height:  1.875rem; /*  30px */
+  --text-main-xl: 1.375rem; /*  22px */
+  --text-main-xl--line-height: 1.875rem; /*  30px */
 
-  --text-main-2xl:              1.625rem; /*  26px */
+  --text-main-2xl: 1.625rem; /*  26px */
   --text-main-2xl--line-height: 2.125rem; /*  34px */
 
   /* Fuente display (Bebas Neue - títulos) */
-  --text-display-sm:               1.5rem;  /*  24px */
-  --text-display-sm--line-height:  1.75rem; /*  28px */
+  --text-display-sm: 1.5rem; /*  24px */
+  --text-display-sm--line-height: 1.75rem; /*  28px */
 
-  --text-display-md:               2rem;    /*  32px */
-  --text-display-md--line-height:  2.25rem; /*  36px */
+  --text-display-md: 2rem; /*  32px */
+  --text-display-md--line-height: 2.25rem; /*  36px */
 
-  --text-display-lg:               2.5rem;  /*  40px */
-  --text-display-lg--line-height:  2.75rem; /*  44px */
+  --text-display-lg: 2.5rem; /*  40px */
+  --text-display-lg--line-height: 2.75rem; /*  44px */
 
-  --text-display-xl:               3rem;    /*  48px */
-  --text-display-xl--line-height:  3.25rem; /*  52px */
+  --text-display-xl: 3rem; /*  48px */
+  --text-display-xl--line-height: 3.25rem; /*  52px */
 
-  --text-display-2xl:              3.5rem;  /*  56px */
+  --text-display-2xl: 3.5rem; /*  56px */
   --text-display-2xl--line-height: 3.75rem; /*  60px */
 
   /* ─── ESPACIADO MOBILE (base) ──────────────── */
-  --spacing-xs:  0.25rem; /*  4px */
-  --spacing-sm:  0.5rem;  /*  8px */
-  --spacing-md:  1rem;    /* 16px */
-  --spacing-lg:  1.5rem;  /* 24px */
-  --spacing-xl:  2rem;    /* 32px */
-  --spacing-2xl: 3rem;    /* 48px */
+  --spacing-xs: 0.25rem; /*  4px */
+  --spacing-sm: 0.5rem; /*  8px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 3rem; /* 48px */
 
   /* ─── BORDES REDONDEADOS MOBILE (base) ─────── */
-  --radius-mvx-sm:   0.25rem; /*  4px */
-  --radius-mvx-md:   0.5rem;  /*  8px */
-  --radius-mvx-lg:   0.75rem; /* 12px */
-  --radius-mvx-xl:   1rem;    /* 16px */
-  --radius-mvx-2xl:  1.5rem;  /* 24px */
-  --radius-mvx-full: 9999px;  /* pill / circular */
+  --radius-mvx-sm: 0.25rem; /*  4px */
+  --radius-mvx-md: 0.5rem; /*  8px */
+  --radius-mvx-lg: 0.75rem; /* 12px */
+  --radius-mvx-xl: 1rem; /* 16px */
+  --radius-mvx-2xl: 1.5rem; /* 24px */
+  --radius-mvx-full: 9999px; /* pill / circular */
 
   /* ─── COLORES: FONDOS & SUPERFICIES ────────── */
-  --color-bg-base:    #0A0A0B;   /* Fondo principal (casi negro, no puro)  */
-  --color-bg-card:    #141416;   /* Cards, contenedores, modales           */
-  --color-bg-muted:   #1F1F23;   /* Inputs, chips inactivos, hover sutil   */
-  --color-bg-overlay: #0A0A0BCC; /* Overlay semi-transparente (80%)        */
+  --color-bg-base: #0a0a0b; /* Fondo principal (casi negro, no puro)  */
+  --color-bg-card: #141416; /* Cards, contenedores, modales           */
+  --color-bg-muted: #1f1f23; /* Inputs, chips inactivos, hover sutil   */
+  --color-bg-overlay: #0a0a0bcc; /* Overlay semi-transparente (80%)        */
 
   /* ─── COLORES: ACENTO DORADO ───────────────── */
   /* Regla: #D4AF37 es el ÚNICO color de acento. Nunca amarillo puro. */
-  --color-gold-300:   #F0D060; /* Dorado claro (decorativo, usar poco)   */
-  --color-gold-400:   #E8C547; /* Dorado hover / estado activo           */
-  --color-gold-500:   #D4AF37; /* Dorado principal — CTAs, logo, foco    */
-  --color-gold-600:   #B8932A; /* Dorado oscuro (pressed, sombras)       */
-  --color-gold-muted: #8B7320; /* Dorado apagado (disabled)              */
-  --color-rating:     #F5C518; /* Estrellas de puntuación (estilo IMDb)  */
+  --color-gold-300: #f0d060; /* Dorado claro (decorativo, usar poco)   */
+  --color-gold-400: #e8c547; /* Dorado hover / estado activo           */
+  --color-gold-500: #d4af37; /* Dorado principal — CTAs, logo, foco    */
+  --color-gold-600: #b8932a; /* Dorado oscuro (pressed, sombras)       */
+  --color-gold-muted: #8b7320; /* Dorado apagado (disabled)              */
+  --color-rating: #f5c518; /* Estrellas de puntuación (estilo IMDb)  */
 
   /* ─── COLORES: TEXTO ───────────────────────── */
-  --color-text-primary:   #FAFAFA; /* Texto principal                      */
-  --color-text-secondary: #A1A1AA; /* Subtítulos, metadata (año, género)   */
-  --color-text-muted:     #71717A; /* Placeholders, hints                  */
-  --color-text-inverted:  #0A0A0B; /* Texto oscuro sobre botones dorados   */
+  --color-text-primary: #fafafa; /* Texto principal                      */
+  --color-text-secondary: #a1a1aa; /* Subtítulos, metadata (año, género)   */
+  --color-text-muted: #71717a; /* Placeholders, hints                  */
+  --color-text-inverted: #0a0a0b; /* Texto oscuro sobre botones dorados   */
 
   /* ─── COLORES: BORDES ──────────────────────── */
-  --color-border-default: #2A2A2F;   /* Bordes estándar de cards e inputs  */
-  --color-border-strong:  #3F3F46;   /* Bordes con más contraste           */
-  --color-border-gold:    #D4AF3740; /* Borde dorado con opacidad (25%)    */
+  --color-border-default: #2a2a2f; /* Bordes estándar de cards e inputs  */
+  --color-border-strong: #3f3f46; /* Bordes con más contraste           */
+  --color-border-gold: #d4af3740; /* Borde dorado con opacidad (25%)    */
 
   /* ─── COLORES: SEMÁNTICOS ──────────────────── */
-  --color-error:      #DC2626;   /* Error / destructivo                  */
-  --color-error-bg:   #DC26261A; /* Fondo de error (10% opacidad)        */
-  --color-success:    #10B981;   /* Éxito                                */
-  --color-success-bg: #10B9811A; /* Fondo de éxito (10% opacidad)        */
-  --color-warning:    #F59E0B;   /* Advertencia                          */
+  --color-error: #dc2626; /* Error / destructivo                  */
+  --color-error-bg: #dc26261a; /* Fondo de error (10% opacidad)        */
+  --color-success: #10b981; /* Éxito                                */
+  --color-success-bg: #10b9811a; /* Fondo de éxito (10% opacidad)        */
+  --color-warning: #f59e0b; /* Advertencia                          */
 
   /* ─── COLORES: UTILIDADES ──────────────────── */
-  --color-white:       #FFFFFF;
-  --color-black:       #000000;
+  --color-white: #ffffff;
+  --color-black: #000000;
   --color-transparent: transparent;
 }

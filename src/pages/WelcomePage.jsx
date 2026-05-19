@@ -1,9 +1,9 @@
-import { WelcomeLayout } from "@/layouts/WelcomeLayout";
+import { WelcomeLayout } from "@/shared/components/layout/WelcomeLayout";
 
 export const WelcomePage = () => {
   return (
-    <div>
-      <WelcomeLayout />
-    </div>
+    <WelcomeLayout>
+      <div className="p-lg">WelcomePage — placeholder</div>
+    </WelcomeLayout>
   );
 };
