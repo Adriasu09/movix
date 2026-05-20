@@ -6,12 +6,11 @@ import { Link } from "react-router-dom";
 import { ROUTES } from "@/shared/constants/routes";
 import { ArrowRight, Lock } from "lucide-react";
 
-
 export const HeroContent = () => {
   return (
     <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-lg text-center">
       <Badge>
-        <Sparkles className="h-md w-md"/>
+        <Sparkles className="h-md w-md" />
         {copy.welcome.badge}
       </Badge>
       <h1 className="font-display text-display-3xl mt-lg flex flex-col items-center gap-1 tracking-normal">
