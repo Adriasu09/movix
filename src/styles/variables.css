@@ -30,7 +30,10 @@
   --text-main-2xl: 1.625rem; /*  26px */
   --text-main-2xl--line-height: 2.125rem; /*  34px */
 
-  /* Fuente display (Bebas Neue - títulos) */
+  /* Fuente display (Fraunces - títulos, marca) */
+  --text-display-xs: 1.375rem; /*  22px — marca/logo (mobile) */
+  --text-display-xs--line-height: 2rem; /*  32px */
+
   --text-display-sm: 1.5rem; /*  24px */
   --text-display-sm--line-height: 1.75rem; /*  28px */
 

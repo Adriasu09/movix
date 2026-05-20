@@ -62,6 +62,9 @@
     --text-main-2xl--line-height: 2.5rem; /*  40px */
 
     /* Fuente display desktop */
+    --text-display-xs: 1.5rem; /*  24px — marca/logo (desktop) */
+    --text-display-xs--line-height: 2rem; /*  32px */
+
     --text-display-sm: 2rem; /*  32px */
     --text-display-sm--line-height: 2.25rem; /*  36px */
 

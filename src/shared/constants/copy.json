@@ -1,5 +1,10 @@
 {
-  "appName": "Movix",
+  "appName": "Netflix",
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signOut": "Sign Out"
+  },
   "messages": {
     "loading": "Cargando...",
     "error": "Algo salió mal. Por favor, inténtalo de nuevo.",

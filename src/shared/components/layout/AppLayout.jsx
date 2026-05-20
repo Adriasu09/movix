@@ -1,11 +1,20 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
 
-// Layout raíz: contenedor a pantalla completa + slot de la ruta activa.
-// El Header y Footer globales se añaden en la épica E1.
 export const AppLayout = () => {
+  const { pathname } = useLocation();
+  const isWelcome = pathname === "/";
+
   return (
-    <div className="bg-bg-base text-text-primary min-h-screen">
-      <Outlet />
+    <div className="bg-bg-base text-text-primary flex min-h-screen flex-col">
+      <Header />
+      <main
+        className={isWelcome ? "flex-1" : "mx-auto w-full max-w-7xl flex-1 px-lg py-lg md:px-2xl"}
+      >
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   );
 };
