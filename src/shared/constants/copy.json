@@ -1,5 +1,10 @@
 {
   "appName": "Movix",
+  "auth": {
+    "signIn": "Iniciar sesión",
+    "signUp": "Registrarse",
+    "signOut": "Cerrar sesión"
+  },
   "messages": {
     "loading": "Cargando...",
     "error": "Algo salió mal. Por favor, inténtalo de nuevo.",
@@ -18,6 +23,29 @@
     { "label": "Inicio", "path": "/" },
     { "label": "Explorar", "path": "/explore" }
   ],
+  "welcome": {
+    "badge": "Descubre miles de películas",
+    "headline": {
+      "line1": "Cada historia.",
+      "line2": "Merece ser contada."
+    },
+    "subtitle": "Explora un catálogo curado de películas actualizado en tiempo real. Busca, filtra y encuentra tu próxima favorita — sin necesidad de cuenta.",
+    "ctaPrimary": "Explorar catálogo",
+    "subtext": "Acceso libre · Sin registro",
+    "postersAlt": "Póster de película"
+  },
+  "footer": {
+    "links": {
+      "privacy": "Privacidad",
+      "terms": "Términos",
+      "contact": "Contacto"
+    },
+    "tmdb": {
+      "label": "TMDB",
+      "href": "https://www.themoviedb.org",
+      "ariaLabel": "Datos proporcionados por TMDB"
+    }
+  },
   "filters": {
     "sortOptions": [
       { "value": "popularity.desc", "label": "Más populares" },
