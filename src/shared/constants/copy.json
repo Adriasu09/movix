@@ -1,9 +1,9 @@
 {
-  "appName": "Netflix",
+  "appName": "Movix",
   "auth": {
-    "signIn": "Sign In",
-    "signUp": "Sign Up",
-    "signOut": "Sign Out"
+    "signIn": "Iniciar sesión",
+    "signUp": "Registrarse",
+    "signOut": "Cerrar sesión"
   },
   "messages": {
     "loading": "Cargando...",
@@ -23,6 +23,18 @@
     { "label": "Inicio", "path": "/" },
     { "label": "Explorar", "path": "/explore" }
   ],
+  "footer": {
+    "links": {
+      "privacy": "Privacidad",
+      "terms": "Términos",
+      "contact": "Contacto"
+    },
+    "tmdb": {
+      "label": "TMDB",
+      "href": "https://www.themoviedb.org",
+      "ariaLabel": "Datos proporcionados por TMDB"
+    }
+  },
   "filters": {
     "sortOptions": [
       { "value": "popularity.desc", "label": "Más populares" },
