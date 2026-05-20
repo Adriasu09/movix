@@ -13,17 +13,24 @@ const SIZES = {
   lg: "px-xl py-md text-main-md",
 };
 
+// `as` permite renderizar el botón como otro elemento manteniendo los
+// estilos — p.ej. `<Button as={Link} to="/x">` para enlaces que parecen
+// botón sin anidar `<a>` y `<button>` (HTML inválido).
 export const Button = ({
+  as: Comp = "button",
   variant = "primary",
   size = "md",
-  type = "button",
+  type,
   className = "",
   ...props
 }) => {
+  // Solo se pasa `type` cuando renderizamos un <button> real; el resto de
+  // elementos (a, Link...) no lo aceptan.
+  const buttonOnly = Comp === "button" ? { type: type ?? "button" } : {};
   return (
-    <button
-      type={type}
+    <Comp
       className={`${BASE} ${VARIANTS[variant]} ${SIZES[size]} ${className}`}
+      {...buttonOnly}
       {...props}
     />
   );

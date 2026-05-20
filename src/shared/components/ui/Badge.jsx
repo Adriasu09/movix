@@ -3,7 +3,7 @@ const BASE =
 
 const VARIANTS = {
   "outline-gold":
-    "border border-gold-500 bg-transparent text-gold-500 px-md py-xs text-main-xs md:text-main-md",
+    "border border-gold-500 bg-transparent text-gold-500 px-md py-xs text-main-xs md:text-main-sm",
 };
 
 export const Badge = ({ variant = "outline-gold", className = "", ...props }) => {

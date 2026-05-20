@@ -24,7 +24,7 @@
     { "label": "Explorar", "path": "/explore" }
   ],
   "welcome": {
-    "badge": "✨ Descubre miles de películas",
+    "badge": "Descubre miles de películas",
     "headline": {
       "line1": "Cada historia.",
       "line2": "Merece ser contada."

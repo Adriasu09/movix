@@ -51,9 +51,26 @@
     background-image: radial-gradient(
       ellipse at 50% 50%,
       transparent 0%,
+      rgba(10, 10, 11, 0.5) 45%,
+      rgba(10, 10, 11, 0.9) 68%,
+      rgb(10, 10, 11) 85%
+    );
+  }
+
+  .bg-hero-text-scrim {
+    background-image: radial-gradient(
+      ellipse 70% 60% at 50% 52%,
+      rgba(10, 10, 11, 0.65) 0%,
       rgba(10, 10, 11, 0.4) 40%,
-      rgba(10, 10, 11, 0.85) 70%,
-      rgb(10, 10, 11) 100%
+      transparent 70%
+    );
+  }
+
+  .bg-hero-glow {
+    background-image: radial-gradient(
+      ellipse at 37.5% 37.5%,
+      rgba(212, 175, 55, 0.08) 0%,
+      transparent 60%
     );
   }
 }
