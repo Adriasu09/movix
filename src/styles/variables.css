@@ -52,6 +52,12 @@
   --text-display-2xl: 3.5rem; /*  56px */
   --text-display-2xl--line-height: 3.75rem; /*  60px */
 
+  --text-display-3xl: 2.75rem; /*  44px  */
+  --text-display-3xl--line-height: 3.4375rem; /*  55px */
+
+  /* ─── SOMBRAS ──────────────────────────────── */
+  --shadow-gold: 0 10px 30px -10px rgba(212, 175, 55, 0.3);
+
   /* ─── ESPACIADO MOBILE (base) ──────────────── */
   --spacing-xs: 0.25rem; /*  4px */
   --spacing-sm: 0.5rem; /*  8px */

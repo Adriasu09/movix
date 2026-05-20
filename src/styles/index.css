@@ -37,6 +37,25 @@
   .font-main {
     font-family: var(--font-main);
   }
+
+  .bg-hero-spotlight {
+    background-image: radial-gradient(
+      ellipse at 50% 0%,
+      rgba(212, 175, 55, 0.12) 0%,
+      rgba(212, 175, 55, 0.04) 30%,
+      transparent 70%
+    );
+  }
+
+  .bg-hero-vignette {
+    background-image: radial-gradient(
+      ellipse at 50% 50%,
+      transparent 0%,
+      rgba(10, 10, 11, 0.4) 40%,
+      rgba(10, 10, 11, 0.85) 70%,
+      rgb(10, 10, 11) 100%
+    );
+  }
 }
 
 /* ─── DESKTOP (>= 1024px) ───────────────────────────────────── */
@@ -79,6 +98,9 @@
 
     --text-display-2xl: 5rem; /*  80px */
     --text-display-2xl--line-height: 5.25rem; /*  84px */
+
+    --text-display-3xl: 4.5rem; /*  72px  */
+    --text-display-3xl--line-height: 5.625rem; /*  90px */
 
     /* Espaciado desktop */
     --spacing-xs: 0.5rem; /*  8px */
