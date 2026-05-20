@@ -23,6 +23,17 @@
     { "label": "Inicio", "path": "/" },
     { "label": "Explorar", "path": "/explore" }
   ],
+  "welcome": {
+    "badge": "Descubre miles de películas",
+    "headline": {
+      "line1": "Cada historia.",
+      "line2": "Merece ser contada."
+    },
+    "subtitle": "Explora un catálogo curado de películas actualizado en tiempo real. Busca, filtra y encuentra tu próxima favorita — sin necesidad de cuenta.",
+    "ctaPrimary": "Explorar catálogo",
+    "subtext": "Acceso libre · Sin registro",
+    "postersAlt": "Póster de película"
+  },
   "footer": {
     "links": {
       "privacy": "Privacidad",

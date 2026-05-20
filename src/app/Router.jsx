@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { ROUTES } from "@/shared/constants/routes";
 import { AppLayout } from "@/shared/components/layout/AppLayout";
-import { WelcomePage } from "@/pages/WelcomePage";
+import { WelcomePage } from "@/pages/welcomePage/WelcomePage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 import { ExplorePage } from "@/features/movies/pages/ExplorePage";
 import { MovieDetailPage } from "@/features/movies/pages/MovieDetailPage";
