@@ -4,7 +4,7 @@ import { Button } from "@/shared/components/ui/Button";
 import { ROUTES } from "@/config/routesConfig";
 import copy from "@/config/copy.json";
 
-export const Header = ({ transparent = false }) => {
+export const Navbar = ({ transparent = false }) => {
   return (
     <header
       className={
