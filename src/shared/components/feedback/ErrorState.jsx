@@ -2,11 +2,6 @@ import { AlertCircle } from "lucide-react";
 import { Button } from "@/shared/components/ui/Button";
 import copy from "@/config/copy.json";
 
-// Estado de error recuperable.
-// API mínima:
-//  - message: string localizado (lo produce el consumidor con parseApiError).
-//    Si no se pasa, usa el genérico copy.messages.error.
-//  - onRetry: si se pasa, muestra botón "Intentar de nuevo" que la llama.
 export const ErrorState = ({ message, onRetry }) => {
   return (
     <div className="flex flex-col items-center justify-center gap-md py-2xl text-center">

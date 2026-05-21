@@ -83,7 +83,7 @@ export const FeaturedCarousel = ({ hidden = false }) => {
         {copy.explore.featured.title}
       </h2>
       {/* scroll-snap horizontal; ocultar scrollbar en todos los navegadores */}
-      <ul className="flex gap-md overflow-x-auto snap-x snap-mandatory pb-sm [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <ul className="flex gap-md overflow-x-auto snap-x snap-mandatory pb-sm [-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden">
         {isLoading
           ? Array.from({ length: 3 }, (_, i) => <FeaturedCardSkeleton key={i} />)
           : movies?.map((movie) => <FeaturedCard key={movie.id} movie={movie} />)}

@@ -67,7 +67,6 @@ export const ExplorePage = () => {
         <>
           <MovieGrid movies={allMovies} isLoading={isLoading} />
 
-          {/* Estado vacío: carga terminada, cero resultados */}
           {!isLoading && allMovies.length === 0 && (
             <EmptyState
               icon={Film}
@@ -76,7 +75,6 @@ export const ExplorePage = () => {
             />
           )}
 
-          {/* Sentinel solo cuando ya hay resultados en pantalla */}
           {allMovies.length > 0 && (
             <InfiniteScrollSentinel
               onIntersect={fetchNextPage}
