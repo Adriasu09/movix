@@ -5,7 +5,7 @@ import copy from "@/config/copy.json";
 export const InfiniteScrollSentinel = ({ onIntersect, isFetching, hasNextPage }) => {
   const sentinelRef = useIntersectionObserver(
     onIntersect,
-    { rootMargin: "200px" },
+    { rootMargin: "500px" },
     hasNextPage && !isFetching
   );
 
