@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { MovieCard } from "@/features/movies/components/MovieCard";
-import copy from "@/shared/constants/copy.json";
+import copy from "@/config/copy.json";
 
 // Envuelve en MemoryRouter porque MovieCard usa <Link>
 const renderCard = (movie) =>
@@ -32,7 +32,8 @@ describe("MovieCard", () => {
     renderCard(baseMovie);
 
     expect(screen.getByRole("heading", { name: /inception/i })).toBeInTheDocument();
-    expect(screen.getByText("2010")).toBeInTheDocument();
+    // El año aparece dentro del span de metadatos "· 2010" → buscamos con regex
+    expect(screen.getByText(/2010/)).toBeInTheDocument();
   });
 
   /**

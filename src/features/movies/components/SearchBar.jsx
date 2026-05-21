@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Search, X } from "lucide-react";
 import { Input } from "@/shared/components/ui/Input";
 import { useDebounce } from "@/shared/hooks/useDebounce";
-import copy from "@/shared/constants/copy.json";
+import copy from "@/config/copy.json";
 
 // Barra de búsqueda con debounce de 400ms.
 // El estado local `inputValue` refleja lo que el usuario está escribiendo;
@@ -22,7 +22,7 @@ export const SearchBar = ({ value = "", onChange }) => {
     if (debouncedValue !== value) {
       onChange?.(debouncedValue);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedValue]);
 
   // Si la URL cambia desde fuera (navegación atrás, limpiar filtros desde otro

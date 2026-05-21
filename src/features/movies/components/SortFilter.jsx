@@ -1,5 +1,5 @@
 import { FilterChip } from "@/features/movies/components/FilterChip";
-import copy from "@/shared/constants/copy.json";
+import copy from "@/config/copy.json";
 
 // Fila de chips para elegir el criterio de ordenación.
 // Las opciones vienen de copy.json/filters.sortOptions para mantener
@@ -14,7 +14,7 @@ export const SortFilter = ({ activeSortBy = "popularity.desc", onChange }) => {
       <p className="text-text-secondary text-main-sm font-medium">
         {copy.explore.filters.sortLabel}
       </p>
-      <div className="flex gap-sm overflow-x-auto pb-xs [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <div className="flex gap-sm overflow-x-auto pb-xs scrollbar-none">
         {copy.filters.sortOptions.map((option) => (
           <FilterChip
             key={option.value}

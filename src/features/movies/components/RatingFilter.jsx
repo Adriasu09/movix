@@ -1,5 +1,5 @@
 import { FilterChip } from "@/features/movies/components/FilterChip";
-import copy from "@/shared/constants/copy.json";
+import copy from "@/config/copy.json";
 
 // Fila de chips para filtrar por puntuación mínima.
 // El valor "0" equivale a "sin filtro" (todas las puntuaciones).
@@ -14,7 +14,7 @@ export const RatingFilter = ({ activeMinRating = "0", onChange }) => {
       <p className="text-text-secondary text-main-sm font-medium">
         {copy.explore.filters.ratingLabel}
       </p>
-      <div className="flex gap-sm overflow-x-auto pb-xs [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <div className="flex gap-sm overflow-x-auto pb-xs [-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden">
         {copy.filters.ratingOptions.map((option) => (
           <FilterChip
             key={option.value}

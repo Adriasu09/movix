@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { Star } from "lucide-react";
 import { useFeaturedMovies } from "@/features/movies/hooks/useFeaturedMovies";
 import { Skeleton } from "@/shared/components/ui/Skeleton";
-import { ROUTES } from "@/shared/constants/routes";
-import copy from "@/shared/constants/copy.json";
+import { ROUTES } from "@/config/routesConfig";
+import copy from "@/config/copy.json";
 
 // Card individual de carrusel — usa backdrop landscape (16:9) en lugar de
 // poster para aprovechar el ancho horizontal del carrusel.
@@ -33,7 +33,7 @@ const FeaturedCard = ({ movie }) => {
         )}
 
         {/* Overlay gradiente inferior para legibilidad del texto */}
-        <div className="absolute inset-0 bg-gradient-to-t from-bg-base/90 via-bg-base/30 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-bg-base/90 via-bg-base/30 to-transparent" />
 
         {/* Info superpuesta en la parte inferior */}
         <div className="absolute right-0 bottom-0 left-0 p-md">

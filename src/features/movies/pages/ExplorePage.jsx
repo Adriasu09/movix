@@ -9,7 +9,7 @@ import { InfiniteScrollSentinel } from "@/features/movies/components/InfiniteScr
 import { EmptyState } from "@/shared/components/feedback/EmptyState";
 import { ErrorState } from "@/shared/components/feedback/ErrorState";
 import { parseApiError } from "@/shared/utils/parseApiError";
-import copy from "@/shared/constants/copy.json";
+import copy from "@/config/copy.json";
 
 // Página /explore: búsqueda + carrusel destacadas + filtros + grid infinito.
 // El estado de URL (q, genre, sortBy, minRating) es la única fuente de verdad
@@ -38,11 +38,7 @@ export const ExplorePage = () => {
   // Aplanar páginas en un array simple, deduplicando por id para evitar
   // duplicados ocasionales que devuelve TMDB entre páginas (CLAUDE.md §13).
   const allMovies = data
-    ? Array.from(
-        new Map(
-          data.pages.flatMap((page) => page.results).map((m) => [m.id, m])
-        ).values()
-      )
+    ? Array.from(new Map(data.pages.flatMap((page) => page.results).map((m) => [m.id, m])).values())
     : [];
 
   const hasSearch = q.trim().length > 0;
@@ -65,12 +61,10 @@ export const ExplorePage = () => {
         onRatingChange={setMinRating}
       />
 
-      {/* ── Grid + estados de feedback ───────────────── */}
       {isError ? (
         <ErrorState message={parseApiError(error).message} onRetry={refetch} />
       ) : (
         <>
-          {/* MovieGrid muestra skeletons si isLoading && movies vacío */}
           <MovieGrid movies={allMovies} isLoading={isLoading} />
 
           {/* Estado vacío: carga terminada, cero resultados */}

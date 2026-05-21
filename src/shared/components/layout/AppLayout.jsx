@@ -9,13 +9,7 @@ export const AppLayout = () => {
   return (
     <div className="bg-bg-base text-text-primary flex min-h-screen flex-col">
       <Header transparent={isWelcome} />
-      <main
-        className={
-          isWelcome
-            ? "flex flex-1 flex-col"
-            : "mx-auto w-full max-w-7xl flex-1 px-lg py-lg md:px-2xl"
-        }
-      >
+      <main className={isWelcome ? "flex flex-1 flex-col" : "mx-auto w-full flex-1 px-lg py-lg"}>
         <Outlet />
       </main>
       <Footer />

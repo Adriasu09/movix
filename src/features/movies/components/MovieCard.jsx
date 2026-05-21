@@ -1,60 +1,56 @@
 import { Link } from "react-router-dom";
-import { Star } from "lucide-react";
-import { ROUTES } from "@/shared/constants/routes";
-import copy from "@/shared/constants/copy.json";
+import { ROUTES } from "@/config/routesConfig";
+import copy from "@/config/copy.json";
 
-// Tarjeta de película para el grid de exploración.
-// Muestra el póster (o fallback), el rating en badge superior derecho,
-// y el título + año en la franja inferior.
-// El elemento raíz es un <Link> para que toda la card sea clickable.
-export const MovieCard = ({ movie }) => {
-  // El aria-label describe la acción completa a lectores de pantalla.
+export const MovieCard = ({ movie, genreMap = {} }) => {
   const ariaLabel = copy.explore.viewDetailAria.replace("{title}", movie.title);
+
+  const genreName = movie.genres?.[0]?.name ?? genreMap[movie.genreIds?.[0]] ?? null;
 
   return (
     <li>
       <Link
         to={ROUTES.movieDetail(movie.id)}
         aria-label={ariaLabel}
-        className="group relative block overflow-hidden rounded-mvx-md bg-bg-card transition-transform duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base"
+        className="group block rounded-mvx-lg transition-transform duration-200 ease-in-out hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base"
       >
-        {/* Póster 2:3 */}
-        <div className="aspect-[2/3] w-full overflow-hidden">
-          {movie.posterUrl ? (
-            <img
-              src={movie.posterUrl}
-              alt={movie.title}
-              className="h-full w-full object-cover"
-              loading="lazy"
-            />
-          ) : (
-            // Fallback cuando TMDB no tiene imagen
-            <div className="flex h-full w-full items-center justify-center bg-bg-muted px-sm text-center">
-              <span className="text-text-muted text-main-xs">{copy.messages.noPoster}</span>
-            </div>
-          )}
+        <div className="bg-bg-muted border border-border-default group-hover:border-gold-500 rounded-mvx-lg overflow-hidden transition-colors duration-200">
+          <div className="aspect-2/3 w-full">
+            {movie.posterUrl ? (
+              <img
+                src={movie.posterUrl}
+                alt={movie.title}
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center px-sm text-center">
+                <span className="text-text-muted text-main-xs">{copy.messages.noPoster}</span>
+              </div>
+            )}
+          </div>
         </div>
 
-        {/* Badge de rating — esquina superior derecha */}
-        {movie.rating != null && (
-          <div className="absolute top-xs right-xs flex items-center gap-xs rounded-mvx-sm bg-bg-overlay px-xs py-xs">
-            <Star aria-hidden="true" className="text-rating h-3 w-3 fill-current" />
-            <span className="text-text-primary text-main-2xs font-semibold leading-none">
-              {movie.rating.toFixed(1)}
-            </span>
-          </div>
-        )}
+        <div className="mt-sm space-y-xs">
+          <h3 className="text-text-primary text-main-md leading-6 line-clamp-1">{movie.title}</h3>
 
-        {/* Franja inferior: título + año */}
-        <div className="p-sm">
-          <h3 className="text-text-primary text-main-sm line-clamp-2 font-semibold leading-tight">
-            {movie.title}
-          </h3>
-          {movie.releaseYear && (
-            <span className="text-text-secondary text-main-xs mt-xs block">
-              {movie.releaseYear}
-            </span>
-          )}
+          <p className="text-main-md leading-6">
+            {movie.rating != null && (
+              <span className="text-rating">★ {movie.rating.toFixed(1)}</span>
+            )}
+            {movie.releaseYear && (
+              <span className="text-text-muted">
+                {movie.rating != null && " · "}
+                {movie.releaseYear}
+              </span>
+            )}
+            {genreName && (
+              <span className="hidden lg:inline text-text-muted">
+                {(movie.rating != null || movie.releaseYear) && " · "}
+                {genreName}
+              </span>
+            )}
+          </p>
         </div>
       </Link>
     </li>

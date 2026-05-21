@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { Play } from "lucide-react";
 import { Button } from "@/shared/components/ui/Button";
-import { ROUTES } from "@/shared/constants/routes";
-import copy from "@/shared/constants/copy.json";
+import { ROUTES } from "@/config/routesConfig";
+import copy from "@/config/copy.json";
 
 export const Header = ({ transparent = false }) => {
   return (

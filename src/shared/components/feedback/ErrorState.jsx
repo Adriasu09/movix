@@ -1,6 +1,6 @@
 import { AlertCircle } from "lucide-react";
 import { Button } from "@/shared/components/ui/Button";
-import copy from "@/shared/constants/copy.json";
+import copy from "@/config/copy.json";
 
 // Estado de error recuperable.
 // API mínima:
@@ -17,9 +17,7 @@ export const ErrorState = ({ message, onRetry }) => {
         <h3 className="text-text-primary font-display text-display-xs">
           {copy.messages.errorTitle}
         </h3>
-        <p className="text-text-secondary text-main-sm max-w-sm">
-          {message ?? copy.messages.error}
-        </p>
+        <p className="text-text-secondary text-main-sm">{message ?? copy.messages.error}</p>
       </div>
       {onRetry && (
         <Button variant="outline" size="sm" onClick={onRetry}>

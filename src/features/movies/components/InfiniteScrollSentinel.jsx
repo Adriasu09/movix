@@ -1,6 +1,6 @@
 import { Loader2 } from "lucide-react";
 import { useIntersectionObserver } from "@/shared/hooks/useIntersectionObserver";
-import copy from "@/shared/constants/copy.json";
+import copy from "@/config/copy.json";
 
 // Elemento centinela al final del grid para el scroll infinito.
 // Cuando entra en el viewport dispara `onIntersect` (que llama fetchNextPage).
