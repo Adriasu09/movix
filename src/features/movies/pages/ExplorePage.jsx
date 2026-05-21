@@ -2,7 +2,7 @@ import { Film } from "lucide-react";
 import { useInfiniteMovies } from "@/features/movies/hooks/useMovies";
 import { useExploreParams } from "@/features/movies/hooks/useExploreParams";
 import { SearchBar } from "@/features/movies/components/SearchBar";
-import { FeaturedCarousel } from "@/features/movies/components/FeaturedCarousel";
+import { HeroCarousel } from "@/features/movies/components/HeroCarousel";
 import { FiltersPanel } from "@/features/movies/components/FiltersPanel";
 import { MovieGrid } from "@/features/movies/components/MovieGrid";
 import { InfiniteScrollSentinel } from "@/features/movies/components/InfiniteScrollSentinel";
@@ -31,12 +31,9 @@ export const ExplorePage = () => {
     query: q,
     genre,
     sortBy,
-    // minRating "0" es el valor UI de "sin filtro"; el servicio lo descarta si vacío
     minRating: minRating === "0" ? "" : minRating,
   });
 
-  // Aplanar páginas en un array simple, deduplicando por id para evitar
-  // duplicados ocasionales que devuelve TMDB entre páginas (CLAUDE.md §13).
   const allMovies = data
     ? Array.from(new Map(data.pages.flatMap((page) => page.results).map((m) => [m.id, m])).values())
     : [];
@@ -44,14 +41,15 @@ export const ExplorePage = () => {
   const hasSearch = q.trim().length > 0;
 
   return (
-    <main className="mx-auto max-w-screen-xl space-y-xl px-md py-lg lg:px-lg">
-      {/* ── Búsqueda ─────────────────────────────────── */}
+    <div>
+      {/* Carrusel full-bleed: cancela el pt-14/md:pt-18 del main para quedar detrás de la navbar */}
+      <div className={hasSearch ? undefined : "-mt-14 md:-mt-18"}>
+        <HeroCarousel hidden={hasSearch} />
+      </div>
+
+      <div className="mx-auto max-w-screen-xl space-y-xl px-md py-lg lg:px-lg">
       <SearchBar value={q} onChange={setQ} />
 
-      {/* ── Destacadas (se oculta con búsqueda activa) ── */}
-      <FeaturedCarousel hidden={hasSearch} />
-
-      {/* ── Filtros ──────────────────────────────────── */}
       <FiltersPanel
         genre={genre}
         onGenreChange={setGenre}
@@ -84,6 +82,7 @@ export const ExplorePage = () => {
           )}
         </>
       )}
-    </main>
+      </div>
+    </div>
   );
 };

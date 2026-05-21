@@ -20,10 +20,17 @@
       "search": "No hay resultados para tu búsqueda."
     }
   },
-  "navLinks": [
-    { "label": "Inicio", "path": "/" },
-    { "label": "Explorar", "path": "/explore" }
-  ],
+  "nav": {
+    "openMenuAria": "Abrir menú",
+    "closeMenuAria": "Cerrar menú",
+    "comingSoonAria": "Próximamente",
+    "links": [
+      { "key": "home",      "label": "Inicio",    "path": "/",          "disabled": false },
+      { "key": "explore",   "label": "Explorar",  "path": "/explore",   "disabled": false },
+      { "key": "favorites", "label": "Favoritos", "path": "/favorites", "disabled": true  },
+      { "key": "profile",   "label": "Perfil",    "path": "/profile",   "disabled": true  }
+    ]
+  },
   "welcome": {
     "badge": "Descubre miles de películas",
     "headline": {
@@ -67,7 +74,12 @@
       "clearAriaLabel": "Limpiar búsqueda"
     },
     "featured": {
-      "title": "Destacadas"
+      "title": "Destacadas",
+      "trendingPrefix": "Tendencia",
+      "ctaLabel": "Ver detalles",
+      "goToSlideAria": "Ir al slide {n}",
+      "prevSlideAria": "Slide anterior",
+      "nextSlideAria": "Slide siguiente"
     },
     "filters": {
       "genresTitle": "Géneros",

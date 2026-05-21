@@ -8,8 +8,8 @@ export const AppLayout = () => {
 
   return (
     <div className="bg-bg-base text-text-primary flex min-h-screen flex-col">
-      <Navbar transparent={isWelcome} />
-      <main className={isWelcome ? "flex flex-1 flex-col" : "mx-auto w-full flex-1 px-lg py-lg"}>
+      <Navbar variant={isWelcome ? "welcome" : "app"} />
+      <main className={isWelcome ? "flex flex-1 flex-col" : "flex-1 pt-14 md:pt-18"}>
         <Outlet />
       </main>
       <Footer />
