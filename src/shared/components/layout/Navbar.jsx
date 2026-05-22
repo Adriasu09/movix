@@ -4,6 +4,7 @@ import { Menu, Play } from "lucide-react";
 import { Button } from "@/shared/components/ui/Button";
 import { AppNav } from "@/shared/components/layout/AppNav";
 import { MobileMenuDrawer } from "@/shared/components/layout/MobileMenuDrawer";
+import { NavbarSearch } from "@/shared/components/layout/NavbarSearch";
 import { ROUTES } from "@/config/routesConfig";
 import copy from "@/config/copy.json";
 
@@ -55,7 +56,7 @@ const AppNavbar = () => {
             : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-lg md:h-18 md:px-2xl">
+        <div className="relative mx-auto flex h-14 max-w-7xl items-center justify-between px-lg md:h-18 md:px-2xl">
           <div className="flex items-center gap-xl">
             <button
               type="button"
@@ -73,7 +74,10 @@ const AppNavbar = () => {
             </div>
           </div>
 
-          <SignInButton />
+          <div className="flex items-center gap-sm">
+            <NavbarSearch />
+            <SignInButton />
+          </div>
         </div>
       </header>
 

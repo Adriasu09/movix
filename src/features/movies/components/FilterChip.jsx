@@ -1,11 +1,3 @@
-// Chip seleccionable (toggle) para filtros de género, orden y rating.
-// Componente propio (no extiende Badge): Badge es decorativo; FilterChip
-// es interactivo y lleva estado activo/inactivo con aria-pressed.
-//
-// Props:
-//   label    – texto visible del chip
-//   isActive – si está seleccionado actualmente
-//   onClick  – callback al seleccionar/deseleccionar
 export const FilterChip = ({ label, isActive, onClick }) => {
   return (
     <button
@@ -13,7 +5,7 @@ export const FilterChip = ({ label, isActive, onClick }) => {
       onClick={onClick}
       aria-pressed={isActive}
       className={[
-        "shrink-0 rounded-mvx-full border px-md py-xs text-main-sm font-medium transition-colors",
+        "shrink-0 rounded-mvx-full border px-sm py-xs text-main-sm font-medium transition-colors",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base",
         isActive
           ? "border-gold-500 bg-gold-500 text-text-inverted"

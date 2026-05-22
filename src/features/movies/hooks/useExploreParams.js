@@ -37,5 +37,11 @@ export function useExploreParams() {
   const setSortBy = useCallback((value) => setParam("sortBy", value), [setParam]);
   const setMinRating = useCallback((value) => setParam("minRating", value), [setParam]);
 
-  return { q, genre, sortBy, minRating, setQ, setGenre, setSortBy, setMinRating };
+  // Limpia TODOS los params (q, genre, sortBy, minRating) → vuelve al estado
+  // inicial de /explore. Lo usa el botón "Limpiar filtros".
+  const clearAll = useCallback(() => {
+    setSearchParams(new URLSearchParams());
+  }, [setSearchParams]);
+
+  return { q, genre, sortBy, minRating, setQ, setGenre, setSortBy, setMinRating, clearAll };
 }

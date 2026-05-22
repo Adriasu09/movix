@@ -1,7 +1,6 @@
 import { Film } from "lucide-react";
 import { useInfiniteMovies } from "@/features/movies/hooks/useMovies";
 import { useExploreParams } from "@/features/movies/hooks/useExploreParams";
-import { SearchBar } from "@/features/movies/components/SearchBar";
 import { HeroCarousel } from "@/features/movies/components/HeroCarousel";
 import { FiltersPanel } from "@/features/movies/components/FiltersPanel";
 import { MovieGrid } from "@/features/movies/components/MovieGrid";
@@ -15,7 +14,7 @@ import copy from "@/config/copy.json";
 // El estado de URL (q, genre, sortBy, minRating) es la única fuente de verdad
 // para los filtros — no hay useState para esos valores (CLAUDE.md §7).
 export const ExplorePage = () => {
-  const { q, genre, sortBy, minRating, setQ, setGenre, setSortBy, setMinRating } =
+  const { q, genre, sortBy, minRating, setGenre, setSortBy, setMinRating, clearAll } =
     useExploreParams();
 
   const {
@@ -48,8 +47,6 @@ export const ExplorePage = () => {
       </div>
 
       <div className="mx-auto max-w-screen-xl space-y-xl px-md py-lg lg:px-lg">
-      <SearchBar value={q} onChange={setQ} />
-
       <FiltersPanel
         genre={genre}
         onGenreChange={setGenre}
@@ -57,6 +54,7 @@ export const ExplorePage = () => {
         onSortChange={setSortBy}
         minRating={minRating}
         onRatingChange={setMinRating}
+        onClearAll={clearAll}
       />
 
       {isError ? (

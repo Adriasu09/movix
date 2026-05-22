@@ -1,46 +1,40 @@
 import { useGenres } from "@/features/movies/hooks/useGenres";
 import { FilterChip } from "@/features/movies/components/FilterChip";
 import { Skeleton } from "@/shared/components/ui/Skeleton";
+import { FEATURED_GENRE_IDS } from "@/features/movies/constants/featuredGenres";
 import copy from "@/config/copy.json";
 
-// Fila horizontal de chips de género.
-// El chip "Todos" (value "") siempre aparece primero y limpia el filtro.
-// Si la API falla, muestra silenciosamente solo el chip "Todos" (UX suave).
-//
-// Props:
-//   activeGenre – id de género activo como string (o "" para todos)
-//   onChange    – callback(genreId: string)
 export const GenreFilter = ({ activeGenre = "", onChange }) => {
   const { data: genres, isLoading } = useGenres();
 
-  return (
-    <div className="space-y-sm">
-      <p className="text-text-secondary text-main-sm font-medium">
-        {copy.explore.filters.genresTitle}
-      </p>
-      {/* Scroll horizontal en mobile sin scrollbar visible */}
-      <div className="flex gap-sm overflow-x-auto pb-xs [-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden">
-        {/* Chip "Todos" — siempre presente */}
-        <FilterChip
-          label={copy.explore.filters.allGenres}
-          isActive={activeGenre === ""}
-          onClick={() => onChange("")}
-        />
+  const featuredGenres = genres
+    ? FEATURED_GENRE_IDS.map((id) => genres.find((g) => g.id === id)).filter(Boolean)
+    : [];
 
-        {isLoading
-          ? // Skeletons mientras cargan los géneros de TMDB
-            Array.from({ length: 8 }, (_, i) => (
-              <Skeleton key={i} className="h-8 w-20 shrink-0 rounded-mvx-full" />
-            ))
-          : genres?.map((genre) => (
-              <FilterChip
-                key={genre.id}
-                label={genre.name}
-                isActive={activeGenre === String(genre.id)}
-                onClick={() => onChange(activeGenre === String(genre.id) ? "" : String(genre.id))}
-              />
-            ))}
-      </div>
+  return (
+    <div
+      role="group"
+      aria-label={copy.explore.filters.genresTitle}
+      className="flex items-center gap-xs mb-md overflow-x-auto scrollbar-none [&::-webkit-scrollbar]:hidden md:mb-0"
+    >
+      <FilterChip
+        label={copy.explore.filters.allGenres}
+        isActive={activeGenre === ""}
+        onClick={() => onChange("")}
+      />
+
+      {isLoading
+        ? Array.from({ length: FEATURED_GENRE_IDS.length }, (_, i) => (
+            <Skeleton key={i} className="h-8 w-20 shrink-0 rounded-mvx-full" />
+          ))
+        : featuredGenres.map((g) => (
+            <FilterChip
+              key={g.id}
+              label={g.name}
+              isActive={activeGenre === String(g.id)}
+              onClick={() => onChange(activeGenre === String(g.id) ? "" : String(g.id))}
+            />
+          ))}
     </div>
   );
 };
