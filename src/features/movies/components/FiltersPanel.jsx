@@ -23,7 +23,7 @@ export const FiltersPanel = ({
         <GenreFilter activeGenre={genre} onChange={onGenreChange} disabled={disabled} />
       </div>
 
-      <div className="flex items-center justify-between gap-md md:shrink-0 md:justify-end">
+      <div className="flex items-center justify-between md:gap-md md:shrink-0 md:justify-end">
         <div className="flex items-center gap-sm">
           <SortFilter activeSortBy={sortBy} onChange={onSortChange} disabled={disabled} />
           <RatingFilter activeMinRating={minRating} onChange={onRatingChange} disabled={disabled} />

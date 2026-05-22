@@ -1,7 +1,7 @@
 {
   "appName": "Movix",
   "auth": {
-    "signIn": "Iniciar sesión",
+    "signIn": "Únete",
     "signUp": "Registrarse",
     "signOut": "Cerrar sesión"
   },

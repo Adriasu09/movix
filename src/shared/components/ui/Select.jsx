@@ -2,7 +2,7 @@ import { ChevronDown } from "lucide-react";
 
 const BASE =
   "appearance-none bg-bg-muted border border-border-default rounded-mvx-md " +
-  "pl-md pr-2xl py-xs text-text-secondary text-main-sm font-medium " +
+  "pl-md pr-xl py-xs text-text-secondary text-main-sm font-medium " +
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 " +
   "transition-colors cursor-pointer enabled:hover:border-border-strong " +
   "disabled:cursor-not-allowed disabled:opacity-50";

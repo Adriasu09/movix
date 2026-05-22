@@ -67,7 +67,7 @@ export const HeroCarousel = ({ hidden = false }) => {
       <div className="absolute inset-0 hidden bg-linear-to-r from-bg-base/90 via-bg-base/50 to-transparent lg:block" />
       <div className="absolute inset-x-0 top-0 h-32 bg-linear-to-b from-bg-base/60 to-transparent" />
 
-      <div className="group absolute inset-x-0 bottom-0 flex flex-col gap-sm p-lg md:inset-y-0 md:left-0 md:justify-center md:gap-md md:pl-3xl md:mt-18 md:right-auto md:max-w-175">
+      <div className="group absolute inset-x-0 bottom-lg flex flex-col gap-sm p-lg md:inset-y-0 md:left-0 md:justify-center md:gap-md md:pl-3xl md:mt-18 md:right-auto md:max-w-175">
         <p className="flex items-center gap-xs text-gold-500 text-main-2xs font-semibold uppercase tracking-wider lg:text-main-xs">
           <TrendingUp className="h-sm w-sm"/>#{currentIndex + 1} {copy.explore.featured.trendingPrefix} 
         </p>

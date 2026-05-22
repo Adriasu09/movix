@@ -57,7 +57,7 @@ const AppNavbar = () => {
         }`}
       >
         <div className="relative mx-auto flex h-14 max-w-7xl items-center justify-between px-lg md:h-18 md:px-2xl">
-          <div className="flex items-center gap-xl">
+          <div className="flex items-center gap-md md:gap-xl">
             <button
               type="button"
               onClick={() => setMenuOpen(true)}
