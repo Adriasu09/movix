@@ -5,9 +5,6 @@ import {
   getMovieById,
 } from "@/features/movies/services/movies.service";
 
-// Scroll infinito del listado. Si hay query usa búsqueda; si no, discover
-// con filtros. La queryKey incluye todos los parámetros activos, así
-// TanStack Query resetea la paginación al cambiar búsqueda o filtros.
 export function useInfiniteMovies({
   query = "",
   genre = "",

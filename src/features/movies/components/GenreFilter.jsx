@@ -4,7 +4,7 @@ import { Skeleton } from "@/shared/components/ui/Skeleton";
 import { FEATURED_GENRE_IDS } from "@/features/movies/constants/featuredGenres";
 import copy from "@/config/copy.json";
 
-export const GenreFilter = ({ activeGenre = "", onChange }) => {
+export const GenreFilter = ({ activeGenre = "", onChange, disabled = false }) => {
   const { data: genres, isLoading } = useGenres();
 
   const featuredGenres = genres
@@ -21,6 +21,7 @@ export const GenreFilter = ({ activeGenre = "", onChange }) => {
         label={copy.explore.filters.allGenres}
         isActive={activeGenre === ""}
         onClick={() => onChange("")}
+        disabled={disabled}
       />
 
       {isLoading
@@ -33,6 +34,7 @@ export const GenreFilter = ({ activeGenre = "", onChange }) => {
               label={g.name}
               isActive={activeGenre === String(g.id)}
               onClick={() => onChange(activeGenre === String(g.id) ? "" : String(g.id))}
+              disabled={disabled}
             />
           ))}
     </div>

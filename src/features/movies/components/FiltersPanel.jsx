@@ -11,22 +11,28 @@ export const FiltersPanel = ({
   minRating,
   onRatingChange,
   onClearAll,
+  disabled = false,
 }) => (
-  <section aria-label="Filtros de búsqueda" className="space-y-md md:space-y-0">
+  <section
+    aria-label="Filtros de búsqueda"
+    aria-disabled={disabled}
+    className="space-y-md md:space-y-0"
+  >
     <div className="md:flex md:items-center md:justify-between md:gap-lg">
       <div className="md:min-w-0 md:flex-1">
-        <GenreFilter activeGenre={genre} onChange={onGenreChange} />
+        <GenreFilter activeGenre={genre} onChange={onGenreChange} disabled={disabled} />
       </div>
 
       <div className="flex items-center justify-between gap-md md:shrink-0 md:justify-end">
         <div className="flex items-center gap-sm">
-          <SortFilter activeSortBy={sortBy} onChange={onSortChange} />
-          <RatingFilter activeMinRating={minRating} onChange={onRatingChange} />
+          <SortFilter activeSortBy={sortBy} onChange={onSortChange} disabled={disabled} />
+          <RatingFilter activeMinRating={minRating} onChange={onRatingChange} disabled={disabled} />
         </div>
         <button
           type="button"
           onClick={onClearAll}
-          className="text-gold-500 hover:text-gold-400 rounded-mvx-sm text-main-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500"
+          disabled={disabled}
+          className="text-gold-500 enabled:hover:text-gold-400 rounded-mvx-sm text-main-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 disabled:cursor-not-allowed disabled:opacity-50"
         >
           <span className="md:hidden">{copy.explore.filters.resetShortLabel}</span>
           <span className="hidden md:inline">{copy.explore.filters.resetLabel}</span>

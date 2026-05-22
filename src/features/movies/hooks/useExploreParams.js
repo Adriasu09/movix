@@ -1,12 +1,14 @@
 import { useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 
-// Fuente de verdad única para el estado de exploración.
-// Lee y escribe los query params de la URL (?q, ?genre, ?sortBy, ?minRating)
-// de forma que la URL sea siempre compartible y el botón "atrás" funcione.
+// Fuente de verdad para los filtros de exploración.
+// Lee los query params de la URL (?q, ?genre, ?sortBy, ?minRating) y expone
+// setters para los filtros. Así la URL es compartible y el botón "atrás"
+// funciona. El param ?q (texto de búsqueda) se lee aquí, pero quien lo
+// escribe es NavbarSearch.
 //
 // Cada setter preserva el resto de parámetros activos para no perder
-// los filtros al cambiar solo la búsqueda, por ejemplo.
+// los demás filtros al cambiar solo uno.
 export function useExploreParams() {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -32,16 +34,13 @@ export function useExploreParams() {
     [setSearchParams]
   );
 
-  const setQ = useCallback((value) => setParam("q", value), [setParam]);
   const setGenre = useCallback((value) => setParam("genre", value), [setParam]);
   const setSortBy = useCallback((value) => setParam("sortBy", value), [setParam]);
   const setMinRating = useCallback((value) => setParam("minRating", value), [setParam]);
 
-  // Limpia TODOS los params (q, genre, sortBy, minRating) → vuelve al estado
-  // inicial de /explore. Lo usa el botón "Limpiar filtros".
   const clearAll = useCallback(() => {
     setSearchParams(new URLSearchParams());
   }, [setSearchParams]);
 
-  return { q, genre, sortBy, minRating, setQ, setGenre, setSortBy, setMinRating, clearAll };
+  return { q, genre, sortBy, minRating, setGenre, setSortBy, setMinRating, clearAll };
 }

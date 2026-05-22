@@ -93,6 +93,10 @@
     },
     "viewDetailAria": "Ver detalles de {title}",
     "emptyTitle": "No se encontraron películas",
-    "emptyDescription": "Prueba a ajustar los filtros o vuelve más tarde."
+    "emptyDescription": "Prueba a ajustar los filtros o vuelve más tarde.",
+    "emptySearchTitle": "Sin resultados para tu búsqueda",
+    "emptySearchDescription": "Prueba con otro título o revisa la ortografía.",
+    "emptyClearSearchCta": "Limpiar búsqueda",
+    "emptyClearFiltersCta": "Limpiar filtros"
   }
 }
