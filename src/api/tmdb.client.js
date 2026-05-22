@@ -1,4 +1,4 @@
-import { env } from "@/config/env";
+import { env } from "@/config/envConfig";
 
 const TIMEOUT_MS = 10000;
 

@@ -1,9 +1,9 @@
 import { Badge } from "@/shared/components/ui/Badge";
 import { Sparkles } from "lucide-react";
-import copy from "@/shared/constants/copy.json";
+import copy from "@/config/copy.json";
 import { Button } from "@/shared/components/ui/Button";
 import { Link } from "react-router-dom";
-import { ROUTES } from "@/shared/constants/routes";
+import { ROUTES } from "@/config/routesConfig";
 import { ArrowRight, Lock } from "lucide-react";
 
 export const HeroContent = () => {

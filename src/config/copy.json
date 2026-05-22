@@ -7,6 +7,7 @@
   },
   "messages": {
     "loading": "Cargando...",
+    "errorTitle": "Algo salió mal",
     "error": "Algo salió mal. Por favor, inténtalo de nuevo.",
     "retry": "Intentar de nuevo",
     "noData": "Información no disponible",
@@ -19,10 +20,19 @@
       "search": "No hay resultados para tu búsqueda."
     }
   },
-  "navLinks": [
-    { "label": "Inicio", "path": "/" },
-    { "label": "Explorar", "path": "/explore" }
-  ],
+  "nav": {
+    "openMenuAria": "Abrir menú",
+    "closeMenuAria": "Cerrar menú",
+    "comingSoonAria": "Próximamente",
+    "searchAriaLabel": "Abrir búsqueda",
+    "closeSearchAria": "Cerrar búsqueda",
+    "links": [
+      { "key": "home",      "label": "Inicio",    "path": "/",          "disabled": false },
+      { "key": "explore",   "label": "Explorar",  "path": "/explore",   "disabled": false },
+      { "key": "favorites", "label": "Favoritos", "path": "/favorites", "disabled": true  },
+      { "key": "profile",   "label": "Perfil",    "path": "/profile",   "disabled": true  }
+    ]
+  },
   "welcome": {
     "badge": "Descubre miles de películas",
     "headline": {
@@ -59,5 +69,30 @@
       { "value": "8", "label": "8+ ⭐" },
       { "value": "9", "label": "9+ ⭐" }
     ]
+  },
+  "explore": {
+    "search": {
+      "placeholder": "Buscar películas...",
+      "clearAriaLabel": "Limpiar búsqueda"
+    },
+    "featured": {
+      "title": "Destacadas",
+      "trendingPrefix": "Tendencia",
+      "ctaLabel": "Ver detalles",
+      "goToSlideAria": "Ir al slide {n}",
+      "prevSlideAria": "Slide anterior",
+      "nextSlideAria": "Slide siguiente"
+    },
+    "filters": {
+      "genresTitle": "Géneros",
+      "allGenres": "Todos",
+      "sortLabel": "Ordenar por",
+      "ratingLabel": "Puntuación mínima",
+      "resetLabel": "Limpiar filtros",
+      "resetShortLabel": "Limpiar"
+    },
+    "viewDetailAria": "Ver detalles de {title}",
+    "emptyTitle": "No se encontraron películas",
+    "emptyDescription": "Prueba a ajustar los filtros o vuelve más tarde."
   }
 }

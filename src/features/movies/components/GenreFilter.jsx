@@ -1,0 +1,40 @@
+import { useGenres } from "@/features/movies/hooks/useGenres";
+import { FilterChip } from "@/features/movies/components/FilterChip";
+import { Skeleton } from "@/shared/components/ui/Skeleton";
+import { FEATURED_GENRE_IDS } from "@/features/movies/constants/featuredGenres";
+import copy from "@/config/copy.json";
+
+export const GenreFilter = ({ activeGenre = "", onChange }) => {
+  const { data: genres, isLoading } = useGenres();
+
+  const featuredGenres = genres
+    ? FEATURED_GENRE_IDS.map((id) => genres.find((g) => g.id === id)).filter(Boolean)
+    : [];
+
+  return (
+    <div
+      role="group"
+      aria-label={copy.explore.filters.genresTitle}
+      className="flex items-center gap-xs mb-md overflow-x-auto scrollbar-none [&::-webkit-scrollbar]:hidden md:mb-0"
+    >
+      <FilterChip
+        label={copy.explore.filters.allGenres}
+        isActive={activeGenre === ""}
+        onClick={() => onChange("")}
+      />
+
+      {isLoading
+        ? Array.from({ length: FEATURED_GENRE_IDS.length }, (_, i) => (
+            <Skeleton key={i} className="h-8 w-20 shrink-0 rounded-mvx-full" />
+          ))
+        : featuredGenres.map((g) => (
+            <FilterChip
+              key={g.id}
+              label={g.name}
+              isActive={activeGenre === String(g.id)}
+              onClick={() => onChange(activeGenre === String(g.id) ? "" : String(g.id))}
+            />
+          ))}
+    </div>
+  );
+};

@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from "react-router-dom";
-import { Header } from "./Header";
+import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 
 export const AppLayout = () => {
@@ -8,14 +8,8 @@ export const AppLayout = () => {
 
   return (
     <div className="bg-bg-base text-text-primary flex min-h-screen flex-col">
-      <Header transparent={isWelcome} />
-      <main
-        className={
-          isWelcome
-            ? "flex flex-1 flex-col"
-            : "mx-auto w-full max-w-7xl flex-1 px-lg py-lg md:px-2xl"
-        }
-      >
+      <Navbar variant={isWelcome ? "welcome" : "app"} />
+      <main className={isWelcome ? "flex flex-1 flex-col" : "flex-1 pt-14 md:pt-18"}>
         <Outlet />
       </main>
       <Footer />

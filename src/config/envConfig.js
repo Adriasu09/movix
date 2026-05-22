@@ -1,6 +1,3 @@
-// Lectura única y validada de las variables de entorno (import.meta.env).
-// Ningún otro fichero debe leer import.meta.env directamente: todo pasa por aquí.
-
 function requerida(nombre) {
   const valor = import.meta.env[nombre];
   if (!valor) {

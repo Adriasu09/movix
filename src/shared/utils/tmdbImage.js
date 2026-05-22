@@ -1,4 +1,4 @@
-import { env } from "@/config/env";
+import { env } from "@/config/envConfig";
 
 // Tamaños de imagen de TMDB según el uso. Si cambian, se tocan solo aquí.
 export const IMAGE_SIZES = {

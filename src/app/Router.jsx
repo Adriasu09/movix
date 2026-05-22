@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { ROUTES } from "@/shared/constants/routes";
+import { ROUTES } from "@/config/routesConfig";
 import { AppLayout } from "@/shared/components/layout/AppLayout";
 import { WelcomePage } from "@/pages/welcomePage/WelcomePage";
 import { NotFoundPage } from "@/pages/NotFoundPage";

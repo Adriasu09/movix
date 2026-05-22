@@ -1,4 +1,4 @@
-import copy from "@/shared/constants/copy.json";
+import copy from "@/config/copy.json";
 
 // Separador decorativo entre items. aria-hidden para que el lector de
 // pantalla no lo lea como "punto".
