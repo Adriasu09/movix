@@ -26,10 +26,13 @@ export function useInfiniteMovies({
 }
 
 // Detalle de una película.
+// `retry` evita reintentos en 404 (entidad inexistente): así la página de
+// detalle puede redirigir a /404 inmediatamente sin esperar 3 reintentos.
 export function useMovieDetail(id) {
   return useQuery({
     queryKey: ["movie", id],
     queryFn: ({ signal }) => getMovieById(id, { signal }),
     enabled: !!id,
+    retry: (failureCount, error) => error?.status !== 404 && failureCount < 2,
   });
 }

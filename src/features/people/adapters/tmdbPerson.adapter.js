@@ -12,6 +12,8 @@ export function mapTmdbPersonToPerson(tmdbPerson = {}) {
     deathday: tmdbPerson.deathday || null,
     placeOfBirth: tmdbPerson.place_of_birth || null,
     profileUrl: getImageUrl(tmdbPerson.profile_path, IMAGE_SIZES.profile.medium),
+    // Versión grande para la cabecera del detalle (PersonDetailHeader).
+    profileUrlLarge: getImageUrl(tmdbPerson.profile_path, IMAGE_SIZES.profile.large),
     popularity: tmdbPerson.popularity || 0,
     knownForDepartment: tmdbPerson.known_for_department || null,
     character: tmdbPerson.character || null,

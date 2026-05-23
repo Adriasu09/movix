@@ -23,6 +23,9 @@ export function mapTmdbMovieToMovie(tmdbMovie = {}) {
     genres: tmdbMovie.genres || [],
     runtime: tmdbMovie.runtime || null,
     originalLanguage: tmdbMovie.original_language || null,
+    // Países de producción — solo presente en /movie/:id (detalle).
+    // Se guarda solo el nombre; el primero suele bastar para mostrar.
+    productionCountries: (tmdbMovie.production_countries || []).map((c) => c.name),
     adult: tmdbMovie.adult || false,
   };
 }

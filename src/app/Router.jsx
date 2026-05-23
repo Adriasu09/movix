@@ -5,6 +5,7 @@ import { WelcomePage } from "@/pages/welcomePage/WelcomePage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 import { ExplorePage } from "@/features/movies/pages/ExplorePage";
 import { MovieDetailPage } from "@/features/movies/pages/MovieDetailPage";
+import { PersonDetailPage } from "@/features/people/pages/PersonDetailPage";
 
 export const Router = () => {
   return (
@@ -13,6 +14,8 @@ export const Router = () => {
         <Route path={ROUTES.home} element={<WelcomePage />} />
         <Route path={ROUTES.explore} element={<ExplorePage />} />
         <Route path="/movies/:id" element={<MovieDetailPage />} />
+        <Route path="/people/:id" element={<PersonDetailPage />} />
+        <Route path={ROUTES.notFound} element={<NotFoundPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>

@@ -98,5 +98,46 @@
     "emptySearchDescription": "Prueba con otro título o revisa la ortografía.",
     "emptyClearSearchCta": "Limpiar búsqueda",
     "emptyClearFiltersCta": "Limpiar filtros"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Página no encontrada",
+    "description": "La película, persona o ruta que buscas no existe o ha sido eliminada.",
+    "backCta": "Volver atrás",
+    "homeCta": "Ir al inicio"
+  },
+  "movieDetail": {
+    "sections": {
+      "synopsis": "Sinopsis",
+      "trailer": "Tráiler",
+      "cast": "Reparto principal",
+      "director": "Dirección"
+    },
+    "details": {
+      "releaseDate": "Estreno",
+      "originalLanguage": "Idioma original",
+      "runtime": "Duración",
+      "country": "País"
+    },
+    "directorLabel": "Director/a",
+    "trailerFallbackTitle": "Tráiler oficial",
+    "voteCountLabel": "{count} votos",
+    "viewPersonAria": "Ver ficha de {name}",
+    "backdropAlt": "Backdrop de {title}",
+    "posterAlt": "Póster de {title}"
+  },
+  "personDetail": {
+    "sections": {
+      "bio": "Biografía",
+      "filmography": "Filmografía"
+    },
+    "filmography": {
+      "asActor": "Como actor / actriz",
+      "asDirector": "Como director / directora"
+    },
+    "ageSuffix": "{age} años",
+    "bioReadMore": "Ver más",
+    "bioReadLess": "Ver menos",
+    "viewMovieAria": "Ver ficha de {title}"
   }
 }
