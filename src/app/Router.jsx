@@ -6,8 +6,6 @@ import { NotFoundPage } from "@/pages/NotFoundPage";
 import { ExplorePage } from "@/features/movies/pages/ExplorePage";
 import { MovieDetailPage } from "@/features/movies/pages/MovieDetailPage";
 
-// Todas las rutas viven aquí, anidadas bajo AppLayout.
-// La ruta con :id usa patrón literal; ROUTES.movieDetail construye el enlace.
 export const Router = () => {
   return (
     <Routes>
