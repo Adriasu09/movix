@@ -1,13 +1,9 @@
 import { useMovieVideos } from "@/features/movies/hooks/useMovieCredits";
 import copy from "@/config/copy.json";
 
-// Tráiler embebido de YouTube (E2-04). `useMovieVideos` ya filtra a Trailer
-// + site=YouTube. Si no hay vídeo o sigue cargando, el componente no
-// renderiza nada — sin huecos vacíos (E2-15).
 export const MovieTrailer = ({ movieId }) => {
   const { data: trailers = [], isLoading } = useMovieVideos(movieId);
 
-  // Prefiere el oficial si existe; si no, el primero disponible.
   const trailer = trailers.find((t) => t.official) || trailers[0];
 
   if (isLoading || !trailer?.key) return null;

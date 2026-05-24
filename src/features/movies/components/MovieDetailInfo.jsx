@@ -1,28 +1,7 @@
 import copy from "@/config/copy.json";
+import { formatDateEs, formatRuntime } from "../utils/format";
+import { MovieTrailer } from "./MovieTrailer";
 
-// Formatea minutos a "Xh Ym".
-const formatRuntime = (mins) => {
-  if (!mins) return null;
-  const h = Math.floor(mins / 60);
-  const m = mins % 60;
-  return h > 0 ? `${h}h ${m}m` : `${m}m`;
-};
-
-// Fecha ISO (yyyy-mm-dd) → texto largo en es-ES. Null si no hay fecha.
-const formatDateEs = (iso) => {
-  if (!iso) return null;
-  const d = new Date(iso);
-  if (Number.isNaN(d.getTime())) return null;
-  return d.toLocaleDateString("es-ES", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-};
-
-// Sección de info de la ficha (E2-03): sinopsis + grid de detalles
-// (estreno, idioma original, duración, país). Los detalles ausentes no se
-// renderizan — manejo de datos faltantes (E2-15).
 export const MovieDetailInfo = ({ movie }) => {
   const details = [
     {
@@ -49,7 +28,6 @@ export const MovieDetailInfo = ({ movie }) => {
 
   return (
     <section className="space-y-xl">
-      {/* Sinopsis (siempre presente — fallback noData si está vacía) */}
       <div className="space-y-sm">
         <h2 className="text-text-primary font-display text-display-sm">
           {copy.movieDetail.sections.synopsis}
@@ -59,21 +37,24 @@ export const MovieDetailInfo = ({ movie }) => {
         </p>
       </div>
 
-      {/* Grid de detalles — solo los campos disponibles */}
-      {details.length > 0 && (
-        <dl className="grid grid-cols-2 gap-md sm:grid-cols-4">
-          {details.map((d) => (
-            <div key={d.key} className="space-y-xs">
-              <dt className="text-text-muted text-main-xs uppercase tracking-wide">
-                {d.label}
-              </dt>
-              <dd className="text-text-primary text-main-sm font-medium">
-                {d.value}
-              </dd>
-            </div>
-          ))}
-        </dl>
-      )}
+      <div className="flex gap-lg">
+        <div className="hidden md:block w-2/3">
+          <MovieTrailer movieId={movie.id} />
+        </div>
+        {details.length > 0 && (
+          <dl className="grid grid-cols-2 gap-md sm:grid-cols-4 md:flex flex-col">
+            <h2 className="hidden md:block text-text-primary font-display text-display-sm">
+              {copy.movieDetail.sections.details}
+            </h2>
+            {details.map((d) => (
+              <div key={d.key} className="space-y-xs">
+                <dt className="text-text-muted text-main-xs uppercase tracking-wide">{d.label}</dt>
+                <dd className="text-text-primary text-main-sm font-medium">{d.value}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
+      </div>
     </section>
   );
 };

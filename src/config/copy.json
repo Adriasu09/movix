@@ -109,6 +109,7 @@
   "movieDetail": {
     "sections": {
       "synopsis": "Sinopsis",
+      "details": "Detalles",
       "trailer": "Tráiler",
       "cast": "Reparto principal",
       "director": "Dirección"

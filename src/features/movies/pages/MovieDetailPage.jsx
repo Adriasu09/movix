@@ -27,7 +27,6 @@ export const MovieDetailPage = () => {
 
   if (isLoading) return <MovieDetailSkeleton />;
 
-  // Error no-404 — el 404 ya redirige arriba.
   if (isError && error?.status !== 404) {
     return (
       <div className="mx-auto max-w-screen-xl px-md py-2xl lg:px-lg">
@@ -38,7 +37,6 @@ export const MovieDetailPage = () => {
 
   if (!movie) return null;
 
-  // Director — primer miembro del crew con job === "Director".
   const director = credits?.crew?.find((p) => p.job === "Director") || null;
 
   return (
@@ -49,7 +47,9 @@ export const MovieDetailPage = () => {
 
       <div className="mx-auto max-w-screen-xl space-y-2xl px-md pt-xl lg:px-lg">
         <MovieDetailInfo movie={movie} />
-        <MovieTrailer movieId={id} />
+        <div className="md:hidden">
+          <MovieTrailer movieId={id} />
+        </div>
         <DirectorCard director={director} />
         {credits?.cast && <CastList cast={credits.cast} />}
       </div>
