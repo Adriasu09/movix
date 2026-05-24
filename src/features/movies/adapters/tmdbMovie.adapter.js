@@ -1,11 +1,5 @@
 import { getImageUrl, IMAGE_SIZES } from "@/shared/utils/tmdbImage";
 
-// TMDB → modelo interno de película. Desacopla la app del shape de TMDB:
-// si TMDB cambia un campo, solo se toca aquí.
-// Nota verificada contra la API real:
-//  - el detalle (/movie/:id) trae `genres` ([{id,name}]), sin `genre_ids`
-//  - el listado (/discover, /search) trae `genre_ids` ([number]), sin `genres`
-// Por eso se mapean ambos con defaults.
 export function mapTmdbMovieToMovie(tmdbMovie = {}) {
   return {
     id: tmdbMovie.id,
@@ -23,14 +17,11 @@ export function mapTmdbMovieToMovie(tmdbMovie = {}) {
     genres: tmdbMovie.genres || [],
     runtime: tmdbMovie.runtime || null,
     originalLanguage: tmdbMovie.original_language || null,
-    // Países de producción — solo presente en /movie/:id (detalle).
-    // Se guarda solo el nombre; el primero suele bastar para mostrar.
     productionCountries: (tmdbMovie.production_countries || []).map((c) => c.name),
     adult: tmdbMovie.adult || false,
   };
 }
 
-// Respuesta paginada de TMDB → modelo interno paginado.
 export function mapTmdbPaginatedResponse(response = {}, mapperFn) {
   return {
     results: (response.results || []).map(mapperFn),
@@ -40,9 +31,6 @@ export function mapTmdbPaginatedResponse(response = {}, mapperFn) {
   };
 }
 
-// Miembro del reparto/equipo de una película (/movie/:id/credits).
-// Es dato del dominio "movies"; no se reutiliza el adapter de people para
-// no romper el aislamiento entre features (CLAUDE.md §3).
 function mapCreditMember(member = {}) {
   return {
     id: member.id,

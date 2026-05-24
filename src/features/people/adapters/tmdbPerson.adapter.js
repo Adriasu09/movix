@@ -1,8 +1,5 @@
 import { getImageUrl, IMAGE_SIZES } from "@/shared/utils/tmdbImage";
 
-// TMDB → modelo interno de persona (actor/director).
-// `character`/`order` aparecen cuando viene de un cast; `job`/`department`
-// cuando viene de un crew (verificado contra /person/:id/movie_credits).
 export function mapTmdbPersonToPerson(tmdbPerson = {}) {
   return {
     id: tmdbPerson.id,
@@ -12,7 +9,6 @@ export function mapTmdbPersonToPerson(tmdbPerson = {}) {
     deathday: tmdbPerson.deathday || null,
     placeOfBirth: tmdbPerson.place_of_birth || null,
     profileUrl: getImageUrl(tmdbPerson.profile_path, IMAGE_SIZES.profile.medium),
-    // Versión grande para la cabecera del detalle (PersonDetailHeader).
     profileUrlLarge: getImageUrl(tmdbPerson.profile_path, IMAGE_SIZES.profile.large),
     popularity: tmdbPerson.popularity || 0,
     knownForDepartment: tmdbPerson.known_for_department || null,
@@ -23,9 +19,6 @@ export function mapTmdbPersonToPerson(tmdbPerson = {}) {
   };
 }
 
-// Un crédito de /person/:id/movie_credits es una PELÍCULA en la que la
-// persona participó (+ su rol). Se mapea aquí, en people, para no importar
-// el adapter de movies (aislamiento entre features, CLAUDE.md §3).
 function mapPersonCreditMovie(item = {}) {
   return {
     id: item.id,
@@ -41,8 +34,6 @@ function mapPersonCreditMovie(item = {}) {
   };
 }
 
-// Créditos de una persona → { cast (top 20 por popularidad), crew (solo
-// dirección) }, ya ordenados.
 export function mapTmdbPersonCredits(credits = {}) {
   const cast = (credits.cast || [])
     .slice()
