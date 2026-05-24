@@ -1,10 +1,18 @@
 import { useMovieVideos } from "@/features/movies/hooks/useMovieCredits";
 import copy from "@/config/copy.json";
+import { useEffect } from "react";
 
-export const MovieTrailer = ({ movieId }) => {
+export const MovieTrailer = ({ movieId, onTrailerLoad  }) => {
   const { data: trailers = [], isLoading } = useMovieVideos(movieId);
 
   const trailer = trailers.find((t) => t.official) || trailers[0];
+
+   useEffect(() => {
+    if (!isLoading) {
+      onTrailerLoad?.(!!trailer?.key);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading, trailer?.key]);
 
   if (isLoading || !trailer?.key) return null;
 

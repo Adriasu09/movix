@@ -1,8 +1,10 @@
 import copy from "@/config/copy.json";
 import { formatDateEs, formatRuntime } from "../utils/format";
 import { MovieTrailer } from "./MovieTrailer";
+import { useState } from "react";
 
 export const MovieDetailInfo = ({ movie }) => {
+  const [hasTrailer, setHasTrailer] = useState(false);
   const details = [
     {
       key: "release",
@@ -38,21 +40,28 @@ export const MovieDetailInfo = ({ movie }) => {
       </div>
 
       <div className="flex gap-lg">
-        <div className="hidden md:block w-2/3">
-          <MovieTrailer movieId={movie.id} />
+        <div className={`hidden ${hasTrailer ? "md:block w-2/3" : ""} `}>
+          <MovieTrailer movieId={movie.id} onTrailerLoad={setHasTrailer} />
         </div>
+
         {details.length > 0 && (
-          <dl className="grid grid-cols-2 gap-md sm:grid-cols-4 md:flex flex-col">
+          <div className="space-y-sm">
             <h2 className="hidden md:block text-text-primary font-display text-display-sm">
               {copy.movieDetail.sections.details}
             </h2>
-            {details.map((d) => (
-              <div key={d.key} className="space-y-xs">
-                <dt className="text-text-muted text-main-xs uppercase tracking-wide">{d.label}</dt>
-                <dd className="text-text-primary text-main-sm font-medium">{d.value}</dd>
-              </div>
-            ))}
-          </dl>
+            <dl
+              className={`gap-md ${hasTrailer ? "grid grid-cols-2 sm:grid-cols-4 md:flex md:flex-col" : "grid grid-cols-2 sm:grid-cols-4"}`}
+            >
+              {details.map((d) => (
+                <div key={d.key} className="space-y-xs">
+                  <dt className="text-text-muted text-main-xs uppercase tracking-wide">
+                    {d.label}
+                  </dt>
+                  <dd className="text-text-primary text-main-sm font-medium">{d.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
         )}
       </div>
     </section>
