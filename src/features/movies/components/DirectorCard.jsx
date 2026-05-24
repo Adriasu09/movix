@@ -4,9 +4,6 @@ import { Badge } from "@/shared/components/ui/Badge";
 import { ROUTES } from "@/config/routesConfig";
 import copy from "@/config/copy.json";
 
-// Card del director/a (E2-06). Recibe un único miembro del crew con
-// job === "Director" (lo busca la composición de MovieDetailPage).
-// Sin director → no renderiza (E2-15).
 export const DirectorCard = ({ director }) => {
   if (!director) return null;
 
