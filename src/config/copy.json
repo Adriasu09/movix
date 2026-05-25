@@ -27,10 +27,10 @@
     "searchAriaLabel": "Abrir búsqueda",
     "closeSearchAria": "Cerrar búsqueda",
     "links": [
-      { "key": "home",      "label": "Inicio",    "path": "/",          "disabled": false },
-      { "key": "explore",   "label": "Explorar",  "path": "/explore",   "disabled": false },
-      { "key": "favorites", "label": "Favoritos", "path": "/favorites", "disabled": true  },
-      { "key": "profile",   "label": "Perfil",    "path": "/profile",   "disabled": true  }
+      { "key": "home", "label": "Inicio", "path": "/", "disabled": false },
+      { "key": "explore", "label": "Explorar", "path": "/explore", "disabled": false },
+      { "key": "favorites", "label": "Favoritos", "path": "/favorites", "disabled": true },
+      { "key": "profile", "label": "Perfil", "path": "/profile", "disabled": true }
     ]
   },
   "welcome": {

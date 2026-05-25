@@ -12,11 +12,7 @@ export const PersonDetailHeader = ({ person }) => {
     <div className="gap-lg py-lg flex flex-col items-center sm:flex-row sm:items-start">
       <div className="bg-bg-muted rounded-mvx-xl aspect-2/3 w-40 shrink-0 overflow-hidden shadow-lg sm:w-48">
         {photoUrl ? (
-          <img
-            src={photoUrl}
-            alt={person.name}
-            className="h-full w-full object-cover"
-          />
+          <img src={photoUrl} alt={person.name} className="h-full w-full object-cover" />
         ) : (
           <div className="flex h-full w-full items-center justify-center">
             <UserRound aria-hidden="true" className="text-text-muted h-16 w-16" />

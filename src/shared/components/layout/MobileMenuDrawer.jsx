@@ -17,11 +17,7 @@ export const MobileMenuDrawer = ({ isOpen, onClose }) => {
 
   return (
     <>
-      <div
-        aria-hidden="true"
-        onClick={onClose}
-        className="bg-bg-overlay fixed inset-0 z-40"
-      />
+      <div aria-hidden="true" onClick={onClose} className="bg-bg-overlay fixed inset-0 z-40" />
 
       <aside
         role="dialog"
@@ -30,9 +26,7 @@ export const MobileMenuDrawer = ({ isOpen, onClose }) => {
         className="bg-bg-card fixed inset-y-0 left-0 z-50 flex w-72 flex-col p-lg"
       >
         <div className="flex items-center justify-between pb-xl">
-          <span className="font-display text-gold-500 text-display-xs">
-            {copy.appName}
-          </span>
+          <span className="font-display text-gold-500 text-display-xs">{copy.appName}</span>
           <button
             type="button"
             onClick={onClose}

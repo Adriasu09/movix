@@ -17,12 +17,8 @@ export const NotFoundPage = () => {
         <p className="text-text-muted font-display text-display-3xl font-bold">
           {copy.notFound.code}
         </p>
-        <h1 className="text-text-primary font-display text-display-xs">
-          {copy.notFound.title}
-        </h1>
-        <p className="text-text-secondary text-main-sm mx-auto">
-          {copy.notFound.description}
-        </p>
+        <h1 className="text-text-primary font-display text-display-xs">{copy.notFound.title}</h1>
+        <p className="text-text-secondary text-main-sm mx-auto">{copy.notFound.description}</p>
       </div>
 
       <div className="flex flex-col gap-sm sm:flex-row">

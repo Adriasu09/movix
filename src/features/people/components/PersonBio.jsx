@@ -26,9 +26,7 @@ export const PersonBio = ({ biography }) => {
       <h2 className="text-text-primary font-display text-display-sm">
         {copy.personDetail.sections.bio}
       </h2>
-      <p className="text-text-secondary text-main-md whitespace-pre-line leading-relaxed">
-        {text}
-      </p>
+      <p className="text-text-secondary text-main-md whitespace-pre-line leading-relaxed">{text}</p>
       {isLong && (
         <Button variant="outline" size="sm" onClick={() => setExpanded((v) => !v)}>
           {expanded ? copy.personDetail.bioReadLess : copy.personDetail.bioReadMore}

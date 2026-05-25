@@ -47,51 +47,51 @@ export const ExplorePage = () => {
       </div>
 
       <div className="mx-auto max-w-screen-xl space-y-xl px-md py-lg lg:px-lg">
-      <FiltersPanel
-        genre={genre}
-        onGenreChange={setGenre}
-        sortBy={sortBy}
-        onSortChange={setSortBy}
-        minRating={minRating}
-        onRatingChange={setMinRating}
-        onClearAll={clearAll}
-        disabled={hasSearch}
-      />
+        <FiltersPanel
+          genre={genre}
+          onGenreChange={setGenre}
+          sortBy={sortBy}
+          onSortChange={setSortBy}
+          minRating={minRating}
+          onRatingChange={setMinRating}
+          onClearAll={clearAll}
+          disabled={hasSearch}
+        />
 
-      {isError ? (
-        <ErrorState message={parseApiError(error).message} onRetry={refetch} />
-      ) : (
-        <>
-          <MovieGrid movies={allMovies} isLoading={isLoading} />
+        {isError ? (
+          <ErrorState message={parseApiError(error).message} onRetry={refetch} />
+        ) : (
+          <>
+            <MovieGrid movies={allMovies} isLoading={isLoading} />
 
-          {!isLoading && allMovies.length === 0 && (
-            <EmptyState
-              icon={Film}
-              title={hasSearch ? copy.explore.emptySearchTitle : copy.explore.emptyTitle}
-              description={
-                hasSearch ? copy.explore.emptySearchDescription : copy.explore.emptyDescription
-              }
-              action={
-                hasSearch || hasActiveFilters ? (
-                  <Button variant="outline" size="sm" onClick={clearAll}>
-                    {hasSearch
-                      ? copy.explore.emptyClearSearchCta
-                      : copy.explore.emptyClearFiltersCta}
-                  </Button>
-                ) : null
-              }
-            />
-          )}
+            {!isLoading && allMovies.length === 0 && (
+              <EmptyState
+                icon={Film}
+                title={hasSearch ? copy.explore.emptySearchTitle : copy.explore.emptyTitle}
+                description={
+                  hasSearch ? copy.explore.emptySearchDescription : copy.explore.emptyDescription
+                }
+                action={
+                  hasSearch || hasActiveFilters ? (
+                    <Button variant="outline" size="sm" onClick={clearAll}>
+                      {hasSearch
+                        ? copy.explore.emptyClearSearchCta
+                        : copy.explore.emptyClearFiltersCta}
+                    </Button>
+                  ) : null
+                }
+              />
+            )}
 
-          {allMovies.length > 0 && (
-            <InfiniteScrollSentinel
-              onIntersect={fetchNextPage}
-              isFetching={isFetchingNextPage}
-              hasNextPage={!!hasNextPage}
-            />
-          )}
-        </>
-      )}
+            {allMovies.length > 0 && (
+              <InfiniteScrollSentinel
+                onIntersect={fetchNextPage}
+                isFetching={isFetchingNextPage}
+                hasNextPage={!!hasNextPage}
+              />
+            )}
+          </>
+        )}
       </div>
     </div>
   );

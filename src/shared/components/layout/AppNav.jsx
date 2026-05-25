@@ -3,9 +3,7 @@ import copy from "@/config/copy.json";
 
 export const AppNav = ({ orientation = "horizontal", onLinkClick }) => {
   const containerClass =
-    orientation === "horizontal"
-      ? "flex flex-row items-center gap-lg"
-      : "flex flex-col gap-md";
+    orientation === "horizontal" ? "flex flex-row items-center gap-lg" : "flex flex-col gap-md";
 
   return (
     <nav aria-label="Navegación principal">

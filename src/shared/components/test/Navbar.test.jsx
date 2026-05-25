@@ -21,9 +21,7 @@ describe("Navbar", () => {
   it("en variant='welcome' no renderiza hamburger ni nav", () => {
     renderNavbar("welcome");
 
-    expect(
-      screen.queryByRole("button", { name: copy.nav.openMenuAria })
-    ).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: copy.nav.openMenuAria })).not.toBeInTheDocument();
     expect(
       screen.queryByRole("navigation", { name: /navegación principal/i })
     ).not.toBeInTheDocument();
@@ -39,12 +37,8 @@ describe("Navbar", () => {
   it("en variant='app' renderiza hamburger y nav", () => {
     renderNavbar("app");
 
-    expect(
-      screen.getByRole("button", { name: copy.nav.openMenuAria })
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("navigation", { name: /navegación principal/i })
-    ).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: copy.nav.openMenuAria })).toBeInTheDocument();
+    expect(screen.getByRole("navigation", { name: /navegación principal/i })).toBeInTheDocument();
   });
 
   // Sanity: el botón Sign In aparece en ambas variantes (placeholder visual)

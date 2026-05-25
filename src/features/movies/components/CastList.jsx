@@ -13,7 +13,7 @@ export const CastList = ({ cast = [] }) => {
       </h2>
       <div className="gap-md pb-sm scrollbar-none flex overflow-x-auto md:flex-wrap">
         {display.map((p) => (
-          <ActorCard key={p.id} person={p}/>
+          <ActorCard key={p.id} person={p} />
         ))}
       </div>
     </section>
