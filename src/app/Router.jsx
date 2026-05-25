@@ -8,6 +8,9 @@ import { MovieDetailPage } from "@/features/movies/pages/MovieDetailPage";
 import { PersonDetailPage } from "@/features/people/pages/PersonDetailPage";
 import { SignInPage } from "@/features/auth/pages/SignInPage";
 import { SignUpPage } from "@/features/auth/pages/SignUpPage";
+import { ProtectedRoute } from "@/shared/components/layout/ProtectedRoute";
+import { ProfilePage } from "@/features/profile/pages/ProfilePage";
+import { FavoritesPage } from "@/features/favorites/pages/FavoritesPage";
 
 export const Router = () => {
   return (
@@ -17,13 +20,13 @@ export const Router = () => {
         <Route path={ROUTES.explore} element={<ExplorePage />} />
         <Route path="/movies/:id" element={<MovieDetailPage />} />
         <Route path="/people/:id" element={<PersonDetailPage />} />
-
-        {/* Auth: el "/*" es obligatorio — Clerk renderiza sub-rutas internas */}
-        {/* (verificación, MFA, SSO callback) bajo /sign-in/* y /sign-up/*.    */}
         <Route path="/sign-in/*" element={<SignInPage />} />
         <Route path="/sign-up/*" element={<SignUpPage />} />
 
-        {/* Rutas protegidas se añaden en Fase E vía <ProtectedRoute/> */}
+        <Route element={<ProtectedRoute />}>
+          <Route path={ROUTES.profile} element={<ProfilePage />} />
+          <Route path={ROUTES.favorites} element={<FavoritesPage />} />
+        </Route>
 
         <Route path={ROUTES.notFound} element={<NotFoundPage />} />
         <Route path="*" element={<NotFoundPage />} />
