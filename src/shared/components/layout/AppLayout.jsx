@@ -6,16 +6,17 @@ import { useScrollToTop } from "@/shared/hooks/useScrollToTop";
 export const AppLayout = () => {
   const { pathname } = useLocation();
   const isWelcome = pathname === "/";
+  const isAuth = pathname.startsWith("/sign-in") || pathname.startsWith("/sign-up");
 
   useScrollToTop();
 
   return (
     <div className="bg-bg-base text-text-primary flex min-h-screen flex-col">
-      <Navbar variant={isWelcome ? "welcome" : "app"} />
-      <main className={isWelcome ? "flex flex-1 flex-col" : "flex-1 pt-14 md:pt-18"}>
+      {!isAuth && <Navbar variant={isWelcome ? "welcome" : "app"} />}
+      <main className={isWelcome || isAuth ? "flex flex-1 flex-col" : "flex-1 pt-14 md:pt-18"}>
         <Outlet />
       </main>
-      <Footer />
+      {!isAuth && <Footer />}
     </div>
   );
 };

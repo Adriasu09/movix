@@ -79,6 +79,10 @@
       transparent 60%
     );
   }
+
+  .bg-auth-panel-fade {
+    background-image: linear-gradient(to right, transparent 60%, var(--color-bg-base) 100%);
+  }
 }
 
 /* ─── DESKTOP (>= 1024px) ───────────────────────────────────── */

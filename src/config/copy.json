@@ -2,8 +2,10 @@
   "appName": "Movix",
   "auth": {
     "signIn": "Únete",
+    "openSignIn": "Iniciar sesión",
     "signUp": "Registrarse",
-    "signOut": "Cerrar sesión"
+    "signOut": "Cerrar sesión",
+    "pageTagline": "Guarda, valora y redescubre las películas que más te importan."
   },
   "messages": {
     "loading": "Cargando...",
@@ -29,8 +31,8 @@
     "links": [
       { "key": "home", "label": "Inicio", "path": "/", "disabled": false },
       { "key": "explore", "label": "Explorar", "path": "/explore", "disabled": false },
-      { "key": "favorites", "label": "Favoritos", "path": "/favorites", "disabled": true },
-      { "key": "profile", "label": "Perfil", "path": "/profile", "disabled": true }
+      { "key": "favorites", "label": "Favoritos", "path": "/favorites", "disabled": false },
+      { "key": "profile", "label": "Perfil", "path": "/profile", "disabled": false }
     ]
   },
   "welcome": {
@@ -140,5 +142,20 @@
     "bioReadMore": "Ver más",
     "bioReadLess": "Ver menos",
     "viewMovieAria": "Ver ficha de {title}"
+  },
+  "profile": {
+    "title": "Mi perfil",
+    "memberSince": "Miembro desde {date}",
+    "favoritesCard": {
+      "title": "Mis películas favoritas",
+      "subtitle": "Ver y gestionar tu colección personal",
+      "cta": "Ver"
+    },
+    "avatarAlt": "Avatar de {name}",
+    "fallbackName": "Usuario"
+  },
+  "favorites": {
+    "title": "Mis favoritas",
+    "comingSoon": "Próximamente — disponible en el Día 6."
   }
 }

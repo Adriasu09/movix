@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Menu, Play } from "lucide-react";
+import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 import { Button } from "@/shared/components/ui/Button";
 import { AppNav } from "@/shared/components/layout/AppNav";
 import { MobileMenuDrawer } from "@/shared/components/layout/MobileMenuDrawer";
@@ -22,17 +23,34 @@ const Brand = () => (
   </NavLink>
 );
 
-const SignInButton = () => (
-  <Button variant="outline" size="sm" onClick={() => {}}>
-    {copy.auth.signIn}
-  </Button>
-);
+const AuthControls = () => {
+  const navigate = useNavigate();
+  return (
+    <>
+      <SignedOut>
+        <Button variant="outline" size="sm" onClick={() => navigate(ROUTES.signIn)}>
+          {copy.auth.openSignIn}
+        </Button>
+      </SignedOut>
+      <SignedIn>
+        <UserButton
+          afterSignOutUrl={ROUTES.home}
+          appearance={{
+            elements: {
+              userButtonAvatarBox: "w-9 h-9 ring-2 ring-gold-500/30",
+            },
+          }}
+        />
+      </SignedIn>
+    </>
+  );
+};
 
 const WelcomeNavbar = () => (
   <header className="fixed inset-x-0 top-0 z-50">
     <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-lg md:h-18 md:px-2xl">
       <Brand />
-      <SignInButton />
+      <AuthControls />
     </div>
   </header>
 );
@@ -76,7 +94,7 @@ const AppNavbar = () => {
 
           <div className="flex items-center gap-sm">
             <NavbarSearch />
-            <SignInButton />
+            <AuthControls />
           </div>
         </div>
       </header>
