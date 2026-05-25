@@ -14,8 +14,8 @@ export const env = {
   TMDB_BASE_URL: requerida("VITE_TMDB_BASE_URL"),
   TMDB_IMAGE_BASE_URL: requerida("VITE_TMDB_IMAGE_BASE_URL"),
 
-  // Clerk — auth. Vacía hasta D5; opcional por ahora.
-  CLERK_PUBLISHABLE_KEY: import.meta.env.VITE_CLERK_PUBLISHABLE_KEY ?? "",
+  // Clerk — auth (D5 en adelante). Requerida: sin esta clave el ClerkProvider no arranca.
+  CLERK_PUBLISHABLE_KEY: requerida("VITE_CLERK_PUBLISHABLE_KEY"),
 
   // Supabase — datos personales (favoritos/ratings). Vacías hasta D6; opcionales.
   SUPABASE_URL: import.meta.env.VITE_SUPABASE_URL ?? "",
