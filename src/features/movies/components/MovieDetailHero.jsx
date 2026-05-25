@@ -1,7 +1,7 @@
 import { Calendar, Clock, Star } from "lucide-react";
 import { Badge } from "@/shared/components/ui/Badge";
 import copy from "@/config/copy.json";
-import { formatRuntime } from "../utils/format";
+import { formatRuntime } from "@/shared/utils/formatters";
 
 const fill = (template, vars) =>
   Object.entries(vars).reduce((acc, [k, v]) => acc.replaceAll(`{${k}}`, v), template);

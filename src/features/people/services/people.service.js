@@ -4,8 +4,6 @@ import {
   mapTmdbPersonCredits,
 } from "@/features/people/adapters/tmdbPerson.adapter";
 
-// El cliente fija language=es-ES. Cada función reenvía { signal }.
-
 // Detalle de una persona (actor o director) por ID.
 export async function getPersonById(id, { signal } = {}) {
   const data = await tmdbFetch(`/person/${id}`, { signal });

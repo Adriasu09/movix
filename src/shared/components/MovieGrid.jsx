@@ -1,10 +1,9 @@
-import { useGenres } from "@/features/movies/hooks/useGenres";
-import { MovieCard } from "@/features/movies/components/MovieCard";
-import { MovieCardSkeleton } from "@/features/movies/components/MovieCardSkeleton";
+import { useGenres } from "@/shared/hooks/useGenres";
+import { MovieCard } from "@/shared/components/MovieCard";
+import { MovieCardSkeleton } from "@/shared/components/MovieCardSkeleton";
 
 export const MovieGrid = ({ movies = [], isLoading = false, skeletonCount = 12 }) => {
   const { data: genres } = useGenres();
-
   const genreMap = genres ? Object.fromEntries(genres.map((g) => [g.id, g.name])) : {};
 
   const showSkeletons = isLoading && movies.length === 0;

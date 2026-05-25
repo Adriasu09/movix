@@ -1,4 +1,4 @@
-import { useGenres } from "@/features/movies/hooks/useGenres";
+import { useGenres } from "@/shared/hooks/useGenres";
 import { FilterChip } from "@/features/movies/components/FilterChip";
 import { Skeleton } from "@/shared/components/ui/Skeleton";
 import { FEATURED_GENRE_IDS } from "@/features/movies/constants/featuredGenres";

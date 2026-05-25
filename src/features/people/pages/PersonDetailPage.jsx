@@ -9,8 +9,6 @@ import { ErrorState } from "@/shared/components/feedback/ErrorState";
 import { parseApiError } from "@/shared/utils/parseApiError";
 import { ROUTES } from "@/config/routesConfig";
 
-// Composición de la ficha de persona (agrupa E2-08..E2-10 + E2-13 + E2-14).
-// Carga detalle (usePerson) y créditos (usePersonCredits) en paralelo.
 export const PersonDetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -18,7 +16,6 @@ export const PersonDetailPage = () => {
   const { data: person, isLoading, isError, error, refetch } = usePerson(id);
   const { data: credits } = usePersonCredits(id);
 
-  // E2-13 — Persona inexistente en TMDB: redirige a /404 con `replace`.
   useEffect(() => {
     if (error?.status === 404) {
       navigate(ROUTES.notFound, { replace: true });

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Star, ChevronLeft, ChevronRight, TrendingUp } from "lucide-react";
 import { useFeaturedMovies } from "@/features/movies/hooks/useFeaturedMovies";
-import { useGenres } from "@/features/movies/hooks/useGenres";
+import { useGenres } from "@/shared/hooks/useGenres";
 import { Button } from "@/shared/components/ui/Button";
 import { Skeleton } from "@/shared/components/ui/Skeleton";
 import { ROUTES } from "@/config/routesConfig";

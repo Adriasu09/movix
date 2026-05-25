@@ -1,9 +1,6 @@
-import { MovieGrid } from "@/features/movies/components/MovieGrid";
+import { MovieGrid } from "@/shared/components/MovieGrid";
 import copy from "@/config/copy.json";
 
-// Sección con título + grid de películas; si no hay elementos, no renderiza.
-// Reutiliza MovieGrid (que a su vez usa MovieCard) — los items vienen ya
-// adaptados por mapTmdbPersonCredits con el shape mínimo que MovieCard espera.
 const Section = ({ title, movies }) => {
   if (!movies || movies.length === 0) return null;
   return (
@@ -16,8 +13,6 @@ const Section = ({ title, movies }) => {
   );
 };
 
-// Filmografía de la persona (E2-10). Dos secciones: "Como actor/actriz" y
-// "Como director/directora". El bloque entero se oculta si no hay nada.
 export const PersonFilmography = ({ credits }) => {
   if (!credits) return null;
   const { cast, crew } = credits;

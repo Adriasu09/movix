@@ -2,14 +2,11 @@ import { useState } from "react";
 import { Button } from "@/shared/components/ui/Button";
 import copy from "@/config/copy.json";
 
-const BIO_TRUNCATE_LENGTH = 500;
+const BIO_TRUNCATE_LENGTH = 600;
 
-// Biografía de la persona (E2-09). Truncado a ~500 caracteres con botón
-// "Ver más"/"Ver menos". Si no hay biografía → fallback noBio en cursiva.
 export const PersonBio = ({ biography }) => {
   const [expanded, setExpanded] = useState(false);
 
-  // Sin biografía → mensaje de fallback (E2-15).
   if (!biography) {
     return (
       <section className="space-y-sm">

@@ -12,10 +12,6 @@ export function mapTmdbPersonToPerson(tmdbPerson = {}) {
     profileUrlLarge: getImageUrl(tmdbPerson.profile_path, IMAGE_SIZES.profile.large),
     popularity: tmdbPerson.popularity || 0,
     knownForDepartment: tmdbPerson.known_for_department || null,
-    character: tmdbPerson.character || null,
-    order: tmdbPerson.order ?? null,
-    job: tmdbPerson.job || null,
-    department: tmdbPerson.department || null,
   };
 }
 
@@ -28,6 +24,7 @@ function mapPersonCreditMovie(item = {}) {
     releaseYear: item.release_date ? item.release_date.slice(0, 4) : null,
     rating: item.vote_average ? Math.round(item.vote_average * 10) / 10 : null,
     popularity: item.popularity || 0,
+    genreIds: item.genre_ids || [],
     character: item.character || null, // solo en cast
     job: item.job || null, // solo en crew
     department: item.department || null,

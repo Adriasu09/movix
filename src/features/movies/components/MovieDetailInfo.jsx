@@ -1,5 +1,5 @@
 import copy from "@/config/copy.json";
-import { formatDateEs, formatRuntime } from "../utils/format";
+import { formatDateEs, formatRuntime } from "@/shared/utils/formatters";
 import { MovieTrailer } from "./MovieTrailer";
 import { useState } from "react";
 
