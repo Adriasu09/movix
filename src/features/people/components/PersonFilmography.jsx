@@ -1,4 +1,4 @@
-import { MovieGrid } from '@/shared/components/MovieGrid';
+import { MovieGrid } from '@/features/movies/components/MovieGrid';
 import copy from '@/config/copy.json';
 
 const Section = ({ title, movies }) => {

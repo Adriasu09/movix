@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { MovieCard } from '@/shared/components/MovieCard';
+import { MovieCard } from '@/features/movies/components/MovieCard';
 import copy from '@/config/copy.json';
 
 // Envuelve en MemoryRouter porque MovieCard usa <Link>

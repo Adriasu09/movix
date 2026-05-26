@@ -3,7 +3,7 @@ import { useInfiniteMovies } from '@/features/movies/hooks/useMovies';
 import { useExploreParams } from '@/features/movies/hooks/useExploreParams';
 import { HeroCarousel } from '@/features/movies/components/HeroCarousel';
 import { FiltersPanel } from '@/features/movies/components/FiltersPanel';
-import { MovieGrid } from '@/shared/components/MovieGrid';
+import { MovieGrid } from '@/features/movies/components/MovieGrid';
 import { InfiniteScrollSentinel } from '@/features/movies/components/InfiniteScrollSentinel';
 import { EmptyState } from '@/shared/components/feedback/EmptyState';
 import { ErrorState } from '@/shared/components/feedback/ErrorState';
