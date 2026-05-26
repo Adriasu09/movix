@@ -1,17 +1,11 @@
 import copy from '@/config/copy.json';
 
-// Separador decorativo entre items. aria-hidden para que el lector de
-// pantalla no lo lea como "punto".
 const Separator = () => (
   <span aria-hidden="true" className="mx-sm opacity-60">
     ·
   </span>
 );
 
-// Footer global: copyright + enlaces secundarios + crédito obligatorio TMDB.
-// El crédito a TMDB es link externo (target _blank, rel noopener); el resto
-// son labels planos hasta que existan sus páginas.
-// Estilo: micro caption uppercase en mobile, body sm en case normal en desktop.
 export const Footer = () => {
   const year = new Date().getFullYear();
   const { links, tmdb } = copy.footer;
