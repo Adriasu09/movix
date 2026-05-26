@@ -1,5 +1,3 @@
-// Traduce un error (de tmdb.client u otro) a un mensaje en español + status.
-// Lo usará la UI (ErrorState) para mostrar algo legible al usuario.
 export function parseApiError(error) {
   const status = error?.status ?? 0;
 
