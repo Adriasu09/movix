@@ -45,7 +45,7 @@ export const MovieCard = ({ movie, genreMap = {} }) => {
               </span>
             )}
             {genreName && (
-              <span className="hidden text-text-muted lg:inline">
+              <span className="hidden text-text-muted md:inline">
                 {(movie.rating != null || movie.releaseYear) && ' · '}
                 {genreName}
               </span>

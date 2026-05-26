@@ -29,7 +29,7 @@ export const MovieDetailPage = () => {
 
   if (isError && error?.status !== 404) {
     return (
-      <div className="mx-auto max-w-screen-xl px-md py-2xl lg:px-lg">
+      <div className="mx-auto max-w-screen-xl px-md py-2xl md:px-lg">
         <ErrorState message={parseApiError(error).message} onRetry={refetch} />
       </div>
     );
@@ -45,7 +45,7 @@ export const MovieDetailPage = () => {
         <MovieDetailHero movie={movie} />
       </div>
 
-      <div className="mx-auto max-w-screen-xl space-y-2xl px-md pt-xl lg:px-lg">
+      <div className="mx-auto max-w-screen-xl space-y-2xl px-md pt-xl md:px-lg">
         <MovieDetailInfo movie={movie} />
         <div className="md:hidden">
           <MovieTrailer movieId={id} />

@@ -80,14 +80,14 @@ const AppNavbar = () => {
               type="button"
               onClick={() => setMenuOpen(true)}
               aria-label={copy.nav.openMenuAria}
-              className="rounded-mvx-sm p-xs text-text-primary transition-colors hover:text-gold-500 focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:outline-none lg:hidden"
+              className="rounded-mvx-sm p-xs text-text-primary transition-colors hover:text-gold-500 focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:outline-none md:hidden"
             >
               <Menu aria-hidden="true" className="h-5 w-5" />
             </button>
 
             <Brand />
 
-            <div className="hidden lg:block">
+            <div className="hidden md:block">
               <AppNav orientation="horizontal" />
             </div>
           </div>

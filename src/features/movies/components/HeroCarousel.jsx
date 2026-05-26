@@ -63,11 +63,11 @@ export const HeroCarousel = ({ hidden = false }) => {
         <div className="absolute inset-0 bg-bg-muted" />
       )}
 
-      <div className="absolute inset-0 hidden bg-linear-to-r from-bg-base/90 via-bg-base/50 to-transparent lg:block" />
+      <div className="absolute inset-0 hidden bg-linear-to-r from-bg-base/90 via-bg-base/50 to-transparent md:block" />
       <div className="absolute inset-x-0 top-0 h-32 bg-linear-to-b from-bg-base/60 to-transparent" />
 
       <div className="group absolute inset-x-0 bottom-lg flex flex-col gap-sm p-lg md:inset-y-0 md:right-auto md:left-0 md:mt-18 md:max-w-175 md:justify-center md:gap-md md:pl-3xl">
-        <p className="flex items-center gap-xs text-main-2xs font-semibold tracking-wider text-gold-500 uppercase lg:text-main-xs">
+        <p className="flex items-center gap-xs text-main-2xs font-semibold tracking-wider text-gold-500 uppercase md:text-main-xs">
           <TrendingUp className="h-sm w-sm" />#{currentIndex + 1}{' '}
           {copy.explore.featured.trendingPrefix}
         </p>
@@ -108,7 +108,7 @@ export const HeroCarousel = ({ hidden = false }) => {
             onClick={() => setCurrentIndex((i) => (i - 1 + slidesCount) % slidesCount)}
             aria-label={copy.explore.featured.prevSlideAria}
             className={[
-              'absolute top-1/2 left-lg z-10 hidden -translate-y-1/2 items-center justify-center rounded-mvx-full bg-bg-base/60 p-sm transition-opacity duration-300 hover:bg-bg-base/90 focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:outline-none lg:flex',
+              'absolute top-1/2 left-lg z-10 hidden -translate-y-1/2 items-center justify-center rounded-mvx-full bg-bg-base/60 p-sm transition-opacity duration-300 hover:bg-bg-base/90 focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:outline-none md:flex',
               isPaused ? 'opacity-100' : 'pointer-events-none opacity-0',
             ].join(' ')}
           >
@@ -120,7 +120,7 @@ export const HeroCarousel = ({ hidden = false }) => {
             onClick={() => setCurrentIndex((i) => (i + 1) % slidesCount)}
             aria-label={copy.explore.featured.nextSlideAria}
             className={[
-              'absolute top-1/2 right-lg z-10 hidden -translate-y-1/2 items-center justify-center rounded-mvx-full bg-bg-base/60 p-sm transition-opacity duration-300 hover:bg-bg-base/90 focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:outline-none lg:flex',
+              'absolute top-1/2 right-lg z-10 hidden -translate-y-1/2 items-center justify-center rounded-mvx-full bg-bg-base/60 p-sm transition-opacity duration-300 hover:bg-bg-base/90 focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:outline-none md:flex',
               isPaused ? 'opacity-100' : 'pointer-events-none opacity-0',
             ].join(' ')}
           >

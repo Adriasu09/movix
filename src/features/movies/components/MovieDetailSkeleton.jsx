@@ -4,7 +4,7 @@ export const MovieDetailSkeleton = () => (
   <div aria-hidden="true">
     <Skeleton className="h-[50vh] w-full rounded-none md:h-[60vh]" />
 
-    <div className="mx-auto max-w-screen-xl px-md lg:px-lg">
+    <div className="mx-auto max-w-screen-xl px-md md:px-lg">
       <div className="-mt-2xl flex flex-col gap-lg pb-md sm:flex-row md:-mt-3xl">
         <Skeleton className="mx-auto aspect-2/3 w-36 shrink-0 rounded-mvx-lg sm:mx-0 sm:w-48" />
         <div className="flex flex-1 flex-col justify-end gap-sm pb-xs">

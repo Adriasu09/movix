@@ -24,7 +24,7 @@ export const MovieDetailHero = ({ movie }) => {
         <div className="absolute inset-0 bg-linear-to-t from-bg-base via-bg-base/70 to-transparent" />
       </div>
 
-      <div className="mx-auto max-w-screen-xl px-md lg:px-lg">
+      <div className="mx-auto max-w-screen-xl px-md md:px-lg">
         <div className="relative z-10 -mt-2xl flex flex-col gap-lg pb-md sm:flex-row md:-mt-3xl">
           <div className="mx-auto shrink-0 sm:mx-0">
             <div className="hidden w-36 overflow-hidden rounded-mvx-lg border border-border-default shadow-xl sm:w-48 md:block">

@@ -26,7 +26,7 @@ export const PersonDetailPage = () => {
 
   if (isError && error?.status !== 404) {
     return (
-      <div className="mx-auto max-w-screen-xl px-md py-2xl lg:px-lg">
+      <div className="mx-auto max-w-screen-xl px-md py-2xl md:px-lg">
         <ErrorState message={parseApiError(error).message} onRetry={refetch} />
       </div>
     );
@@ -35,7 +35,7 @@ export const PersonDetailPage = () => {
   if (!person) return null;
 
   return (
-    <div className="mx-auto max-w-screen-xl space-y-2xl px-md py-lg lg:px-lg">
+    <div className="mx-auto max-w-screen-xl space-y-2xl px-md py-lg md:px-lg">
       <PersonDetailHeader person={person} />
       <hr className="border-border-default" />
       <PersonBio biography={person.biography} />

@@ -3,7 +3,7 @@ import { Skeleton } from '@/shared/components/ui/Skeleton';
 // Skeleton de la ficha de persona (E2-14): cabecera + bio + filmografía.
 // Misma estructura que la página real para evitar layout shift.
 export const PersonDetailSkeleton = () => (
-  <div className="mx-auto max-w-screen-xl space-y-2xl px-md py-lg lg:px-lg" aria-hidden="true">
+  <div className="mx-auto max-w-screen-xl space-y-2xl px-md py-lg md:px-lg" aria-hidden="true">
     {/* Header */}
     <div className="flex flex-col items-center gap-lg py-lg sm:flex-row sm:items-start">
       <Skeleton className="aspect-[2/3] w-40 shrink-0 rounded-mvx-xl sm:w-48" />

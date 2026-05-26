@@ -46,7 +46,7 @@ export const ExplorePage = () => {
         <HeroCarousel hidden={hasSearch} />
       </div>
 
-      <div className="mx-auto max-w-screen-xl space-y-xl px-md py-lg lg:px-lg">
+      <div className="mx-auto max-w-screen-xl space-y-xl px-md py-lg md:px-lg">
         <FiltersPanel
           genre={genre}
           onGenreChange={setGenre}

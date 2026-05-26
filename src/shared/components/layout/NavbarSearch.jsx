@@ -40,7 +40,7 @@ const NavbarSearchInner = () => {
 
   return (
     <>
-      <div className="relative hidden w-80 lg:block">
+      <div className="relative hidden w-80 md:block">
         <Search
           aria-hidden="true"
           className="absolute top-1/2 left-md h-4 w-4 -translate-y-1/2 text-text-muted"
@@ -70,14 +70,14 @@ const NavbarSearchInner = () => {
           type="button"
           onClick={() => setIsOpen(true)}
           aria-label={copy.nav.searchAriaLabel}
-          className="rounded-mvx-sm p-xs text-text-primary transition-colors hover:text-gold-500 focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:outline-none lg:hidden"
+          className="rounded-mvx-sm p-xs text-text-primary transition-colors hover:text-gold-500 focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:outline-none md:hidden"
         >
           <Search aria-hidden="true" className="h-5 w-5" />
         </button>
       )}
 
       {isOpen && (
-        <div className="absolute inset-0 flex items-center gap-sm bg-bg-base/95 px-lg backdrop-blur-md lg:hidden">
+        <div className="absolute inset-0 flex items-center gap-sm bg-bg-base/95 px-lg backdrop-blur-md md:hidden">
           <button
             type="button"
             onClick={() => setIsOpen(false)}
