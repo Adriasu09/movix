@@ -2,7 +2,6 @@
   "appName": "Movix",
   "auth": {
     "signIn": "Únete",
-    "openSignIn": "Iniciar sesión",
     "signUp": "Registrarse",
     "signOut": "Cerrar sesión",
     "pageTagline": "Guarda, valora y redescubre las películas que más te importan."

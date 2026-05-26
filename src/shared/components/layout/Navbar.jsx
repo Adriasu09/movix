@@ -29,7 +29,7 @@ const AuthControls = () => {
     <>
       <SignedOut>
         <Button variant="outline" size="sm" onClick={() => navigate(ROUTES.signIn)}>
-          {copy.auth.openSignIn}
+          {copy.auth.signIn}
         </Button>
       </SignedOut>
       <SignedIn>
@@ -75,7 +75,7 @@ const AppNavbar = () => {
         }`}
       >
         <div className="relative mx-auto flex h-14 max-w-7xl items-center justify-between px-lg md:h-18 md:px-2xl">
-          <div className="flex items-center gap-md md:gap-xl">
+          <div className="flex items-center gap-md md:gap-lg">
             <button
               type="button"
               onClick={() => setMenuOpen(true)}
