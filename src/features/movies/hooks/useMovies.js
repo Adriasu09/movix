@@ -1,20 +1,20 @@
-import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
 import {
   discoverMovies,
   searchMovies,
   getMovieById,
-} from "@/features/movies/services/movies.service";
+} from '@/features/movies/services/movies.service';
 
 export function useInfiniteMovies({
-  query = "",
-  genre = "",
-  sortBy = "popularity.desc",
-  minRating = "",
+  query = '',
+  genre = '',
+  sortBy = 'popularity.desc',
+  minRating = '',
 } = {}) {
   const isSearchMode = query.trim().length > 0;
 
   return useInfiniteQuery({
-    queryKey: ["movies", "infinite", { query, genre, sortBy, minRating }],
+    queryKey: ['movies', 'infinite', { query, genre, sortBy, minRating }],
     queryFn: ({ pageParam, signal }) =>
       isSearchMode
         ? searchMovies({ query, page: pageParam, signal })
@@ -30,7 +30,7 @@ export function useInfiniteMovies({
 // detalle puede redirigir a /404 inmediatamente sin esperar 3 reintentos.
 export function useMovieDetail(id) {
   return useQuery({
-    queryKey: ["movie", id],
+    queryKey: ['movie', id],
     queryFn: ({ signal }) => getMovieById(id, { signal }),
     enabled: !!id,
     retry: (failureCount, error) => error?.status !== 404 && failureCount < 2,

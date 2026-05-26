@@ -1,13 +1,13 @@
-import { env } from "@/config/envConfig";
+import { env } from '@/config/envConfig';
 
 const TIMEOUT_MS = 10000;
 
 export async function tmdbFetch(path, { params, signal } = {}) {
   const url = new URL(`${env.TMDB_BASE_URL}${path}`);
-  url.searchParams.set("language", "es-ES");
+  url.searchParams.set('language', 'es-ES');
   if (params) {
     for (const [key, value] of Object.entries(params)) {
-      if (value != null && value !== "") url.searchParams.set(key, value);
+      if (value != null && value !== '') url.searchParams.set(key, value);
     }
   }
 
@@ -17,7 +17,7 @@ export async function tmdbFetch(path, { params, signal } = {}) {
   if (signal) {
     if (signal.aborted) controller.abort();
     else
-      signal.addEventListener("abort", () => controller.abort(), {
+      signal.addEventListener('abort', () => controller.abort(), {
         once: true,
       });
   }
@@ -26,7 +26,7 @@ export async function tmdbFetch(path, { params, signal } = {}) {
     const res = await fetch(url, {
       headers: {
         Authorization: `Bearer ${env.TMDB_TOKEN}`,
-        Accept: "application/json",
+        Accept: 'application/json',
       },
       signal: controller.signal,
     });
@@ -39,8 +39,8 @@ export async function tmdbFetch(path, { params, signal } = {}) {
 
     return res.json();
   } catch (err) {
-    if (err.name === "AbortError") {
-      const error = new Error("Request aborted or timed out.");
+    if (err.name === 'AbortError') {
+      const error = new Error('Request aborted or timed out.');
       error.status = 408;
       throw error;
     }

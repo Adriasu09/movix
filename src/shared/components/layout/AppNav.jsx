@@ -1,9 +1,9 @@
-import { NavLink } from "react-router-dom";
-import copy from "@/config/copy.json";
+import { NavLink } from 'react-router-dom';
+import copy from '@/config/copy.json';
 
-export const AppNav = ({ orientation = "horizontal", onLinkClick }) => {
+export const AppNav = ({ orientation = 'horizontal', onLinkClick }) => {
   const containerClass =
-    orientation === "horizontal" ? "flex flex-row items-center gap-lg" : "flex flex-col gap-md";
+    orientation === 'horizontal' ? 'flex flex-row items-center gap-lg' : 'flex flex-col gap-md';
 
   return (
     <nav aria-label="Navegación principal">
@@ -14,7 +14,7 @@ export const AppNav = ({ orientation = "horizontal", onLinkClick }) => {
               <span
                 aria-disabled="true"
                 aria-label={copy.nav.comingSoonAria}
-                className="text-text-muted text-main-md cursor-not-allowed opacity-40"
+                className="cursor-not-allowed text-main-md text-text-muted opacity-40"
               >
                 {link.label}
               </span>
@@ -22,15 +22,15 @@ export const AppNav = ({ orientation = "horizontal", onLinkClick }) => {
               <NavLink
                 to={link.path}
                 onClick={onLinkClick}
-                end={link.path === "/"}
+                end={link.path === '/'}
                 className={({ isActive }) =>
                   [
-                    "text-main-md font-medium transition-colors",
-                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base rounded-mvx-sm",
+                    'text-main-md font-medium transition-colors',
+                    'rounded-mvx-sm focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base focus-visible:outline-none',
                     isActive
-                      ? "text-gold-500 font-semibold"
-                      : "text-text-secondary hover:text-text-primary",
-                  ].join(" ")
+                      ? 'font-semibold text-gold-500'
+                      : 'text-text-secondary hover:text-text-primary',
+                  ].join(' ')
                 }
               >
                 {link.label}

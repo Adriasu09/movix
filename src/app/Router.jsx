@@ -1,16 +1,16 @@
-import { Route, Routes } from "react-router-dom";
-import { ROUTES } from "@/config/routesConfig";
-import { AppLayout } from "@/shared/components/layout/AppLayout";
-import { WelcomePage } from "@/pages/welcomePage/WelcomePage";
-import { NotFoundPage } from "@/pages/NotFoundPage";
-import { ExplorePage } from "@/features/movies/pages/ExplorePage";
-import { MovieDetailPage } from "@/features/movies/pages/MovieDetailPage";
-import { PersonDetailPage } from "@/features/people/pages/PersonDetailPage";
-import { SignInPage } from "@/features/auth/pages/SignInPage";
-import { SignUpPage } from "@/features/auth/pages/SignUpPage";
-import { ProtectedRoute } from "@/shared/components/layout/ProtectedRoute";
-import { ProfilePage } from "@/features/profile/pages/ProfilePage";
-import { FavoritesPage } from "@/features/favorites/pages/FavoritesPage";
+import { Route, Routes } from 'react-router-dom';
+import { ROUTES } from '@/config/routesConfig';
+import { AppLayout } from '@/shared/components/layout/AppLayout';
+import { WelcomePage } from '@/pages/welcomePage/WelcomePage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
+import { ExplorePage } from '@/features/movies/pages/ExplorePage';
+import { MovieDetailPage } from '@/features/movies/pages/MovieDetailPage';
+import { PersonDetailPage } from '@/features/people/pages/PersonDetailPage';
+import { SignInPage } from '@/features/auth/pages/SignInPage';
+import { SignUpPage } from '@/features/auth/pages/SignUpPage';
+import { ProtectedRoute } from '@/shared/components/layout/ProtectedRoute';
+import { ProfilePage } from '@/features/profile/pages/ProfilePage';
+import { FavoritesPage } from '@/features/favorites/pages/FavoritesPage';
 
 export const Router = () => {
   return (

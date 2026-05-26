@@ -7,8 +7,8 @@
   --breakpoint-xs: 36rem; /*  576px */
 
   /* ─── FUENTES ──────────────────────────────── */
-  --font-display: "Fraunces", Georgia, serif; /* Títulos, héroe, cartelera */
-  --font-main: "Inter", system-ui, sans-serif; /* UI, body, botones         */
+  --font-display: 'Fraunces', Georgia, serif; /* Títulos, héroe, cartelera */
+  --font-main: 'Inter', system-ui, sans-serif; /* UI, body, botones         */
 
   /* ─── TIPOGRAFÍA MOBILE (base) ─────────────── */
   /* Fuente principal (Inter) */

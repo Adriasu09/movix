@@ -1,24 +1,24 @@
-import { ArrowLeft, Film, Home } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
-import { Button } from "@/shared/components/ui/Button";
-import { ROUTES } from "@/config/routesConfig";
-import copy from "@/config/copy.json";
+import { ArrowLeft, Film, Home } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Button } from '@/shared/components/ui/Button';
+import { ROUTES } from '@/config/routesConfig';
+import copy from '@/config/copy.json';
 
 export const NotFoundPage = () => {
   const navigate = useNavigate();
 
   return (
     <div className="flex min-h-[60vh] flex-col items-center justify-center gap-lg px-md py-2xl text-center">
-      <div className="bg-bg-muted rounded-mvx-full p-lg">
-        <Film aria-hidden="true" className="text-text-muted h-12 w-12" />
+      <div className="rounded-mvx-full bg-bg-muted p-lg">
+        <Film aria-hidden="true" className="h-12 w-12 text-text-muted" />
       </div>
 
       <div className="space-y-xs">
-        <p className="text-text-muted font-display text-display-3xl font-bold">
+        <p className="font-display text-display-3xl font-bold text-text-muted">
           {copy.notFound.code}
         </p>
-        <h1 className="text-text-primary font-display text-display-xs">{copy.notFound.title}</h1>
-        <p className="text-text-secondary text-main-sm mx-auto">{copy.notFound.description}</p>
+        <h1 className="font-display text-display-xs text-text-primary">{copy.notFound.title}</h1>
+        <p className="mx-auto text-main-sm text-text-secondary">{copy.notFound.description}</p>
       </div>
 
       <div className="flex flex-col gap-sm sm:flex-row">

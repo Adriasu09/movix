@@ -1,15 +1,15 @@
-import { Film } from "lucide-react";
-import { useInfiniteMovies } from "@/features/movies/hooks/useMovies";
-import { useExploreParams } from "@/features/movies/hooks/useExploreParams";
-import { HeroCarousel } from "@/features/movies/components/HeroCarousel";
-import { FiltersPanel } from "@/features/movies/components/FiltersPanel";
-import { MovieGrid } from "@/shared/components/MovieGrid";
-import { InfiniteScrollSentinel } from "@/features/movies/components/InfiniteScrollSentinel";
-import { EmptyState } from "@/shared/components/feedback/EmptyState";
-import { ErrorState } from "@/shared/components/feedback/ErrorState";
-import { Button } from "@/shared/components/ui/Button";
-import { parseApiError } from "@/shared/utils/parseApiError";
-import copy from "@/config/copy.json";
+import { Film } from 'lucide-react';
+import { useInfiniteMovies } from '@/features/movies/hooks/useMovies';
+import { useExploreParams } from '@/features/movies/hooks/useExploreParams';
+import { HeroCarousel } from '@/features/movies/components/HeroCarousel';
+import { FiltersPanel } from '@/features/movies/components/FiltersPanel';
+import { MovieGrid } from '@/shared/components/MovieGrid';
+import { InfiniteScrollSentinel } from '@/features/movies/components/InfiniteScrollSentinel';
+import { EmptyState } from '@/shared/components/feedback/EmptyState';
+import { ErrorState } from '@/shared/components/feedback/ErrorState';
+import { Button } from '@/shared/components/ui/Button';
+import { parseApiError } from '@/shared/utils/parseApiError';
+import copy from '@/config/copy.json';
 
 export const ExplorePage = () => {
   const { q, genre, sortBy, minRating, setGenre, setSortBy, setMinRating, clearAll } =
@@ -28,7 +28,7 @@ export const ExplorePage = () => {
     query: q,
     genre,
     sortBy,
-    minRating: minRating === "0" ? "" : minRating,
+    minRating: minRating === '0' ? '' : minRating,
   });
 
   const allMovies = data
@@ -38,11 +38,11 @@ export const ExplorePage = () => {
   const hasSearch = q.trim().length > 0;
 
   const hasActiveFilters =
-    genre !== "" || sortBy !== "popularity.desc" || (minRating !== "" && minRating !== "0");
+    genre !== '' || sortBy !== 'popularity.desc' || (minRating !== '' && minRating !== '0');
 
   return (
     <div>
-      <div className={hasSearch ? undefined : "-mt-14 md:-mt-18"}>
+      <div className={hasSearch ? undefined : '-mt-14 md:-mt-18'}>
         <HeroCarousel hidden={hasSearch} />
       </div>
 

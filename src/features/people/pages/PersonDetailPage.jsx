@@ -1,13 +1,13 @@
-import { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { usePerson, usePersonCredits } from "@/features/people/hooks/usePerson";
-import { PersonDetailHeader } from "@/features/people/components/PersonDetailHeader";
-import { PersonBio } from "@/features/people/components/PersonBio";
-import { PersonFilmography } from "@/features/people/components/PersonFilmography";
-import { PersonDetailSkeleton } from "@/features/people/components/PersonDetailSkeleton";
-import { ErrorState } from "@/shared/components/feedback/ErrorState";
-import { parseApiError } from "@/shared/utils/parseApiError";
-import { ROUTES } from "@/config/routesConfig";
+import { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { usePerson, usePersonCredits } from '@/features/people/hooks/usePerson';
+import { PersonDetailHeader } from '@/features/people/components/PersonDetailHeader';
+import { PersonBio } from '@/features/people/components/PersonBio';
+import { PersonFilmography } from '@/features/people/components/PersonFilmography';
+import { PersonDetailSkeleton } from '@/features/people/components/PersonDetailSkeleton';
+import { ErrorState } from '@/shared/components/feedback/ErrorState';
+import { parseApiError } from '@/shared/utils/parseApiError';
+import { ROUTES } from '@/config/routesConfig';
 
 export const PersonDetailPage = () => {
   const { id } = useParams();

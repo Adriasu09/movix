@@ -1,10 +1,10 @@
-import { tmdbFetch } from "@/api/tmdb.client";
+import { tmdbFetch } from '@/api/tmdb.client';
 import {
   mapTmdbMovieToMovie,
   mapTmdbPaginatedResponse,
   mapTmdbCredits,
   mapTmdbVideos,
-} from "@/features/movies/adapters/tmdbMovie.adapter";
+} from '@/features/movies/adapters/tmdbMovie.adapter';
 
 // El cliente fija language=es-ES; los services solo pasan filtros.
 // Cada función acepta y reenvía { signal } para que TanStack Query aborte.
@@ -12,19 +12,19 @@ import {
 // Listado principal y scroll infinito (con filtros opcionales).
 export async function discoverMovies({
   page = 1,
-  genre = "",
-  sortBy = "popularity.desc",
-  minRating = "",
+  genre = '',
+  sortBy = 'popularity.desc',
+  minRating = '',
   signal,
 } = {}) {
   const params = {
     page,
     sort_by: sortBy,
-    "vote_count.gte": 50, // descarta películas con muy pocos votos
+    'vote_count.gte': 50, // descarta películas con muy pocos votos
     ...(genre && { with_genres: genre }),
-    ...(minRating && { "vote_average.gte": minRating }),
+    ...(minRating && { 'vote_average.gte': minRating }),
   };
-  const data = await tmdbFetch("/discover/movie", { params, signal });
+  const data = await tmdbFetch('/discover/movie', { params, signal });
   return mapTmdbPaginatedResponse(data, mapTmdbMovieToMovie);
 }
 
@@ -34,7 +34,7 @@ export async function searchMovies({ query, page = 1, signal } = {}) {
     return { results: [], page: 1, totalPages: 0, totalResults: 0 };
   }
   const params = { query: query.trim(), page };
-  const data = await tmdbFetch("/search/movie", { params, signal });
+  const data = await tmdbFetch('/search/movie', { params, signal });
   return mapTmdbPaginatedResponse(data, mapTmdbMovieToMovie);
 }
 

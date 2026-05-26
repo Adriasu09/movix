@@ -1,16 +1,16 @@
-import { Link } from "react-router-dom";
-import { ROUTES } from "@/config/routesConfig";
-import copy from "@/config/copy.json";
-import { UserRound } from "lucide-react";
+import { Link } from 'react-router-dom';
+import { ROUTES } from '@/config/routesConfig';
+import copy from '@/config/copy.json';
+import { UserRound } from 'lucide-react';
 
 export const ActorCard = ({ person }) => {
   return (
     <Link
       to={ROUTES.personDetail(person.id)}
-      aria-label={copy.movieDetail.viewPersonAria.replace("{name}", person.name)}
-      className="group rounded-mvx-lg w-28 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base"
+      aria-label={copy.movieDetail.viewPersonAria.replace('{name}', person.name)}
+      className="group w-28 shrink-0 rounded-mvx-lg focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base focus-visible:outline-none"
     >
-      <div className="bg-bg-muted rounded-mvx-lg mb-xs h-36 w-28 overflow-hidden">
+      <div className="mb-xs h-36 w-28 overflow-hidden rounded-mvx-lg bg-bg-muted">
         {person.profileUrl ? (
           <img
             src={person.profileUrl}
@@ -20,15 +20,15 @@ export const ActorCard = ({ person }) => {
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center">
-            <UserRound aria-hidden="true" className="text-text-muted h-10 w-10" />
+            <UserRound aria-hidden="true" className="h-10 w-10 text-text-muted" />
           </div>
         )}
       </div>
-      <p className="text-text-primary text-main-xs line-clamp-2 font-semibold leading-tight transition-colors group-hover:text-gold-500">
+      <p className="line-clamp-2 text-main-xs leading-tight font-semibold text-text-primary transition-colors group-hover:text-gold-500">
         {person.name}
       </p>
       {person.character && (
-        <p className="text-text-muted text-main-xs line-clamp-1 mt-xs">{person.character}</p>
+        <p className="mt-xs line-clamp-1 text-main-xs text-text-muted">{person.character}</p>
       )}
     </Link>
   );

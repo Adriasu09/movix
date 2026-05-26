@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
-import { ROUTES } from "@/config/routesConfig";
-import copy from "@/config/copy.json";
+import { Link } from 'react-router-dom';
+import { ROUTES } from '@/config/routesConfig';
+import copy from '@/config/copy.json';
 
 export const MovieCard = ({ movie, genreMap = {} }) => {
-  const ariaLabel = copy.explore.viewDetailAria.replace("{title}", movie.title);
+  const ariaLabel = copy.explore.viewDetailAria.replace('{title}', movie.title);
 
   const genreName = movie.genres?.[0]?.name ?? genreMap[movie.genreIds?.[0]] ?? null;
 
@@ -12,9 +12,9 @@ export const MovieCard = ({ movie, genreMap = {} }) => {
       <Link
         to={ROUTES.movieDetail(movie.id)}
         aria-label={ariaLabel}
-        className="group block rounded-mvx-lg transition-transform duration-200 ease-in-out hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base"
+        className="group block rounded-mvx-lg transition-transform duration-200 ease-in-out hover:scale-105 focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base focus-visible:outline-none"
       >
-        <div className="bg-bg-muted border border-border-default group-hover:border-gold-500 rounded-mvx-lg overflow-hidden transition-colors duration-200">
+        <div className="overflow-hidden rounded-mvx-lg border border-border-default bg-bg-muted transition-colors duration-200 group-hover:border-gold-500">
           <div className="aspect-2/3 w-full">
             {movie.posterUrl ? (
               <img
@@ -25,14 +25,14 @@ export const MovieCard = ({ movie, genreMap = {} }) => {
               />
             ) : (
               <div className="flex h-full w-full items-center justify-center px-sm text-center">
-                <span className="text-text-muted text-main-xs">{copy.messages.noPoster}</span>
+                <span className="text-main-xs text-text-muted">{copy.messages.noPoster}</span>
               </div>
             )}
           </div>
         </div>
 
         <div className="mt-sm space-y-xs">
-          <h3 className="text-text-primary text-main-md leading-6 line-clamp-1">{movie.title}</h3>
+          <h3 className="line-clamp-1 text-main-md leading-6 text-text-primary">{movie.title}</h3>
 
           <p className="text-main-md leading-6">
             {movie.rating != null && (
@@ -40,13 +40,13 @@ export const MovieCard = ({ movie, genreMap = {} }) => {
             )}
             {movie.releaseYear && (
               <span className="text-text-muted">
-                {movie.rating != null && " · "}
+                {movie.rating != null && ' · '}
                 {movie.releaseYear}
               </span>
             )}
             {genreName && (
-              <span className="hidden lg:inline text-text-muted">
-                {(movie.rating != null || movie.releaseYear) && " · "}
+              <span className="hidden text-text-muted lg:inline">
+                {(movie.rating != null || movie.releaseYear) && ' · '}
                 {genreName}
               </span>
             )}

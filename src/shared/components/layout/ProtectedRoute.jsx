@@ -1,7 +1,7 @@
-import { Navigate, Outlet, useLocation } from "react-router-dom";
-import { useSession } from "@/features/auth/hooks/useSession";
-import { LoadingState } from "@/shared/components/feedback/LoadingState";
-import { ROUTES } from "@/config/routesConfig";
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
+import { useSession } from '@/features/auth/hooks/useSession';
+import { LoadingState } from '@/shared/components/feedback/LoadingState';
+import { ROUTES } from '@/config/routesConfig';
 
 export const ProtectedRoute = () => {
   const { isLoading, isSignedIn } = useSession();

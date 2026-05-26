@@ -1,10 +1,10 @@
-import { getImageUrl, IMAGE_SIZES } from "@/shared/utils/tmdbImage";
+import { getImageUrl, IMAGE_SIZES } from '@/shared/utils/tmdbImage';
 
 export function mapTmdbMovieToMovie(tmdbMovie = {}) {
   return {
     id: tmdbMovie.id,
-    title: tmdbMovie.title || tmdbMovie.original_title || "Título desconocido",
-    overview: tmdbMovie.overview || "",
+    title: tmdbMovie.title || tmdbMovie.original_title || 'Título desconocido',
+    overview: tmdbMovie.overview || '',
     releaseDate: tmdbMovie.release_date || null,
     releaseYear: tmdbMovie.release_date ? tmdbMovie.release_date.slice(0, 4) : null,
     rating: tmdbMovie.vote_average ? Math.round(tmdbMovie.vote_average * 10) / 10 : null,
@@ -34,7 +34,7 @@ export function mapTmdbPaginatedResponse(response = {}, mapperFn) {
 function mapCreditMember(member = {}) {
   return {
     id: member.id,
-    name: member.name || member.original_name || "Nombre desconocido",
+    name: member.name || member.original_name || 'Nombre desconocido',
     profileUrl: getImageUrl(member.profile_path, IMAGE_SIZES.profile.medium),
     popularity: member.popularity || 0,
     // Solo en cast:
@@ -61,7 +61,7 @@ function mapVideo(video = {}) {
     key: video.key || null,
     site: video.site || null,
     type: video.type || null,
-    name: video.name || "",
+    name: video.name || '',
     official: video.official || false,
   };
 }

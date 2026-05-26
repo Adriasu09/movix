@@ -5,24 +5,24 @@ export function parseApiError(error) {
   switch (status) {
     case 401:
     case 403:
-      message = "No autorizado. Revisa el token de TMDB.";
+      message = 'No autorizado. Revisa el token de TMDB.';
       break;
     case 404:
-      message = "No encontramos lo que buscabas.";
+      message = 'No encontramos lo que buscabas.';
       break;
     case 408:
-      message = "La solicitud tardó demasiado. Inténtalo de nuevo.";
+      message = 'La solicitud tardó demasiado. Inténtalo de nuevo.';
       break;
     case 429:
-      message = "Demasiadas solicitudes. Espera un momento e inténtalo de nuevo.";
+      message = 'Demasiadas solicitudes. Espera un momento e inténtalo de nuevo.';
       break;
     default:
       if (status >= 500) {
-        message = "El servicio de películas no responde. Inténtalo más tarde.";
+        message = 'El servicio de películas no responde. Inténtalo más tarde.';
       } else if (status === 0) {
-        message = "Error de conexión. Verifica tu red.";
+        message = 'Error de conexión. Verifica tu red.';
       } else {
-        message = "Algo salió mal. Inténtalo de nuevo.";
+        message = 'Algo salió mal. Inténtalo de nuevo.';
       }
   }
 

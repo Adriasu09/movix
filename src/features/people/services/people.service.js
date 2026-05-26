@@ -1,8 +1,8 @@
-import { tmdbFetch } from "@/api/tmdb.client";
+import { tmdbFetch } from '@/api/tmdb.client';
 import {
   mapTmdbPersonToPerson,
   mapTmdbPersonCredits,
-} from "@/features/people/adapters/tmdbPerson.adapter";
+} from '@/features/people/adapters/tmdbPerson.adapter';
 
 // Detalle de una persona (actor o director) por ID.
 export async function getPersonById(id, { signal } = {}) {

@@ -1,6 +1,6 @@
-import { useGenres } from "@/shared/hooks/useGenres";
-import { MovieCard } from "@/shared/components/MovieCard";
-import { MovieCardSkeleton } from "@/shared/components/MovieCardSkeleton";
+import { useGenres } from '@/shared/hooks/useGenres';
+import { MovieCard } from '@/shared/components/MovieCard';
+import { MovieCardSkeleton } from '@/shared/components/MovieCardSkeleton';
 
 export const MovieGrid = ({ movies = [], isLoading = false, skeletonCount = 12 }) => {
   const { data: genres } = useGenres();

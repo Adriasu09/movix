@@ -1,10 +1,10 @@
-import { getImageUrl, IMAGE_SIZES } from "@/shared/utils/tmdbImage";
+import { getImageUrl, IMAGE_SIZES } from '@/shared/utils/tmdbImage';
 
 export function mapTmdbPersonToPerson(tmdbPerson = {}) {
   return {
     id: tmdbPerson.id,
-    name: tmdbPerson.name || "Nombre desconocido",
-    biography: tmdbPerson.biography || "",
+    name: tmdbPerson.name || 'Nombre desconocido',
+    biography: tmdbPerson.biography || '',
     birthday: tmdbPerson.birthday || null,
     deathday: tmdbPerson.deathday || null,
     placeOfBirth: tmdbPerson.place_of_birth || null,
@@ -18,7 +18,7 @@ export function mapTmdbPersonToPerson(tmdbPerson = {}) {
 function mapPersonCreditMovie(item = {}) {
   return {
     id: item.id,
-    title: item.title || item.original_title || "Título desconocido",
+    title: item.title || item.original_title || 'Título desconocido',
     posterUrl: getImageUrl(item.poster_path, IMAGE_SIZES.poster.medium),
     releaseDate: item.release_date || null,
     releaseYear: item.release_date ? item.release_date.slice(0, 4) : null,
@@ -39,7 +39,7 @@ export function mapTmdbPersonCredits(credits = {}) {
     .map(mapPersonCreditMovie);
 
   const crew = (credits.crew || [])
-    .filter((item) => item.job === "Director")
+    .filter((item) => item.job === 'Director')
     .sort((a, b) => (b.popularity || 0) - (a.popularity || 0))
     .map(mapPersonCreditMovie);
 

@@ -1,4 +1,4 @@
-import copy from "@/config/copy.json";
+import copy from '@/config/copy.json';
 
 // Separador decorativo entre items. aria-hidden para que el lector de
 // pantalla no lo lea como "punto".
@@ -17,8 +17,8 @@ export const Footer = () => {
   const { links, tmdb } = copy.footer;
 
   return (
-    <footer className="border-border-default/20 bg-bg-base flex h-12 items-center justify-center border-t px-lg md:h-14 md:px-2xl">
-      <p className="text-text-muted text-main-2xs tracking-wide uppercase md:text-main-sm md:tracking-normal md:normal-case">
+    <footer className="flex h-12 items-center justify-center border-t border-border-default/20 bg-bg-base px-lg md:h-14 md:px-2xl">
+      <p className="text-main-2xs tracking-wide text-text-muted uppercase md:text-main-sm md:tracking-normal md:normal-case">
         © {year} {copy.appName}
         <Separator />
         {links.privacy}
@@ -34,7 +34,7 @@ export const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={tmdb.ariaLabel}
-          className="hover:text-text-primary underline transition-colors"
+          className="underline transition-colors hover:text-text-primary"
         >
           {tmdb.label}
         </a>

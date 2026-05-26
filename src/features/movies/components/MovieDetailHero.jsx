@@ -1,7 +1,7 @@
-import { Calendar, Clock, Star } from "lucide-react";
-import { Badge } from "@/shared/components/ui/Badge";
-import copy from "@/config/copy.json";
-import { formatRuntime } from "@/shared/utils/formatters";
+import { Calendar, Clock, Star } from 'lucide-react';
+import { Badge } from '@/shared/components/ui/Badge';
+import copy from '@/config/copy.json';
+import { formatRuntime } from '@/shared/utils/formatters';
 
 const fill = (template, vars) =>
   Object.entries(vars).reduce((acc, [k, v]) => acc.replaceAll(`{${k}}`, v), template);
@@ -19,15 +19,15 @@ export const MovieDetailHero = ({ movie }) => {
             className="h-full w-full object-cover object-top"
           />
         ) : (
-          <div className="bg-bg-muted h-full w-full" />
+          <div className="h-full w-full bg-bg-muted" />
         )}
-        <div className="from-bg-base via-bg-base/70 absolute inset-0 bg-linear-to-t to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-bg-base via-bg-base/70 to-transparent" />
       </div>
 
       <div className="mx-auto max-w-screen-xl px-md lg:px-lg">
         <div className="relative z-10 -mt-2xl flex flex-col gap-lg pb-md sm:flex-row md:-mt-3xl">
           <div className="mx-auto shrink-0 sm:mx-0">
-            <div className="hidden md:block border-border-default rounded-mvx-lg w-36 overflow-hidden border shadow-xl sm:w-48">
+            <div className="hidden w-36 overflow-hidden rounded-mvx-lg border border-border-default shadow-xl sm:w-48 md:block">
               {movie.posterUrlLarge ? (
                 <img
                   src={movie.posterUrlLarge}
@@ -35,7 +35,7 @@ export const MovieDetailHero = ({ movie }) => {
                   className="aspect-2/3 w-full object-cover"
                 />
               ) : (
-                <div className="bg-bg-muted text-text-muted text-main-xs flex aspect-2/3 w-full items-center justify-center p-sm text-center">
+                <div className="flex aspect-2/3 w-full items-center justify-center bg-bg-muted p-sm text-center text-main-xs text-text-muted">
                   {copy.messages.noPoster}
                 </div>
               )}
@@ -43,11 +43,11 @@ export const MovieDetailHero = ({ movie }) => {
           </div>
 
           <div className="flex flex-col justify-end gap-sm pb-xs text-center sm:text-left">
-            <h1 className="text-text-primary font-display text-display-md sm:text-display-lg md:text-display-xl leading-tight">
+            <h1 className="font-display text-display-md leading-tight text-text-primary sm:text-display-lg md:text-display-xl">
               {movie.title}
             </h1>
 
-            <div className="text-text-secondary text-main-sm flex flex-wrap items-center justify-center gap-md sm:justify-start">
+            <div className="flex flex-wrap items-center justify-center gap-md text-main-sm text-text-secondary sm:justify-start">
               {movie.releaseYear && (
                 <span className="flex items-center gap-xs">
                   <Calendar aria-hidden="true" className="h-4 w-4" />
@@ -61,14 +61,14 @@ export const MovieDetailHero = ({ movie }) => {
                 </span>
               )}
               {movie.rating != null && (
-                <span className="text-rating flex items-center gap-xs font-semibold">
+                <span className="flex items-center gap-xs font-semibold text-rating">
                   <Star aria-hidden="true" className="h-4 w-4 fill-current" />
                   {movie.rating}
                   {movie.voteCount > 0 && (
-                    <span className="text-text-muted text-main-xs font-normal">
+                    <span className="text-main-xs font-normal text-text-muted">
                       (
                       {fill(copy.movieDetail.voteCountLabel, {
-                        count: movie.voteCount.toLocaleString("es-ES"),
+                        count: movie.voteCount.toLocaleString('es-ES'),
                       })}
                       )
                     </span>

@@ -1,6 +1,6 @@
-import { ClerkProvider } from "@clerk/clerk-react";
-import { esES } from "@clerk/localizations";
-import { env } from "@/config/envConfig";
+import { ClerkProvider } from '@clerk/clerk-react';
+import { esES } from '@clerk/localizations';
+import { env } from '@/config/envConfig';
 
 export const AuthProvider = ({ children }) => {
   return (

@@ -1,7 +1,7 @@
-import { Select } from "@/shared/components/ui/Select";
-import copy from "@/config/copy.json";
+import { Select } from '@/shared/components/ui/Select';
+import copy from '@/config/copy.json';
 
-export const RatingFilter = ({ activeMinRating = "0", onChange, disabled = false }) => (
+export const RatingFilter = ({ activeMinRating = '0', onChange, disabled = false }) => (
   <Select
     value={activeMinRating}
     onChange={(e) => onChange(e.target.value)}
