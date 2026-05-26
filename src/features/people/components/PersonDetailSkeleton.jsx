@@ -1,7 +1,5 @@
 import { Skeleton } from '@/shared/components/ui/Skeleton';
 
-// Skeleton de la ficha de persona (E2-14): cabecera + bio + filmografía.
-// Misma estructura que la página real para evitar layout shift.
 export const PersonDetailSkeleton = () => (
   <div className="mx-auto max-w-screen-xl space-y-2xl px-md py-lg md:px-lg" aria-hidden="true">
     {/* Header */}
