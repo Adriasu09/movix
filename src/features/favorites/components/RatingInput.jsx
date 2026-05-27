@@ -1,27 +1,34 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { Star } from 'lucide-react';
-import { useDebounce } from '@/shared/hooks/useDebounce';
 import { useFavorites } from '../hooks/useFavorites';
 import copy from '@/config/copy.json';
+
+const DEBOUNCE_MS = 600;
 
 export function RatingInput({ movieId, initialRating, disabled = false }) {
   const [rating, setRating] = useState(initialRating || 0);
   const [hoverValue, setHoverValue] = useState(0);
-  const debouncedRating = useDebounce(rating, 600);
   const { updateRating, isUpdatingRating } = useFavorites();
+  const debounceTimerRef = useRef(null);
 
   useEffect(() => {
-    if (debouncedRating !== (initialRating || 0) && !disabled) {
-      updateRating({ movieId, rating: debouncedRating || null });
-    }
-  }, [debouncedRating]); // eslint-disable-line react-hooks/exhaustive-deps
+    return () => {
+      if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
+    };
+  }, []);
 
   const handleClick = useCallback(
     (value) => {
       if (disabled) return;
-      setRating(value === rating ? 0 : value);
+      const nextRating = value === rating ? 0 : value;
+      setRating(nextRating);
+
+      if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
+      debounceTimerRef.current = setTimeout(() => {
+        updateRating({ movieId, rating: nextRating || null });
+      }, DEBOUNCE_MS);
     },
-    [rating, disabled]
+    [rating, disabled, movieId, updateRating],
   );
 
   const displayValue = hoverValue || rating;
