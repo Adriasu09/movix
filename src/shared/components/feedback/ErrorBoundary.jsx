@@ -2,9 +2,6 @@ import { Component } from 'react';
 import { ErrorState } from './ErrorState';
 import copy from '@/config/copy.json';
 
-// Única clase permitida en el proyecto (React requiere clase para este patrón).
-// Envuelve subárboles críticos para mostrar un ErrorState en español
-// en vez de una pantalla en blanco cuando algo explota inesperadamente.
 export class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +13,6 @@ export class ErrorBoundary extends Component {
   }
 
   componentDidCatch(error, info) {
-    // Mensaje de diagnóstico para el dev — en inglés según CLAUDE.md §4.
     console.error('[ErrorBoundary] Uncaught error:', error, info);
   }
 
