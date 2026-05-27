@@ -7,9 +7,9 @@ const BASE =
   'transition-colors cursor-pointer enabled:hover:border-border-strong ' +
   'disabled:cursor-not-allowed disabled:opacity-50';
 
-export const Select = ({ options = [], className = '', ...props }) => {
+export const Select = ({ options = [], className = '', containerClassName = 'inline-block', ...props }) => {
   return (
-    <div className="relative inline-block">
+    <div className={`relative ${containerClassName}`}>
       <select {...props} className={`${BASE} ${className}`}>
         {options.map((opt) => (
           <option key={opt.value} value={opt.value}>

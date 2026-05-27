@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Trash2, ImageOff } from 'lucide-react';
+import { ConfirmDialog } from '@/shared/components/ui/ConfirmDialog';
 import { useFavorites } from '../hooks/useFavorites';
 import { ROUTES } from '@/config/routesConfig';
 import copy from '@/config/copy.json';
@@ -15,14 +17,17 @@ import copy from '@/config/copy.json';
  */
 export function FavoriteCard({ favorite }) {
   const navigate = useNavigate();
+  const [dialogOpen, setDialogOpen] = useState(false);
   const { removeFavorite, isRemoving } = useFavorites();
 
-  const handleRemove = (e) => {
+  const handleRemoveClick = (e) => {
     e.stopPropagation();
-    const message = copy.favorites.confirmRemoveDescription.replace('{title}', favorite.title);
-    if (window.confirm(message)) {
-      removeFavorite(favorite.movie_id);
-    }
+    setDialogOpen(true);
+  };
+
+  const handleConfirm = () => {
+    setDialogOpen(false);
+    removeFavorite(favorite.movie_id);
   };
 
   return (
@@ -56,7 +61,7 @@ export function FavoriteCard({ favorite }) {
         {/* Botón eliminar */}
         <button
           type="button"
-          onClick={handleRemove}
+          onClick={handleRemoveClick}
           disabled={isRemoving}
           aria-label={`Eliminar ${favorite.title} de favoritas`}
           className="absolute right-sm top-sm z-10 flex h-8 w-8 items-center justify-center rounded-mvx-full bg-bg-overlay text-text-primary shadow-md transition-colors hover:bg-error hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
@@ -64,6 +69,18 @@ export function FavoriteCard({ favorite }) {
           <Trash2 aria-hidden="true" className="h-4 w-4" />
         </button>
       </div>
+
+      {/* Modal de confirmación de borrado */}
+      <ConfirmDialog
+        open={dialogOpen}
+        title={copy.favorites.confirmRemoveTitle}
+        description={copy.favorites.confirmRemoveDescription.replace('{title}', favorite.title)}
+        confirmLabel={copy.favorites.confirmRemoveAction}
+        cancelLabel={copy.favorites.cancel}
+        onConfirm={handleConfirm}
+        onCancel={() => setDialogOpen(false)}
+        danger
+      />
 
       {/* Info */}
       <div className="p-sm">

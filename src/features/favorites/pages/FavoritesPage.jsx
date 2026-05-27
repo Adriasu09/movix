@@ -39,7 +39,7 @@ export const FavoritesPage = () => {
   );
 
   return (
-    <section className="mx-auto max-w-7xl px-lg py-2xl">
+    <section className="mx-auto max-w-7xl px-lg py-xl">
       <div className="mb-lg flex flex-col gap-sm sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="font-display text-display-md text-text-primary">{copy.favorites.title}</h1>
@@ -56,6 +56,8 @@ export const FavoritesPage = () => {
             options={copy.favorites.sortOptions}
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
+            containerClassName="w-full sm:w-auto"
+            className="w-full sm:w-auto"
           />
         )}
       </div>
