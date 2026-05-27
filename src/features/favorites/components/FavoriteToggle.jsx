@@ -26,6 +26,8 @@ export function FavoriteToggle({ movie, size = 'md', className = '' }) {
     e.preventDefault();
     e.stopPropagation();
 
+    if (isPending) return;
+
     if (!isSignedIn) {
       navigate(`${ROUTES.signIn}?from=${location.pathname}`);
       return;
@@ -42,10 +44,9 @@ export function FavoriteToggle({ movie, size = 'md', className = '' }) {
     <button
       type="button"
       onClick={handleClick}
-      disabled={isPending}
       aria-label={isFavorite ? copy.favorites.removeFromFavorites : copy.favorites.addToFavorites}
       aria-pressed={isFavorite}
-      className={`flex items-center justify-center rounded-mvx-full bg-bg-overlay shadow-md backdrop-blur-sm transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40 ${button} ${className}`}
+      className={`flex items-center justify-center rounded-mvx-full bg-bg-overlay shadow-md backdrop-blur-sm transition-opacity hover:opacity-90 ${button} ${className}`}
     >
       <Heart
         aria-hidden="true"

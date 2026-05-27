@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, Play } from 'lucide-react';
 import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react';
 import { Button } from '@/shared/components/ui/Button';
@@ -14,10 +14,13 @@ export const Navbar = ({ variant = 'app' }) => {
   return <AppNavbar />;
 };
 
-const Brand = () => (
-  <NavLink to={ROUTES.home} className="flex items-center gap-xs">
+// El `to` se parametriza para que el logo lleve a `/` en welcome
+// (siempre estamos en `/` ahí, así que es un no-op visual) y a `/explore`
+// dentro de la app — la welcome es solo punto de entrada, no destino navegable.
+const Brand = ({ to = ROUTES.explore }) => (
+  <NavLink to={to} className="flex items-center gap-xs">
     <Play aria-hidden="true" className="h-4 w-4 fill-gold-500 text-gold-500 md:h-5 md:w-5" />
-    <span className="font-display text-display-xs tracking-tight text-gold-500 uppercase">
+    <span className="font-display text-display-xs tracking-tight text-gold-500 uppercase cursor-pointer">
       {copy.appName}
     </span>
   </NavLink>
@@ -25,10 +28,20 @@ const Brand = () => (
 
 const AuthControls = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleSignInClick = () => {
+    const target =
+      location.pathname === ROUTES.home
+        ? ROUTES.signIn
+        : `${ROUTES.signIn}?from=${encodeURIComponent(location.pathname)}`;
+    navigate(target);
+  };
+
   return (
     <>
       <SignedOut>
-        <Button variant="outline" size="sm" onClick={() => navigate(ROUTES.signIn)}>
+        <Button variant="outline" size="sm" onClick={handleSignInClick}>
           {copy.auth.signIn}
         </Button>
       </SignedOut>
@@ -49,7 +62,7 @@ const AuthControls = () => {
 const WelcomeNavbar = () => (
   <header className="fixed inset-x-0 top-0 z-50">
     <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-lg md:h-18 md:px-2xl">
-      <Brand />
+      <Brand to={ROUTES.home} />
       <AuthControls />
     </div>
   </header>

@@ -11,7 +11,7 @@ export const SignUpPage = () => {
   const redirectProps = from ? { forceRedirectUrl: from } : { fallbackRedirectUrl: ROUTES.home };
 
   return (
-    <AuthPageLayout>
+    <AuthPageLayout from={from}>
       <SignUp
         appearance={clerkAppearance}
         routing="path"

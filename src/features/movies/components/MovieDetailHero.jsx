@@ -3,7 +3,6 @@ import { Badge } from '@/shared/components/ui/Badge';
 import { FavoriteToggle } from '@/features/favorites/components/FavoriteToggle';
 import { RatingInput } from '@/features/favorites/components/RatingInput';
 import { useIsFavorite } from '@/features/favorites/hooks/useIsFavorite';
-import { useSession } from '@/features/auth/hooks/useSession';
 import copy from '@/config/copy.json';
 import { formatRuntime } from '@/shared/utils/formatters';
 
@@ -12,7 +11,11 @@ const fill = (template, vars) =>
 
 export const MovieDetailHero = ({ movie }) => {
   const runtime = formatRuntime(movie.runtime);
-  const { isSignedIn } = useSession();
+  // Sin sesión, useIsFavorite devuelve { isFavorite: false, personalRating: null }
+  // porque useFavorites no fetcha (enabled: isSignedIn && !!userId). Por eso
+  // podemos mostrar el corazón y el RatingInput sin condicional: FavoriteToggle
+  // redirige a /sign-in?from= si el usuario no está autenticado, y RatingInput
+  // queda disabled mientras !isFavorite (mostrando su hint en español).
   const { isFavorite, personalRating } = useIsFavorite(movie.id);
 
   return (
@@ -81,6 +84,11 @@ export const MovieDetailHero = ({ movie }) => {
                   )}
                 </span>
               )}
+
+              {/* Corazón integrado en la fila de metadatos. Tamaño `sm` para no
+                  dominar visualmente sobre los iconos de la fila. Si no hay sesión,
+                  FavoriteToggle redirige a /sign-in?from=/movies/:id al pulsarlo. */}
+              <FavoriteToggle movie={movie} size="sm" />
             </div>
 
             {movie.genres?.length > 0 && (
@@ -91,18 +99,16 @@ export const MovieDetailHero = ({ movie }) => {
               </div>
             )}
 
-            {/* Favoritar y puntuar — solo visible si hay sesión */}
-            {isSignedIn && (
-              <div className="flex flex-col gap-sm pt-xs">
-                <FavoriteToggle movie={movie} size="md" />
-                <RatingInput
-                  key={movie.id}
-                  movieId={movie.id}
-                  initialRating={personalRating}
-                  disabled={!isFavorite}
-                />
-              </div>
-            )}
+            {/* Puntuación personal: siempre visible. Sin sesión o sin favorito
+                queda disabled (con el hint "Añade la película a favoritas..."). */}
+            <div className="flex justify-center pt-xs sm:justify-start">
+              <RatingInput
+                key={movie.id}
+                movieId={movie.id}
+                initialRating={personalRating}
+                disabled={!isFavorite}
+              />
+            </div>
           </div>
         </div>
       </div>

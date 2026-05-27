@@ -4,6 +4,8 @@
     "signIn": "Únete",
     "signUp": "Registrarse",
     "signOut": "Cerrar sesión",
+    "back": "Volver",
+    "backAriaLabel": "Volver a la página anterior",
     "pageTagline": "Guarda, valora y redescubre las películas que más te importan."
   },
   "messages": {
@@ -28,7 +30,6 @@
     "searchAriaLabel": "Abrir búsqueda",
     "closeSearchAria": "Cerrar búsqueda",
     "links": [
-      { "key": "home", "label": "Inicio", "path": "/", "disabled": false },
       { "key": "explore", "label": "Explorar", "path": "/explore", "disabled": false },
       { "key": "favorites", "label": "Favoritos", "path": "/favorites", "disabled": false },
       { "key": "profile", "label": "Perfil", "path": "/profile", "disabled": false }

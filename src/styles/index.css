@@ -26,8 +26,19 @@
     cursor: pointer;
   }
 
-  /* Oculta la X nativa del navegador en inputs type="search";
-     usamos siempre nuestro propio botón de limpiar */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  label,
+  li {
+    cursor: default;
+  }
+
   input[type='search']::-webkit-search-cancel-button {
     appearance: none;
   }
