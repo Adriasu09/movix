@@ -15,5 +15,7 @@ import { createSupabaseClient } from './supabase.client'
  */
 export function useSupabase() {
   const { getToken, userId } = useAuth()
+  // userId en deps es intencional: al cambiar de cuenta se recrea el cliente con el nuevo token
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   return useMemo(() => createSupabaseClient(getToken), [getToken, userId])
 }
