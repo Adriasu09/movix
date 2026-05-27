@@ -24,17 +24,89 @@ export function useFavorites() {
 
   const addMutation = useMutation({
     mutationFn: (movie) => addFavorite(supabase, { userId: user.id, movie }),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: FAVORITES_QUERY_KEY }),
+
+    onMutate: async (movie) => {
+      await queryClient.cancelQueries({ queryKey: FAVORITES_QUERY_KEY });
+      const previousFavorites = queryClient.getQueryData(FAVORITES_QUERY_KEY);
+
+      queryClient.setQueryData(FAVORITES_QUERY_KEY, (old = []) => [
+        {
+          id: `temp-${movie.id}`,
+          user_id: user.id,
+          movie_id: movie.id,
+          title: movie.title,
+          poster_url: movie.posterUrl ?? null,
+          release_year: movie.releaseYear ?? null,
+          personal_rating: null,
+          created_at: new Date().toISOString(),
+        },
+        ...old,
+      ]);
+
+      return { previousFavorites };
+    },
+
+    onError: (_err, _movie, context) => {
+      if (context?.previousFavorites) {
+        queryClient.setQueryData(FAVORITES_QUERY_KEY, context.previousFavorites);
+      }
+    },
+
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: FAVORITES_QUERY_KEY });
+    },
   });
 
   const removeMutation = useMutation({
     mutationFn: (movieId) => removeFavorite(supabase, movieId),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: FAVORITES_QUERY_KEY }),
+
+    onMutate: async (movieId) => {
+      await queryClient.cancelQueries({ queryKey: FAVORITES_QUERY_KEY });
+      const previousFavorites = queryClient.getQueryData(FAVORITES_QUERY_KEY);
+
+      queryClient.setQueryData(FAVORITES_QUERY_KEY, (old = []) =>
+        old.filter((f) => f.movie_id !== movieId)
+      );
+
+      return { previousFavorites };
+    },
+
+    onError: (_err, _movieId, context) => {
+      if (context?.previousFavorites) {
+        queryClient.setQueryData(FAVORITES_QUERY_KEY, context.previousFavorites);
+      }
+    },
+
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: FAVORITES_QUERY_KEY });
+    },
   });
 
   const updateRatingMutation = useMutation({
     mutationFn: ({ movieId, rating }) => updateRating(supabase, { movieId, rating }),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: FAVORITES_QUERY_KEY }),
+
+    onMutate: async ({ movieId, rating }) => {
+      await queryClient.cancelQueries({ queryKey: FAVORITES_QUERY_KEY });
+      const previousFavorites = queryClient.getQueryData(FAVORITES_QUERY_KEY);
+
+      queryClient.setQueryData(FAVORITES_QUERY_KEY, (old = []) =>
+        old.map((f) =>
+          f.movie_id === movieId ? { ...f, personal_rating: rating } : f
+        )
+      );
+
+      return { previousFavorites };
+    },
+
+    onError: (_err, _vars, context) => {
+      if (context?.previousFavorites) {
+        queryClient.setQueryData(FAVORITES_QUERY_KEY, context.previousFavorites);
+      }
+    },
+
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: FAVORITES_QUERY_KEY });
+    },
   });
 
   return {
