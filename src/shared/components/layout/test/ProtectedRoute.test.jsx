@@ -17,11 +17,7 @@ import { ProtectedRoute } from '@/shared/components/layout/ProtectedRoute';
 // para poder comprobar que la redirección lo añadió correctamente.
 const SignInSentinel = () => {
   const location = useLocation();
-  return (
-    <div data-testid="sign-in-page">
-      sign-in | search={location.search}
-    </div>
-  );
+  return <div data-testid="sign-in-page">sign-in | search={location.search}</div>;
 };
 
 const FavoritesContent = () => (

@@ -6,8 +6,7 @@ import { useExploreParams } from '@/features/movies/hooks/useExploreParams';
 // Wrapper con MemoryRouter para que useSearchParams funcione en renderHook.
 // initialEntries permite simular la URL inicial con sus query params.
 const createWrapper = (initialEntries = ['/explore']) => {
-  return ({ children }) =>
-    createElement(MemoryRouter, { initialEntries }, children);
+  return ({ children }) => createElement(MemoryRouter, { initialEntries }, children);
 };
 
 describe('useExploreParams', () => {
@@ -36,9 +35,7 @@ describe('useExploreParams', () => {
    */
   it('lee los query params activos de la URL', () => {
     const { result } = renderHook(() => useExploreParams(), {
-      wrapper: createWrapper([
-        '/explore?q=batman&genre=28&sortBy=vote_average.desc&minRating=8',
-      ]),
+      wrapper: createWrapper(['/explore?q=batman&genre=28&sortBy=vote_average.desc&minRating=8']),
     });
 
     expect(result.current.q).toBe('batman');
@@ -95,9 +92,7 @@ describe('useExploreParams', () => {
    */
   it('clearAll vacía toda la querystring', () => {
     const { result } = renderHook(() => useExploreParams(), {
-      wrapper: createWrapper([
-        '/explore?q=star&genre=878&sortBy=vote_average.desc&minRating=7',
-      ]),
+      wrapper: createWrapper(['/explore?q=star&genre=878&sortBy=vote_average.desc&minRating=7']),
     });
 
     act(() => {

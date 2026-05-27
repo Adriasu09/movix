@@ -59,10 +59,10 @@
   --shadow-gold: 0 10px 30px -10px rgba(212, 175, 55, 0.3);
 
   /* ─── ALTURAS DE LAYOUT (viewport %) ──────── */
-  --height-hero-mobile: 60vh;   /* Hero carrusel mobile · NotFound · detail desktop */
-  --height-hero-desktop: 80vh;  /* Hero carrusel desktop */
+  --height-hero-mobile: 60vh; /* Hero carrusel mobile · NotFound · detail desktop */
+  --height-hero-desktop: 80vh; /* Hero carrusel desktop */
   --height-detail-mobile: 50vh; /* Movie detail hero/skeleton mobile */
-  --height-state-inline: 40vh;  /* LoadingState en mitad de página */
+  --height-state-inline: 40vh; /* LoadingState en mitad de página */
 
   /* ─── ESPACIADO MOBILE (base) ──────────────── */
   --spacing-xs: 0.25rem; /*  4px */

@@ -69,7 +69,7 @@ export const AuthPageLayout = ({ children, from }) => {
             {copy.auth.back}
           </Button>
         </div>
-        
+
         <div className="relative z-10 space-y-sm px-2xl pb-2xl">
           <BrandLogo to={logoTo} size="lg" />
           <p className="text-main-lg text-text-secondary">{copy.auth.pageTagline}</p>

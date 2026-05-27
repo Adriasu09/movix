@@ -27,8 +27,7 @@ function createSupabaseStub(result = { data: null, error: null }) {
     chain[key].mockReturnValue(chain);
   }
   // PromiseLike: el await final lee este then.
-  chain.then = (resolve, reject) =>
-    Promise.resolve(result).then(resolve, reject);
+  chain.then = (resolve, reject) => Promise.resolve(result).then(resolve, reject);
 
   return chain;
 }

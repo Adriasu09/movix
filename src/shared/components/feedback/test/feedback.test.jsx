@@ -19,16 +19,9 @@ describe('Componentes de feedback (smoke)', () => {
    *   Then se muestran ambos textos
    */
   it('EmptyState muestra título y descripción', () => {
-    render(
-      <EmptyState
-        title="Sin resultados"
-        description="Prueba con otros filtros."
-      />
-    );
+    render(<EmptyState title="Sin resultados" description="Prueba con otros filtros." />);
 
-    expect(
-      screen.getByRole('heading', { name: 'Sin resultados' })
-    ).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Sin resultados' })).toBeInTheDocument();
     expect(screen.getByText('Prueba con otros filtros.')).toBeInTheDocument();
   });
 
@@ -58,8 +51,6 @@ describe('Componentes de feedback (smoke)', () => {
    */
   it('EndOfResults muestra el mensaje de fin de resultados por defecto', () => {
     render(<EndOfResults />);
-    expect(
-      screen.getByText(copy.messages.endOfResults)
-    ).toBeInTheDocument();
+    expect(screen.getByText(copy.messages.endOfResults)).toBeInTheDocument();
   });
 });

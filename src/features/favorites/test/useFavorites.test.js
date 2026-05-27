@@ -39,8 +39,7 @@ const createWrapper = () => {
       mutations: { retry: false },
     },
   });
-  return ({ children }) =>
-    createElement(QueryClientProvider, { client: queryClient }, children);
+  return ({ children }) => createElement(QueryClientProvider, { client: queryClient }, children);
 };
 
 const initialFavorite = {

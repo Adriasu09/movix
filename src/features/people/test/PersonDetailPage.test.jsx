@@ -117,9 +117,7 @@ describe('PersonDetailPage', () => {
     expect(
       screen.getByRole('heading', { level: 1, name: 'Christopher Nolan' })
     ).toBeInTheDocument();
-    expect(
-      screen.getByText('Director británico-estadounidense.')
-    ).toBeInTheDocument();
+    expect(screen.getByText('Director británico-estadounidense.')).toBeInTheDocument();
     expect(mockNavigate).not.toHaveBeenCalled();
   });
 });

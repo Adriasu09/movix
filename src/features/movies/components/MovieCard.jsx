@@ -31,7 +31,7 @@ export const MovieCard = ({ movie, genreMap = {} }) => {
               </div>
             )}
             {personalRating && (
-              <span className="absolute bottom-sm right-sm z-10 flex items-center gap-xs rounded-mvx-full bg-bg-overlay px-sm py-xs text-main-xs font-semibold text-rating">
+              <span className="absolute right-sm bottom-sm z-10 flex items-center gap-xs rounded-mvx-full bg-bg-overlay px-sm py-xs text-main-xs font-semibold text-rating">
                 ★ {personalRating}
               </span>
             )}
@@ -60,7 +60,7 @@ export const MovieCard = ({ movie, genreMap = {} }) => {
           </p>
         </div>
       </Link>
-      <FavoriteToggle movie={movie} size="sm" className="absolute left-sm top-sm z-10" />
+      <FavoriteToggle movie={movie} size="sm" className="absolute top-sm left-sm z-10" />
     </li>
   );
 };

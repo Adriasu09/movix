@@ -24,8 +24,7 @@ const createWrapper = () => {
       queries: { retry: false },
     },
   });
-  return ({ children }) =>
-    createElement(QueryClientProvider, { client: queryClient }, children);
+  return ({ children }) => createElement(QueryClientProvider, { client: queryClient }, children);
 };
 
 const page = (n, totalPages, results = []) => ({

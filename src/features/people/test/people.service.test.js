@@ -8,10 +8,7 @@ vi.mock('@/config/env', () => ({
 vi.mock('@/api/tmdb.client', () => ({ tmdbFetch: vi.fn() }));
 
 import { tmdbFetch } from '@/api/tmdb.client';
-import {
-  getPersonById,
-  getPersonMovieCredits,
-} from '@/features/people/services/people.service';
+import { getPersonById, getPersonMovieCredits } from '@/features/people/services/people.service';
 
 describe('people.service', () => {
   beforeEach(() => {

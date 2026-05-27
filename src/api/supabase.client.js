@@ -1,5 +1,5 @@
-import { createClient } from '@supabase/supabase-js'
-import { env } from '@/config/envConfig'
+import { createClient } from '@supabase/supabase-js';
+import { env } from '@/config/envConfig';
 
 /**
  * Crea un cliente Supabase autenticado con el JWT de Clerk.
@@ -16,5 +16,5 @@ import { env } from '@/config/envConfig'
 export function createSupabaseClient(getToken) {
   return createClient(env.SUPABASE_URL, env.SUPABASE_ANON_KEY, {
     accessToken: async () => (await getToken()) ?? null,
-  })
+  });
 }

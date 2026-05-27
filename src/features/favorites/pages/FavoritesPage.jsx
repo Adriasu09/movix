@@ -35,10 +35,7 @@ export const FavoritesPage = () => {
   const { sortBy, setSortBy } = useFavoritesParams();
   const { favorites, isLoading, isError, error, refetch } = useFavorites();
 
-  const sortedFavorites = useMemo(
-    () => sortFavorites(favorites, sortBy),
-    [favorites, sortBy]
-  );
+  const sortedFavorites = useMemo(() => sortFavorites(favorites, sortBy), [favorites, sortBy]);
 
   return (
     <section className="mx-auto max-w-7xl px-lg py-xl">
@@ -47,7 +44,8 @@ export const FavoritesPage = () => {
           <h1 className="font-display text-display-md text-text-primary">{copy.favorites.title}</h1>
           {favorites.length > 0 && (
             <p className="mt-xs text-main-sm text-text-secondary">
-              {favorites.length} {favorites.length === 1 ? 'película guardada' : 'películas guardadas'}
+              {favorites.length}{' '}
+              {favorites.length === 1 ? 'película guardada' : 'películas guardadas'}
             </p>
           )}
         </div>
@@ -74,9 +72,7 @@ export const FavoritesPage = () => {
         </ul>
       )}
 
-      {isError && (
-        <ErrorState message={parseApiError(error).message} onRetry={refetch} />
-      )}
+      {isError && <ErrorState message={parseApiError(error).message} onRetry={refetch} />}
 
       {!isLoading && !isError && favorites.length === 0 && (
         <EmptyState

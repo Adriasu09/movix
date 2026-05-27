@@ -23,7 +23,7 @@ export function useFavoritesParams() {
         return next;
       });
     },
-    [setSearchParams],
+    [setSearchParams]
   );
 
   return { sortBy, setSortBy };

@@ -67,9 +67,7 @@ export function useFavorites() {
       await queryClient.cancelQueries({ queryKey });
       const previousFavorites = queryClient.getQueryData(queryKey);
 
-      queryClient.setQueryData(queryKey, (old = []) =>
-        old.filter((f) => f.movie_id !== movieId)
-      );
+      queryClient.setQueryData(queryKey, (old = []) => old.filter((f) => f.movie_id !== movieId));
 
       return { previousFavorites };
     },
@@ -86,17 +84,14 @@ export function useFavorites() {
   });
 
   const updateRatingMutation = useMutation({
-    mutationFn: ({ movieId, rating }) =>
-      updateRating(supabase, { userId, movieId, rating }),
+    mutationFn: ({ movieId, rating }) => updateRating(supabase, { userId, movieId, rating }),
 
     onMutate: async ({ movieId, rating }) => {
       await queryClient.cancelQueries({ queryKey });
       const previousFavorites = queryClient.getQueryData(queryKey);
 
       queryClient.setQueryData(queryKey, (old = []) =>
-        old.map((f) =>
-          f.movie_id === movieId ? { ...f, personal_rating: rating } : f
-        )
+        old.map((f) => (f.movie_id === movieId ? { ...f, personal_rating: rating } : f))
       );
 
       return { previousFavorites };

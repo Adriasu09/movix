@@ -28,7 +28,7 @@ export function RatingInput({ movieId, initialRating, disabled = false }) {
         updateRating({ movieId, rating: nextRating || null });
       }, DEBOUNCE_MS);
     },
-    [rating, disabled, movieId, updateRating],
+    [rating, disabled, movieId, updateRating]
   );
 
   const displayValue = hoverValue || rating;
@@ -46,8 +46,10 @@ export function RatingInput({ movieId, initialRating, disabled = false }) {
               onMouseEnter={() => !disabled && setHoverValue(value)}
               disabled={disabled || isUpdatingRating}
               aria-label={`${value} ${value === 1 ? 'estrella' : 'estrellas'}`}
-              className={`rounded p-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 ${
-                disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer transition-transform hover:scale-110'
+              className={`rounded p-xs focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:outline-none ${
+                disabled
+                  ? 'cursor-not-allowed opacity-50'
+                  : 'cursor-pointer transition-transform hover:scale-110'
               }`}
             >
               <Star
@@ -60,13 +62,11 @@ export function RatingInput({ movieId, initialRating, disabled = false }) {
           ))}
         </div>
         {rating > 0 && (
-          <span className="min-w-8 text-main-sm font-semibold text-text-primary">
-            {rating}/10
-          </span>
+          <span className="min-w-8 text-main-sm font-semibold text-text-primary">{rating}/10</span>
         )}
       </div>
       {disabled && (
-        <p className="text-main-xs italic text-text-muted">{copy.favorites.rateMovieHint}</p>
+        <p className="text-main-xs text-text-muted italic">{copy.favorites.rateMovieHint}</p>
       )}
     </div>
   );

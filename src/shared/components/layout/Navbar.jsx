@@ -20,7 +20,7 @@ export const Navbar = ({ variant = 'app' }) => {
 const Brand = ({ to = ROUTES.explore }) => (
   <NavLink to={to} className="flex items-center gap-xs">
     <Play aria-hidden="true" className="h-4 w-4 fill-gold-500 text-gold-500 md:h-5 md:w-5" />
-    <span className="font-display text-display-xs tracking-tight text-gold-500 uppercase cursor-pointer">
+    <span className="cursor-pointer font-display text-display-xs tracking-tight text-gold-500 uppercase">
       {copy.appName}
     </span>
   </NavLink>

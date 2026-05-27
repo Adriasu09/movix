@@ -118,7 +118,9 @@ describe('FavoritesPage', () => {
    */
   it('muestra el estado vacío cuando no hay favoritas', () => {
     renderPage();
-    expect(screen.getByRole('heading', { name: copy.favorites.noFavoritesTitle })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: copy.favorites.noFavoritesTitle })
+    ).toBeInTheDocument();
   });
 
   /**

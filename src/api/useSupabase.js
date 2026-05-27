@@ -1,6 +1,6 @@
-import { useAuth } from '@clerk/clerk-react'
-import { useMemo } from 'react'
-import { createSupabaseClient } from './supabase.client'
+import { useAuth } from '@clerk/clerk-react';
+import { useMemo } from 'react';
+import { createSupabaseClient } from './supabase.client';
 
 /**
  * Devuelve un cliente Supabase autenticado con el JWT del usuario actual.
@@ -14,8 +14,8 @@ import { createSupabaseClient } from './supabase.client'
  * @returns {import('@supabase/supabase-js').SupabaseClient}
  */
 export function useSupabase() {
-  const { getToken, userId } = useAuth()
+  const { getToken, userId } = useAuth();
   // userId en deps es intencional: al cambiar de cuenta se recrea el cliente con el nuevo token
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  return useMemo(() => createSupabaseClient(getToken), [getToken, userId])
+  return useMemo(() => createSupabaseClient(getToken), [getToken, userId]);
 }

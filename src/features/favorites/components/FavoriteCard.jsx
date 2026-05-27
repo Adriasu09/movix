@@ -52,7 +52,7 @@ export function FavoriteCard({ favorite }) {
           onClick={handleRemoveClick}
           disabled={isRemoving}
           aria-label={`Eliminar ${favorite.title} de favoritas`}
-          className="absolute right-sm top-sm z-10 flex h-8 w-8 items-center justify-center rounded-mvx-full bg-bg-overlay text-text-primary shadow-md transition-colors hover:bg-error hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
+          className="absolute top-sm right-sm z-10 flex h-8 w-8 items-center justify-center rounded-mvx-full bg-bg-overlay text-text-primary shadow-md transition-colors hover:bg-error hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
         >
           <Trash2 aria-hidden="true" className="h-4 w-4" />
         </button>
