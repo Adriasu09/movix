@@ -6,15 +6,6 @@ import { useFavorites } from '../hooks/useFavorites';
 import { ROUTES } from '@/config/routesConfig';
 import copy from '@/config/copy.json';
 
-/**
- * Card de favorita: muestra el snapshot guardado en Supabase (poster_url,
- * title, release_year, personal_rating) y permite eliminar con confirmación.
- *
- * No reutiliza MovieCard porque el layout es diferente:
- * el rating personal es prominente y hay un botón de eliminar.
- *
- * @param {{ favorite: object }} props
- */
 export function FavoriteCard({ favorite }) {
   const navigate = useNavigate();
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -35,7 +26,6 @@ export function FavoriteCard({ favorite }) {
       onClick={() => navigate(ROUTES.movieDetail(favorite.movie_id))}
       className="group relative cursor-pointer overflow-hidden rounded-mvx-lg border border-border-default bg-bg-card transition-colors hover:border-gold-500"
     >
-      {/* Póster */}
       <div className="relative aspect-2/3 bg-bg-muted">
         {favorite.poster_url ? (
           <img
@@ -51,14 +41,12 @@ export function FavoriteCard({ favorite }) {
           </div>
         )}
 
-        {/* Badge de puntuación personal */}
         {favorite.personal_rating && (
           <span className="absolute bottom-sm left-sm z-10 flex items-center gap-xs rounded-mvx-full bg-bg-overlay px-sm py-xs text-main-xs font-semibold text-rating">
             ★ {favorite.personal_rating}/10
           </span>
         )}
 
-        {/* Botón eliminar */}
         <button
           type="button"
           onClick={handleRemoveClick}
@@ -70,7 +58,6 @@ export function FavoriteCard({ favorite }) {
         </button>
       </div>
 
-      {/* Modal de confirmación de borrado */}
       <ConfirmDialog
         open={dialogOpen}
         title={copy.favorites.confirmRemoveTitle}
@@ -82,9 +69,8 @@ export function FavoriteCard({ favorite }) {
         danger
       />
 
-      {/* Info */}
       <div className="p-sm">
-        <h3 className="line-clamp-2 text-main-sm leading-tight text-text-primary transition-colors group-hover:text-gold-500">
+        <h3 className="line-clamp-1 text-main-sm leading-tight text-text-primary transition-colors group-hover:text-gold-500">
           {favorite.title}
         </h3>
         {favorite.release_year && (
