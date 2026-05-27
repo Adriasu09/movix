@@ -129,16 +129,19 @@ describe('FavoriteToggle', () => {
   });
 
   /**
-   * Scenario: Botón deshabilitado durante operación pendiente
+   * Scenario: Evitar doble envío durante operación pendiente
    *   Given hay una operación de añadir en curso (isAdding = true)
-   *   When se renderiza el botón
-   *   Then el botón está deshabilitado
+   *   And el usuario está autenticado
+   *   When el usuario vuelve a pulsar el botón
+   *   Then addFavorite NO se llama (el handler silencia el click)
    */
-  it('deshabilita el botón mientras hay una operación pendiente', () => {
+  it('ignora el click si ya hay una operación pendiente', () => {
     useSession.mockReturnValue({ isSignedIn: true, user: { id: 'user-1' } });
     useFavorites.mockReturnValue({ ...baseFavoritesHook, isAdding: true });
     renderToggle();
-    expect(screen.getByRole('button', { name: copy.favorites.addToFavorites })).toBeDisabled();
+    fireEvent.click(screen.getByRole('button', { name: copy.favorites.addToFavorites }));
+    expect(mockAddFavorite).not.toHaveBeenCalled();
+    expect(mockRemoveFavorite).not.toHaveBeenCalled();
   });
 
   /**
