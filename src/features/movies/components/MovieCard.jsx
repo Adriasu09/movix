@@ -1,21 +1,23 @@
 import { Link } from 'react-router-dom';
 import { ROUTES } from '@/config/routesConfig';
+import { FavoriteToggle } from '@/features/favorites/components/FavoriteToggle';
+import { useIsFavorite } from '@/features/favorites/hooks/useIsFavorite';
 import copy from '@/config/copy.json';
 
 export const MovieCard = ({ movie, genreMap = {} }) => {
   const ariaLabel = copy.explore.viewDetailAria.replace('{title}', movie.title);
-
   const genreName = movie.genres?.[0]?.name ?? genreMap[movie.genreIds?.[0]] ?? null;
+  const { personalRating } = useIsFavorite(movie.id);
 
   return (
-    <li>
+    <li className="relative">
       <Link
         to={ROUTES.movieDetail(movie.id)}
         aria-label={ariaLabel}
         className="group block rounded-mvx-lg transition-transform duration-200 ease-in-out hover:scale-105 focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base focus-visible:outline-none"
       >
         <div className="overflow-hidden rounded-mvx-lg border border-border-default bg-bg-muted transition-colors duration-200 group-hover:border-gold-500">
-          <div className="aspect-2/3 w-full">
+          <div className="relative aspect-2/3 w-full">
             {movie.posterUrl ? (
               <img
                 src={movie.posterUrl}
@@ -27,6 +29,11 @@ export const MovieCard = ({ movie, genreMap = {} }) => {
               <div className="flex h-full w-full items-center justify-center px-sm text-center">
                 <span className="text-main-xs text-text-muted">{copy.messages.noPoster}</span>
               </div>
+            )}
+            {personalRating && (
+              <span className="absolute bottom-sm right-sm z-10 flex items-center gap-xs rounded-mvx-full bg-bg-overlay px-sm py-xs text-main-xs font-semibold text-rating">
+                ★ {personalRating}
+              </span>
             )}
           </div>
         </div>
@@ -53,6 +60,7 @@ export const MovieCard = ({ movie, genreMap = {} }) => {
           </p>
         </div>
       </Link>
+      <FavoriteToggle movie={movie} size="sm" className="absolute left-sm top-sm z-10" />
     </li>
   );
 };

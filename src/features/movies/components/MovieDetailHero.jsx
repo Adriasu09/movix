@@ -1,5 +1,9 @@
 import { Calendar, Clock, Star } from 'lucide-react';
 import { Badge } from '@/shared/components/ui/Badge';
+import { FavoriteToggle } from '@/features/favorites/components/FavoriteToggle';
+import { RatingInput } from '@/features/favorites/components/RatingInput';
+import { useIsFavorite } from '@/features/favorites/hooks/useIsFavorite';
+import { useSession } from '@/features/auth/hooks/useSession';
 import copy from '@/config/copy.json';
 import { formatRuntime } from '@/shared/utils/formatters';
 
@@ -8,6 +12,8 @@ const fill = (template, vars) =>
 
 export const MovieDetailHero = ({ movie }) => {
   const runtime = formatRuntime(movie.runtime);
+  const { isSignedIn } = useSession();
+  const { isFavorite, personalRating } = useIsFavorite(movie.id);
 
   return (
     <div className="relative w-full">
@@ -82,6 +88,19 @@ export const MovieDetailHero = ({ movie }) => {
                 {movie.genres.map((g) => (
                   <Badge key={g.id}>{g.name}</Badge>
                 ))}
+              </div>
+            )}
+
+            {/* Favoritar y puntuar — solo visible si hay sesión */}
+            {isSignedIn && (
+              <div className="flex flex-col gap-sm pt-xs">
+                <FavoriteToggle movie={movie} size="md" />
+                <RatingInput
+                  key={movie.id}
+                  movieId={movie.id}
+                  initialRating={personalRating}
+                  disabled={!isFavorite}
+                />
               </div>
             )}
           </div>
