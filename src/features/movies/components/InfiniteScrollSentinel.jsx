@@ -1,6 +1,6 @@
-import { Loader2 } from 'lucide-react';
 import { useIntersectionObserver } from '@/shared/hooks/useIntersectionObserver';
-import copy from '@/config/copy.json';
+import { InlineSpinner } from '@/shared/components/feedback/InlineSpinner';
+import { EndOfResults } from '@/shared/components/feedback/EndOfResults';
 
 export const InfiniteScrollSentinel = ({ onIntersect, isFetching, hasNextPage }) => {
   const sentinelRef = useIntersectionObserver(
@@ -11,15 +11,8 @@ export const InfiniteScrollSentinel = ({ onIntersect, isFetching, hasNextPage })
 
   return (
     <div ref={sentinelRef} className="flex justify-center py-xl" aria-live="polite">
-      {isFetching && (
-        <Loader2
-          aria-label={copy.messages.loading}
-          className="h-6 w-6 animate-spin text-gold-500"
-        />
-      )}
-      {!hasNextPage && !isFetching && (
-        <p className="text-main-sm text-text-muted">{copy.messages.endOfResults}</p>
-      )}
+      {isFetching && <InlineSpinner />}
+      {!hasNextPage && !isFetching && <EndOfResults />}
     </div>
   );
 };

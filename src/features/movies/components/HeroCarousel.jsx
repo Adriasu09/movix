@@ -31,7 +31,7 @@ export const HeroCarousel = ({ hidden = false }) => {
   if (isLoading || !movies?.length) {
     return (
       <Skeleton
-        className="min-h-[60vh] w-full md:min-h-[80vh]"
+        className="min-h-(--height-hero-mobile) w-full md:min-h-(--height-hero-desktop)"
         aria-label={copy.messages.loading}
       />
     );
@@ -51,7 +51,7 @@ export const HeroCarousel = ({ hidden = false }) => {
       aria-label={copy.explore.featured.title}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative min-h-[60vh] w-full overflow-hidden md:min-h-[80vh]"
+      className="relative min-h-(--height-hero-mobile) w-full overflow-hidden md:min-h-(--height-hero-desktop)"
     >
       {movie.backdropUrl ? (
         <img

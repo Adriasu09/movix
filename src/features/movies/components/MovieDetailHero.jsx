@@ -17,7 +17,7 @@ export const MovieDetailHero = ({ movie }) => {
 
   return (
     <div className="relative w-full">
-      <div className="relative h-[50vh] w-full overflow-hidden md:h-[60vh]">
+      <div className="relative h-(--height-detail-mobile) w-full overflow-hidden md:h-(--height-hero-mobile)">
         {movie.backdropUrl ? (
           <img
             src={movie.backdropUrl}

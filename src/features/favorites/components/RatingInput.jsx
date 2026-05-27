@@ -60,7 +60,7 @@ export function RatingInput({ movieId, initialRating, disabled = false }) {
           ))}
         </div>
         {rating > 0 && (
-          <span className="min-w-[2rem] text-main-sm font-semibold text-text-primary">
+          <span className="min-w-8 text-main-sm font-semibold text-text-primary">
             {rating}/10
           </span>
         )}

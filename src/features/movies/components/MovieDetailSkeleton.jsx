@@ -2,7 +2,7 @@ import { Skeleton } from '@/shared/components/ui/Skeleton';
 
 export const MovieDetailSkeleton = () => (
   <div aria-hidden="true">
-    <Skeleton className="h-[50vh] w-full rounded-none md:h-[60vh]" />
+    <Skeleton className="h-(--height-detail-mobile) w-full rounded-none md:h-(--height-hero-mobile)" />
 
     <div className="mx-auto max-w-screen-xl px-md md:px-lg">
       <div className="-mt-2xl flex flex-col gap-lg pb-md sm:flex-row md:-mt-3xl">
