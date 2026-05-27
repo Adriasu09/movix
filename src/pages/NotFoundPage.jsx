@@ -8,7 +8,7 @@ export const NotFoundPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex min-h-(--height-hero-mobile) flex-col items-center justify-center gap-lg px-md py-2xl text-center">
+    <div className="flex min-h-hero-mobile flex-col items-center justify-center gap-lg px-md py-2xl text-center">
       <div className="rounded-mvx-full bg-bg-muted p-lg">
         <Film aria-hidden="true" className="h-12 w-12 text-text-muted" />
       </div>
