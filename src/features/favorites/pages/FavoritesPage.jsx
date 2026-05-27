@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Heart } from 'lucide-react';
 import { Button } from '@/shared/components/ui/Button';
@@ -7,6 +7,7 @@ import { EmptyState } from '@/shared/components/feedback/EmptyState';
 import { ErrorState } from '@/shared/components/feedback/ErrorState';
 import { parseApiError } from '@/shared/utils/parseApiError';
 import { useFavorites } from '../hooks/useFavorites';
+import { useFavoritesParams } from '../hooks/useFavoritesParams';
 import { FavoritesGrid } from '../components/FavoritesGrid';
 import { FavoriteCardSkeleton } from '../components/FavoriteCardSkeleton';
 import { ROUTES } from '@/config/routesConfig';
@@ -31,7 +32,7 @@ function sortFavorites(favorites, sortBy) {
 
 export const FavoritesPage = () => {
   const navigate = useNavigate();
-  const [sortBy, setSortBy] = useState('created_desc');
+  const { sortBy, setSortBy } = useFavoritesParams();
   const { favorites, isLoading, isError, error, refetch } = useFavorites();
 
   const sortedFavorites = useMemo(
