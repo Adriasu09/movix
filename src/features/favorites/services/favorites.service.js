@@ -1,13 +1,8 @@
-/**
- * Servicio de favoritas — toda la lógica de acceso a Supabase está aquí.
- * Las funciones reciben el cliente Supabase autenticado como primer argumento
- * para poder testearlo mockeando el cliente sin tocar hooks de React.
- */
-
-export async function getFavorites(supabase) {
+export async function getFavorites(supabase, userId) {
   const { data, error } = await supabase
     .from('favorites')
     .select('*')
+    .eq('user_id', userId)
     .order('created_at', { ascending: false });
 
   if (error) throw error;
@@ -31,16 +26,17 @@ export async function addFavorite(supabase, { userId, movie }) {
   return data;
 }
 
-export async function removeFavorite(supabase, movieId) {
+export async function removeFavorite(supabase, { userId, movieId }) {
   const { error } = await supabase
     .from('favorites')
     .delete()
+    .eq('user_id', userId)
     .eq('movie_id', movieId);
 
   if (error) throw error;
 }
 
-export async function updateRating(supabase, { movieId, rating }) {
+export async function updateRating(supabase, { userId, movieId, rating }) {
   if (rating !== null && (rating < 1 || rating > 10)) {
     throw new Error('Rating must be between 1 and 10');
   }
@@ -48,6 +44,7 @@ export async function updateRating(supabase, { movieId, rating }) {
   const { data, error } = await supabase
     .from('favorites')
     .update({ personal_rating: rating })
+    .eq('user_id', userId)
     .eq('movie_id', movieId)
     .select()
     .single();

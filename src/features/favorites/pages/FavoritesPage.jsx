@@ -5,6 +5,7 @@ import { Button } from '@/shared/components/ui/Button';
 import { Select } from '@/shared/components/ui/Select';
 import { EmptyState } from '@/shared/components/feedback/EmptyState';
 import { ErrorState } from '@/shared/components/feedback/ErrorState';
+import { parseApiError } from '@/shared/utils/parseApiError';
 import { useFavorites } from '../hooks/useFavorites';
 import { FavoritesGrid } from '../components/FavoritesGrid';
 import { FavoriteCardSkeleton } from '../components/FavoriteCardSkeleton';
@@ -73,7 +74,7 @@ export const FavoritesPage = () => {
       )}
 
       {isError && (
-        <ErrorState message={error?.message} onRetry={refetch} />
+        <ErrorState message={parseApiError(error).message} onRetry={refetch} />
       )}
 
       {!isLoading && !isError && favorites.length === 0 && (

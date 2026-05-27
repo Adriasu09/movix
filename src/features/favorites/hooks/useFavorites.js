@@ -8,31 +8,34 @@ import {
   updateRating,
 } from '../services/favorites.service';
 
-export const FAVORITES_QUERY_KEY = ['favorites'];
+// Cache aislada por usuario: evita contaminar resultados si cambia la sesión sin recarga.
+export const favoritesQueryKey = (userId) => ['favorites', userId];
 
 export function useFavorites() {
   const supabase = useSupabase();
   const { user, isSignedIn } = useSession();
   const queryClient = useQueryClient();
+  const userId = user?.id;
+  const queryKey = favoritesQueryKey(userId);
 
   const query = useQuery({
-    queryKey: FAVORITES_QUERY_KEY,
-    queryFn: () => getFavorites(supabase),
-    enabled: isSignedIn,
+    queryKey,
+    queryFn: () => getFavorites(supabase, userId),
+    enabled: isSignedIn && !!userId,
     staleTime: 1000 * 60 * 5,
   });
 
   const addMutation = useMutation({
-    mutationFn: (movie) => addFavorite(supabase, { userId: user.id, movie }),
+    mutationFn: (movie) => addFavorite(supabase, { userId, movie }),
 
     onMutate: async (movie) => {
-      await queryClient.cancelQueries({ queryKey: FAVORITES_QUERY_KEY });
-      const previousFavorites = queryClient.getQueryData(FAVORITES_QUERY_KEY);
+      await queryClient.cancelQueries({ queryKey });
+      const previousFavorites = queryClient.getQueryData(queryKey);
 
-      queryClient.setQueryData(FAVORITES_QUERY_KEY, (old = []) => [
+      queryClient.setQueryData(queryKey, (old = []) => [
         {
           id: `temp-${movie.id}`,
-          user_id: user.id,
+          user_id: userId,
           movie_id: movie.id,
           title: movie.title,
           poster_url: movie.posterUrl ?? null,
@@ -48,23 +51,23 @@ export function useFavorites() {
 
     onError: (_err, _movie, context) => {
       if (context?.previousFavorites) {
-        queryClient.setQueryData(FAVORITES_QUERY_KEY, context.previousFavorites);
+        queryClient.setQueryData(queryKey, context.previousFavorites);
       }
     },
 
     onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: FAVORITES_QUERY_KEY });
+      queryClient.invalidateQueries({ queryKey });
     },
   });
 
   const removeMutation = useMutation({
-    mutationFn: (movieId) => removeFavorite(supabase, movieId),
+    mutationFn: (movieId) => removeFavorite(supabase, { userId, movieId }),
 
     onMutate: async (movieId) => {
-      await queryClient.cancelQueries({ queryKey: FAVORITES_QUERY_KEY });
-      const previousFavorites = queryClient.getQueryData(FAVORITES_QUERY_KEY);
+      await queryClient.cancelQueries({ queryKey });
+      const previousFavorites = queryClient.getQueryData(queryKey);
 
-      queryClient.setQueryData(FAVORITES_QUERY_KEY, (old = []) =>
+      queryClient.setQueryData(queryKey, (old = []) =>
         old.filter((f) => f.movie_id !== movieId)
       );
 
@@ -73,23 +76,24 @@ export function useFavorites() {
 
     onError: (_err, _movieId, context) => {
       if (context?.previousFavorites) {
-        queryClient.setQueryData(FAVORITES_QUERY_KEY, context.previousFavorites);
+        queryClient.setQueryData(queryKey, context.previousFavorites);
       }
     },
 
     onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: FAVORITES_QUERY_KEY });
+      queryClient.invalidateQueries({ queryKey });
     },
   });
 
   const updateRatingMutation = useMutation({
-    mutationFn: ({ movieId, rating }) => updateRating(supabase, { movieId, rating }),
+    mutationFn: ({ movieId, rating }) =>
+      updateRating(supabase, { userId, movieId, rating }),
 
     onMutate: async ({ movieId, rating }) => {
-      await queryClient.cancelQueries({ queryKey: FAVORITES_QUERY_KEY });
-      const previousFavorites = queryClient.getQueryData(FAVORITES_QUERY_KEY);
+      await queryClient.cancelQueries({ queryKey });
+      const previousFavorites = queryClient.getQueryData(queryKey);
 
-      queryClient.setQueryData(FAVORITES_QUERY_KEY, (old = []) =>
+      queryClient.setQueryData(queryKey, (old = []) =>
         old.map((f) =>
           f.movie_id === movieId ? { ...f, personal_rating: rating } : f
         )
@@ -100,12 +104,12 @@ export function useFavorites() {
 
     onError: (_err, _vars, context) => {
       if (context?.previousFavorites) {
-        queryClient.setQueryData(FAVORITES_QUERY_KEY, context.previousFavorites);
+        queryClient.setQueryData(queryKey, context.previousFavorites);
       }
     },
 
     onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: FAVORITES_QUERY_KEY });
+      queryClient.invalidateQueries({ queryKey });
     },
   });
 
