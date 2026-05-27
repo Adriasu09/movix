@@ -1,5 +1,5 @@
-import { Loader2 } from "lucide-react";
-import copy from "@/config/copy.json";
+import { Loader2 } from 'lucide-react';
+import copy from '@/config/copy.json';
 
 export const LoadingState = ({ message = copy.messages.loading }) => (
   <div

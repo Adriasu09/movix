@@ -1,6 +1,6 @@
-import { useMovieVideos } from "@/features/movies/hooks/useMovieCredits";
-import copy from "@/config/copy.json";
-import { useEffect } from "react";
+import { useMovieVideos } from '@/features/movies/hooks/useMovieCredits';
+import copy from '@/config/copy.json';
+import { useEffect } from 'react';
 
 export const MovieTrailer = ({ movieId, onTrailerLoad }) => {
   const { data: trailers = [], isLoading } = useMovieVideos(movieId);
@@ -18,10 +18,10 @@ export const MovieTrailer = ({ movieId, onTrailerLoad }) => {
 
   return (
     <section className="space-y-sm">
-      <h2 className="text-text-primary font-display text-display-sm">
+      <h2 className="font-display text-display-sm text-text-primary">
         {copy.movieDetail.sections.trailer}
       </h2>
-      <div className="bg-bg-muted rounded-mvx-lg relative aspect-video w-full overflow-hidden">
+      <div className="relative aspect-video w-full overflow-hidden rounded-mvx-lg bg-bg-muted">
         <iframe
           src={`https://www.youtube.com/embed/${trailer.key}?rel=0`}
           title={trailer.name || copy.movieDetail.trailerFallbackTitle}

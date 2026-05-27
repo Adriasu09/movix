@@ -1,7 +1,7 @@
-import { render, screen } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
-import { MovieCard } from "@/shared/components/MovieCard";
-import copy from "@/config/copy.json";
+import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import { MovieCard } from '@/features/movies/components/MovieCard';
+import copy from '@/config/copy.json';
 
 // Envuelve en MemoryRouter porque MovieCard usa <Link>
 const renderCard = (movie) =>
@@ -15,10 +15,10 @@ const renderCard = (movie) =>
 
 const baseMovie = {
   id: 42,
-  title: "Inception",
-  releaseYear: "2010",
+  title: 'Inception',
+  releaseYear: '2010',
   rating: 8.8,
-  posterUrl: "https://image.tmdb.org/t/p/w342/poster.jpg",
+  posterUrl: 'https://image.tmdb.org/t/p/w342/poster.jpg',
 };
 
 /**
@@ -27,11 +27,11 @@ const baseMovie = {
  *   When se renderiza MovieCard
  *   Then el título y el año son visibles en el documento
  */
-describe("MovieCard", () => {
-  it("muestra el título y el año de la película", () => {
+describe('MovieCard', () => {
+  it('muestra el título y el año de la película', () => {
     renderCard(baseMovie);
 
-    expect(screen.getByRole("heading", { name: /inception/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /inception/i })).toBeInTheDocument();
     // El año aparece dentro del span de metadatos "· 2010" → buscamos con regex
     expect(screen.getByText(/2010/)).toBeInTheDocument();
   });
@@ -42,11 +42,11 @@ describe("MovieCard", () => {
    *   When se renderiza MovieCard
    *   Then se muestra el texto de fallback del copy
    */
-  it("muestra el texto fallback cuando no hay póster", () => {
+  it('muestra el texto fallback cuando no hay póster', () => {
     renderCard({ ...baseMovie, posterUrl: null });
 
     expect(screen.getByText(copy.messages.noPoster)).toBeInTheDocument();
-    expect(screen.queryByRole("img")).not.toBeInTheDocument();
+    expect(screen.queryByRole('img')).not.toBeInTheDocument();
   });
 
   /**
@@ -55,10 +55,10 @@ describe("MovieCard", () => {
    *   When se renderiza MovieCard
    *   Then el enlace principal apunta a "/movies/42"
    */
-  it("enlaza a la ruta de detalle de la película", () => {
+  it('enlaza a la ruta de detalle de la película', () => {
     renderCard(baseMovie);
 
-    const link = screen.getByRole("link");
-    expect(link).toHaveAttribute("href", "/movies/42");
+    const link = screen.getByRole('link');
+    expect(link).toHaveAttribute('href', '/movies/42');
   });
 });

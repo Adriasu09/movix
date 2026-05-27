@@ -1,4 +1,4 @@
-import heroImage from "@/assets/hero-welcome.webp";
+import heroImage from '@/assets/hero-welcome.webp';
 
 export const HeroBackground = () => {
   return (

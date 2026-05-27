@@ -1,4 +1,4 @@
-import { useUser, useAuth } from "@clerk/clerk-react";
+import { useUser, useAuth } from '@clerk/clerk-react';
 
 export function useSession() {
   const { isLoaded: userLoaded, user: clerkUser } = useUser();

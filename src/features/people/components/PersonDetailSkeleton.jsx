@@ -1,15 +1,13 @@
-import { Skeleton } from "@/shared/components/ui/Skeleton";
+import { Skeleton } from '@/shared/components/ui/Skeleton';
 
-// Skeleton de la ficha de persona (E2-14): cabecera + bio + filmografía.
-// Misma estructura que la página real para evitar layout shift.
 export const PersonDetailSkeleton = () => (
-  <div className="mx-auto max-w-screen-xl space-y-2xl px-md py-lg lg:px-lg" aria-hidden="true">
+  <div className="mx-auto max-w-screen-xl space-y-2xl px-md py-lg md:px-lg" aria-hidden="true">
     {/* Header */}
-    <div className="gap-lg py-lg flex flex-col items-center sm:flex-row sm:items-start">
-      <Skeleton className="rounded-mvx-xl aspect-[2/3] w-40 shrink-0 sm:w-48" />
-      <div className="gap-sm flex flex-1 flex-col">
+    <div className="flex flex-col items-center gap-lg py-lg sm:flex-row sm:items-start">
+      <Skeleton className="aspect-2/3 w-40 shrink-0 rounded-mvx-xl sm:w-48" />
+      <div className="flex flex-1 flex-col gap-sm">
         <Skeleton className="h-10 w-1/2" />
-        <Skeleton className="rounded-mvx-full h-6 w-24" />
+        <Skeleton className="h-6 w-24 rounded-mvx-full" />
         <Skeleton className="h-4 w-40" />
         <Skeleton className="h-4 w-56" />
       </div>
@@ -26,10 +24,10 @@ export const PersonDetailSkeleton = () => (
     {/* Filmografía */}
     <div className="space-y-md">
       <Skeleton className="h-4 w-32" />
-      <div className="gap-md grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      <div className="grid grid-cols-2 gap-md sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {Array.from({ length: 10 }).map((_, i) => (
           <div key={i} className="space-y-xs">
-            <Skeleton className="rounded-mvx-lg aspect-[2/3] w-full" />
+            <Skeleton className="aspect-2/3 w-full rounded-mvx-lg" />
             <Skeleton className="h-3 w-full" />
           </div>
         ))}

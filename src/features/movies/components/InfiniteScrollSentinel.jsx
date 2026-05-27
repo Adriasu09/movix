@@ -1,11 +1,11 @@
-import { Loader2 } from "lucide-react";
-import { useIntersectionObserver } from "@/shared/hooks/useIntersectionObserver";
-import copy from "@/config/copy.json";
+import { Loader2 } from 'lucide-react';
+import { useIntersectionObserver } from '@/shared/hooks/useIntersectionObserver';
+import copy from '@/config/copy.json';
 
 export const InfiniteScrollSentinel = ({ onIntersect, isFetching, hasNextPage }) => {
   const sentinelRef = useIntersectionObserver(
     onIntersect,
-    { rootMargin: "500px" },
+    { rootMargin: '500px' },
     hasNextPage && !isFetching
   );
 
@@ -14,11 +14,11 @@ export const InfiniteScrollSentinel = ({ onIntersect, isFetching, hasNextPage })
       {isFetching && (
         <Loader2
           aria-label={copy.messages.loading}
-          className="text-gold-500 h-6 w-6 animate-spin"
+          className="h-6 w-6 animate-spin text-gold-500"
         />
       )}
       {!hasNextPage && !isFetching && (
-        <p className="text-text-muted text-main-sm">{copy.messages.endOfResults}</p>
+        <p className="text-main-sm text-text-muted">{copy.messages.endOfResults}</p>
       )}
     </div>
   );

@@ -1,16 +1,16 @@
-import { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { useMovieDetail } from "@/features/movies/hooks/useMovies";
-import { useMovieCredits } from "@/features/movies/hooks/useMovieCredits";
-import { MovieDetailHero } from "@/features/movies/components/MovieDetailHero";
-import { MovieDetailInfo } from "@/features/movies/components/MovieDetailInfo";
-import { MovieTrailer } from "@/features/movies/components/MovieTrailer";
-import { DirectorCard } from "@/features/movies/components/DirectorCard";
-import { CastList } from "@/features/movies/components/CastList";
-import { MovieDetailSkeleton } from "@/features/movies/components/MovieDetailSkeleton";
-import { ErrorState } from "@/shared/components/feedback/ErrorState";
-import { parseApiError } from "@/shared/utils/parseApiError";
-import { ROUTES } from "@/config/routesConfig";
+import { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useMovieDetail } from '@/features/movies/hooks/useMovies';
+import { useMovieCredits } from '@/features/movies/hooks/useMovieCredits';
+import { MovieDetailHero } from '@/features/movies/components/MovieDetailHero';
+import { MovieDetailInfo } from '@/features/movies/components/MovieDetailInfo';
+import { MovieTrailer } from '@/features/movies/components/MovieTrailer';
+import { DirectorCard } from '@/features/movies/components/DirectorCard';
+import { CastList } from '@/features/movies/components/CastList';
+import { MovieDetailSkeleton } from '@/features/movies/components/MovieDetailSkeleton';
+import { ErrorState } from '@/shared/components/feedback/ErrorState';
+import { parseApiError } from '@/shared/utils/parseApiError';
+import { ROUTES } from '@/config/routesConfig';
 
 export const MovieDetailPage = () => {
   const { id } = useParams();
@@ -29,7 +29,7 @@ export const MovieDetailPage = () => {
 
   if (isError && error?.status !== 404) {
     return (
-      <div className="mx-auto max-w-screen-xl px-md py-2xl lg:px-lg">
+      <div className="mx-auto max-w-screen-xl px-md py-2xl md:px-lg">
         <ErrorState message={parseApiError(error).message} onRetry={refetch} />
       </div>
     );
@@ -37,7 +37,7 @@ export const MovieDetailPage = () => {
 
   if (!movie) return null;
 
-  const director = credits?.crew?.find((p) => p.job === "Director") || null;
+  const director = credits?.crew?.find((p) => p.job === 'Director') || null;
 
   return (
     <div className="pb-2xl">
@@ -45,7 +45,7 @@ export const MovieDetailPage = () => {
         <MovieDetailHero movie={movie} />
       </div>
 
-      <div className="mx-auto max-w-screen-xl space-y-2xl px-md pt-xl lg:px-lg">
+      <div className="mx-auto max-w-screen-xl space-y-2xl px-md pt-xl md:px-lg">
         <MovieDetailInfo movie={movie} />
         <div className="md:hidden">
           <MovieTrailer movieId={id} />

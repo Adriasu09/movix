@@ -1,5 +1,5 @@
-import copy from "@/config/copy.json";
-import { ActorCard } from "./ActorCard";
+import copy from '@/config/copy.json';
+import { ActorCard } from './ActorCard';
 
 export const CastList = ({ cast = [] }) => {
   if (!cast || cast.length === 0) return null;
@@ -8,10 +8,10 @@ export const CastList = ({ cast = [] }) => {
 
   return (
     <section className="space-y-sm">
-      <h2 className="text-text-primary font-display text-display-sm">
+      <h2 className="font-display text-display-sm text-text-primary">
         {copy.movieDetail.sections.cast}
       </h2>
-      <div className="gap-md pb-sm scrollbar-none flex overflow-x-auto md:flex-wrap">
+      <div className="flex scrollbar-none gap-md overflow-x-auto pb-sm md:flex-wrap">
         {display.map((p) => (
           <ActorCard key={p.id} person={p} />
         ))}

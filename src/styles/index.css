@@ -1,5 +1,5 @@
-@import "./variables.css";
-@import "tailwindcss";
+@import './variables.css';
+@import 'tailwindcss';
 
 /* ─── BASE GLOBAL ───────────────────────────────────────────── */
 @layer base {
@@ -22,13 +22,13 @@
   }
 
   button:not(:disabled),
-  [role="button"]:not(:disabled) {
+  [role='button']:not(:disabled) {
     cursor: pointer;
   }
 
   /* Oculta la X nativa del navegador en inputs type="search";
      usamos siempre nuestro propio botón de limpiar */
-  input[type="search"]::-webkit-search-cancel-button {
+  input[type='search']::-webkit-search-cancel-button {
     appearance: none;
   }
 }

@@ -1,5 +1,5 @@
-import { useCallback } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useCallback } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 // Fuente de verdad para los filtros de exploración.
 // Lee los query params de la URL (?q, ?genre, ?sortBy, ?minRating) y expone
@@ -13,17 +13,17 @@ export function useExploreParams() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   // Lecturas con defaults seguros
-  const q = searchParams.get("q") ?? "";
-  const genre = searchParams.get("genre") ?? "";
-  const sortBy = searchParams.get("sortBy") ?? "popularity.desc";
-  const minRating = searchParams.get("minRating") ?? "0";
+  const q = searchParams.get('q') ?? '';
+  const genre = searchParams.get('genre') ?? '';
+  const sortBy = searchParams.get('sortBy') ?? 'popularity.desc';
+  const minRating = searchParams.get('minRating') ?? '0';
 
   // Helper interno: actualiza un param preservando el resto
   const setParam = useCallback(
     (key, value) => {
       setSearchParams((prev) => {
         const next = new URLSearchParams(prev);
-        if (value === "" || value === null || value === undefined) {
+        if (value === '' || value === null || value === undefined) {
           next.delete(key);
         } else {
           next.set(key, value);
@@ -34,9 +34,9 @@ export function useExploreParams() {
     [setSearchParams]
   );
 
-  const setGenre = useCallback((value) => setParam("genre", value), [setParam]);
-  const setSortBy = useCallback((value) => setParam("sortBy", value), [setParam]);
-  const setMinRating = useCallback((value) => setParam("minRating", value), [setParam]);
+  const setGenre = useCallback((value) => setParam('genre', value), [setParam]);
+  const setSortBy = useCallback((value) => setParam('sortBy', value), [setParam]);
+  const setMinRating = useCallback((value) => setParam('minRating', value), [setParam]);
 
   const clearAll = useCallback(() => {
     setSearchParams(new URLSearchParams());

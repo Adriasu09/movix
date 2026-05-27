@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Star, ChevronLeft, ChevronRight, TrendingUp } from "lucide-react";
-import { useFeaturedMovies } from "@/features/movies/hooks/useFeaturedMovies";
-import { useGenres } from "@/shared/hooks/useGenres";
-import { Button } from "@/shared/components/ui/Button";
-import { Skeleton } from "@/shared/components/ui/Skeleton";
-import { ROUTES } from "@/config/routesConfig";
-import copy from "@/config/copy.json";
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Star, ChevronLeft, ChevronRight, TrendingUp } from 'lucide-react';
+import { useFeaturedMovies } from '@/features/movies/hooks/useFeaturedMovies';
+import { useGenres } from '@/shared/hooks/useGenres';
+import { Button } from '@/shared/components/ui/Button';
+import { Skeleton } from '@/shared/components/ui/Skeleton';
+import { ROUTES } from '@/config/routesConfig';
+import copy from '@/config/copy.json';
 
 const ROTATE_INTERVAL_MS = 7000;
 
@@ -31,7 +31,7 @@ export const HeroCarousel = ({ hidden = false }) => {
   if (isLoading || !movies?.length) {
     return (
       <Skeleton
-        className="w-full min-h-[60vh] md:min-h-[80vh]"
+        className="min-h-[60vh] w-full md:min-h-[80vh]"
         aria-label={copy.messages.loading}
       />
     );
@@ -44,52 +44,52 @@ export const HeroCarousel = ({ hidden = false }) => {
     .map((id) => genreMap[id])
     .filter(Boolean)
     .slice(0, 2);
-  const metaText = [...slideGenres, movie.releaseYear].filter(Boolean).join(" · ");
+  const metaText = [...slideGenres, movie.releaseYear].filter(Boolean).join(' · ');
 
   return (
     <section
       aria-label={copy.explore.featured.title}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative w-full overflow-hidden min-h-[60vh] md:min-h-[80vh]"
+      className="relative min-h-[60vh] w-full overflow-hidden md:min-h-[80vh]"
     >
       {movie.backdropUrl ? (
         <img
           src={movie.backdropUrl}
           alt={movie.title}
-          className="absolute inset-0 h-full w-full object-cover mask-[linear-gradient(to_top,transparent_0%,black_45%)]"
+          className="absolute inset-0 h-full w-full mask-[linear-gradient(to_top,transparent_0%,black_45%)] object-cover"
         />
       ) : (
-        <div className="bg-bg-muted absolute inset-0" />
+        <div className="absolute inset-0 bg-bg-muted" />
       )}
 
-      <div className="absolute inset-0 hidden bg-linear-to-r from-bg-base/90 via-bg-base/50 to-transparent lg:block" />
+      <div className="absolute inset-0 hidden bg-linear-to-r from-bg-base/90 via-bg-base/50 to-transparent md:block" />
       <div className="absolute inset-x-0 top-0 h-32 bg-linear-to-b from-bg-base/60 to-transparent" />
 
-      <div className="group absolute inset-x-0 bottom-lg flex flex-col gap-sm p-lg md:inset-y-0 md:left-0 md:justify-center md:gap-md md:pl-3xl md:mt-18 md:right-auto md:max-w-175">
-        <p className="flex items-center gap-xs text-gold-500 text-main-2xs font-semibold uppercase tracking-wider lg:text-main-xs">
-          <TrendingUp className="h-sm w-sm" />#{currentIndex + 1}{" "}
+      <div className="group absolute inset-x-0 bottom-lg flex flex-col gap-sm p-lg md:inset-y-0 md:right-auto md:left-0 md:mt-18 md:max-w-175 md:justify-center md:gap-md md:pl-3xl">
+        <p className="flex items-center gap-xs text-main-2xs font-semibold tracking-wider text-gold-500 uppercase md:text-main-xs">
+          <TrendingUp className="h-sm w-sm" />#{currentIndex + 1}{' '}
           {copy.explore.featured.trendingPrefix}
         </p>
 
-        <h2 className="text-text-primary font-display text-display-lg md:text-display-xl">
+        <h2 className="font-display text-display-lg text-text-primary md:text-display-xl">
           {movie.title}
         </h2>
 
         <div className="flex flex-wrap items-center gap-sm">
           {movie.rating != null && (
-            <span className="bg-bg-base/60 rounded-mvx-md flex items-center gap-xs px-sm py-xs">
-              <Star aria-hidden="true" className="text-rating h-3 w-3 fill-current" />
-              <span className="text-rating text-main-sm font-bold">{movie.rating.toFixed(1)}</span>
+            <span className="flex items-center gap-xs rounded-mvx-md bg-bg-base/60 px-sm py-xs">
+              <Star aria-hidden="true" className="h-3 w-3 fill-current text-rating" />
+              <span className="text-main-sm font-bold text-rating">{movie.rating.toFixed(1)}</span>
             </span>
           )}
           {metaText && (
-            <span className="text-text-secondary text-main-sm md:text-main-md">{metaText}</span>
+            <span className="text-main-sm text-text-secondary md:text-main-md">{metaText}</span>
           )}
         </div>
 
         {movie.overview && (
-          <p className="line-clamp-2 max-h-0 max-w-prose overflow-hidden text-text-secondary text-main-md opacity-0 transition-all duration-500 delay-[3s] group-hover:max-h-16 group-hover:opacity-100 group-hover:delay-0">
+          <p className="line-clamp-2 max-h-0 max-w-prose overflow-hidden text-main-md text-text-secondary opacity-0 transition-all delay-[3s] duration-500 group-hover:max-h-16 group-hover:opacity-100 group-hover:delay-0">
             {movie.overview}
           </p>
         )}
@@ -108,11 +108,11 @@ export const HeroCarousel = ({ hidden = false }) => {
             onClick={() => setCurrentIndex((i) => (i - 1 + slidesCount) % slidesCount)}
             aria-label={copy.explore.featured.prevSlideAria}
             className={[
-              "absolute left-lg top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-mvx-full bg-bg-base/60 p-sm transition-opacity duration-300 hover:bg-bg-base/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 lg:flex",
-              isPaused ? "opacity-100" : "pointer-events-none opacity-0",
-            ].join(" ")}
+              'absolute top-1/2 left-lg z-10 hidden -translate-y-1/2 items-center justify-center rounded-mvx-full bg-bg-base/60 p-sm transition-opacity duration-300 hover:bg-bg-base/90 focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:outline-none md:flex',
+              isPaused ? 'opacity-100' : 'pointer-events-none opacity-0',
+            ].join(' ')}
           >
-            <ChevronLeft aria-hidden="true" className="text-text-primary h-6 w-6" />
+            <ChevronLeft aria-hidden="true" className="h-6 w-6 text-text-primary" />
           </button>
 
           <button
@@ -120,11 +120,11 @@ export const HeroCarousel = ({ hidden = false }) => {
             onClick={() => setCurrentIndex((i) => (i + 1) % slidesCount)}
             aria-label={copy.explore.featured.nextSlideAria}
             className={[
-              "absolute right-lg top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-mvx-full bg-bg-base/60 p-sm transition-opacity duration-300 hover:bg-bg-base/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 lg:flex",
-              isPaused ? "opacity-100" : "pointer-events-none opacity-0",
-            ].join(" ")}
+              'absolute top-1/2 right-lg z-10 hidden -translate-y-1/2 items-center justify-center rounded-mvx-full bg-bg-base/60 p-sm transition-opacity duration-300 hover:bg-bg-base/90 focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:outline-none md:flex',
+              isPaused ? 'opacity-100' : 'pointer-events-none opacity-0',
+            ].join(' ')}
           >
-            <ChevronRight aria-hidden="true" className="text-text-primary h-6 w-6" />
+            <ChevronRight aria-hidden="true" className="h-6 w-6 text-text-primary" />
           </button>
         </>
       )}
@@ -137,12 +137,12 @@ export const HeroCarousel = ({ hidden = false }) => {
               <button
                 type="button"
                 onClick={() => setCurrentIndex(i)}
-                aria-label={copy.explore.featured.goToSlideAria.replace("{n}", i + 1)}
-                aria-current={isActive ? "true" : undefined}
+                aria-label={copy.explore.featured.goToSlideAria.replace('{n}', i + 1)}
+                aria-current={isActive ? 'true' : undefined}
                 className={[
-                  "rounded-mvx-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base",
-                  isActive ? "bg-gold-500 h-1.5 w-6" : "bg-bg-muted h-1.5 w-1.5",
-                ].join(" ")}
+                  'rounded-mvx-full transition-all focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base focus-visible:outline-none',
+                  isActive ? 'h-1.5 w-6 bg-gold-500' : 'h-1.5 w-1.5 bg-bg-muted',
+                ].join(' ')}
               />
             </li>
           );

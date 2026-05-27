@@ -2,7 +2,6 @@
   "appName": "Movix",
   "auth": {
     "signIn": "Únete",
-    "openSignIn": "Iniciar sesión",
     "signUp": "Registrarse",
     "signOut": "Cerrar sesión",
     "pageTagline": "Guarda, valora y redescubre las películas que más te importan."
@@ -156,6 +155,26 @@
   },
   "favorites": {
     "title": "Mis favoritas",
-    "comingSoon": "Próximamente — disponible en el Día 6."
+    "comingSoon": "Próximamente — disponible en el Día 6.",
+    "addToFavorites": "Añadir a favoritas",
+    "removeFromFavorites": "Quitar de favoritas",
+    "myRating": "Tu puntuación",
+    "rateMovieHint": "Añade la película a favoritas para puntuarla",
+    "confirmRemoveTitle": "¿Eliminar de favoritas?",
+    "confirmRemoveDescription": "Se eliminará \"{title}\" de tu colección. Esta acción también borrará tu puntuación.",
+    "confirmRemoveAction": "Eliminar",
+    "cancel": "Cancelar",
+    "noFavoritesTitle": "Aún no tienes favoritas",
+    "noFavoritesDescription": "Explora películas y guarda las que más te gusten para crear tu colección personal.",
+    "exploreCta": "Explorar películas",
+    "myRatingBadge": "Mi: {rating}",
+    "sortLabel": "Ordenar por",
+    "sortOptions": [
+      { "value": "created_desc", "label": "Añadidas recientemente" },
+      { "value": "created_asc", "label": "Añadidas hace más tiempo" },
+      { "value": "rating_desc", "label": "Mi puntuación: mayor a menor" },
+      { "value": "rating_asc", "label": "Mi puntuación: menor a mayor" },
+      { "value": "title_asc", "label": "Título: A-Z" }
+    ]
   }
 }

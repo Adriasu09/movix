@@ -1,8 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 
 export function useIntersectionObserver(
   onIntersect,
-  { rootMargin = "200px", threshold = 0 } = {},
+  { rootMargin = '200px', threshold = 0 } = {},
   enabled = true
 ) {
   const ref = useRef(null);

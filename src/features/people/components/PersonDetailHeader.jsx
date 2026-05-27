@@ -1,7 +1,7 @@
-import { Calendar, Clapperboard, MapPin, UserRound } from "lucide-react";
-import { Badge } from "@/shared/components/ui/Badge";
-import copy from "@/config/copy.json";
-import { formatDateEs, calcAge } from "@/shared/utils/formatters";
+import { Calendar, Clapperboard, MapPin, UserRound } from 'lucide-react';
+import { Badge } from '@/shared/components/ui/Badge';
+import copy from '@/config/copy.json';
+import { formatDateEs, calcAge } from '@/shared/utils/formatters';
 
 export const PersonDetailHeader = ({ person }) => {
   const birthDate = formatDateEs(person.birthday);
@@ -9,19 +9,19 @@ export const PersonDetailHeader = ({ person }) => {
   const photoUrl = person.profileUrlLarge || person.profileUrl;
 
   return (
-    <div className="gap-lg py-lg flex flex-col items-center sm:flex-row sm:items-start">
-      <div className="bg-bg-muted rounded-mvx-xl aspect-2/3 w-40 shrink-0 overflow-hidden shadow-lg sm:w-48">
+    <div className="flex flex-col items-center gap-lg py-lg sm:flex-row sm:items-start">
+      <div className="aspect-2/3 w-40 shrink-0 overflow-hidden rounded-mvx-xl bg-bg-muted shadow-lg sm:w-48">
         {photoUrl ? (
           <img src={photoUrl} alt={person.name} className="h-full w-full object-cover" />
         ) : (
           <div className="flex h-full w-full items-center justify-center">
-            <UserRound aria-hidden="true" className="text-text-muted h-16 w-16" />
+            <UserRound aria-hidden="true" className="h-16 w-16 text-text-muted" />
           </div>
         )}
       </div>
 
-      <div className="gap-sm flex flex-col items-center text-center sm:items-start sm:text-left">
-        <h1 className="text-text-primary font-display text-display-md sm:text-display-lg">
+      <div className="flex flex-col items-center gap-sm text-center sm:items-start sm:text-left">
+        <h1 className="font-display text-display-md text-text-primary sm:text-display-lg">
           {person.name}
         </h1>
 
@@ -32,20 +32,20 @@ export const PersonDetailHeader = ({ person }) => {
           </Badge>
         )}
 
-        <div className="text-text-secondary text-main-sm gap-xs flex flex-col">
+        <div className="flex flex-col gap-xs text-main-sm text-text-secondary">
           {birthDate && (
-            <span className="gap-xs flex items-center">
+            <span className="flex items-center gap-xs">
               <Calendar aria-hidden="true" className="h-4 w-4 shrink-0" />
               {birthDate}
               {age !== null && (
-                <span className="text-text-muted text-main-xs">
-                  ({copy.personDetail.ageSuffix.replace("{age}", age)})
+                <span className="text-main-xs text-text-muted">
+                  ({copy.personDetail.ageSuffix.replace('{age}', age)})
                 </span>
               )}
             </span>
           )}
           {person.placeOfBirth && (
-            <span className="gap-xs flex items-center">
+            <span className="flex items-center gap-xs">
               <MapPin aria-hidden="true" className="h-4 w-4 shrink-0" />
               {person.placeOfBirth}
             </span>

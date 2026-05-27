@@ -1,7 +1,7 @@
-import { render, screen } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
-import { Navbar } from "@/shared/components/layout/Navbar";
-import copy from "@/config/copy.json";
+import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import { Navbar } from '@/shared/components/layout/Navbar';
+import copy from '@/config/copy.json';
 
 const renderNavbar = (variant) =>
   render(
@@ -10,7 +10,7 @@ const renderNavbar = (variant) =>
     </MemoryRouter>
   );
 
-describe("Navbar", () => {
+describe('Navbar', () => {
   /**
    * Scenario: La variante "welcome" no muestra hamburger ni nav links
    *   Given variant="welcome"
@@ -19,11 +19,11 @@ describe("Navbar", () => {
    *   And NO existe la nav principal
    */
   it("en variant='welcome' no renderiza hamburger ni nav", () => {
-    renderNavbar("welcome");
+    renderNavbar('welcome');
 
-    expect(screen.queryByRole("button", { name: copy.nav.openMenuAria })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: copy.nav.openMenuAria })).not.toBeInTheDocument();
     expect(
-      screen.queryByRole("navigation", { name: /navegación principal/i })
+      screen.queryByRole('navigation', { name: /navegación principal/i })
     ).not.toBeInTheDocument();
   });
 
@@ -35,19 +35,19 @@ describe("Navbar", () => {
    *   And existe la nav principal en el DOM
    */
   it("en variant='app' renderiza hamburger y nav", () => {
-    renderNavbar("app");
+    renderNavbar('app');
 
-    expect(screen.getByRole("button", { name: copy.nav.openMenuAria })).toBeInTheDocument();
-    expect(screen.getByRole("navigation", { name: /navegación principal/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: copy.nav.openMenuAria })).toBeInTheDocument();
+    expect(screen.getByRole('navigation', { name: /navegación principal/i })).toBeInTheDocument();
   });
 
   // Sanity: el botón Sign In aparece en ambas variantes (placeholder visual)
   it("muestra el botón 'Iniciar sesión' en ambas variantes", () => {
-    const { unmount } = renderNavbar("welcome");
-    expect(screen.getByRole("button", { name: copy.auth.signIn })).toBeInTheDocument();
+    const { unmount } = renderNavbar('welcome');
+    expect(screen.getByRole('button', { name: copy.auth.signIn })).toBeInTheDocument();
     unmount();
 
-    renderNavbar("app");
-    expect(screen.getByRole("button", { name: copy.auth.signIn })).toBeInTheDocument();
+    renderNavbar('app');
+    expect(screen.getByRole('button', { name: copy.auth.signIn })).toBeInTheDocument();
   });
 });
