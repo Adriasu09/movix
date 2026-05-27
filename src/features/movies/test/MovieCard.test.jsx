@@ -1,5 +1,31 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { vi } from 'vitest';
+
+// MovieCard incluye FavoriteToggle y useIsFavorite, que tiran de useSupabase → useAuth de Clerk.
+// Mockeamos los tres hooks para aislar el test del componente UI.
+vi.mock('@/features/favorites/hooks/useIsFavorite', () => ({
+  useIsFavorite: () => ({ isFavorite: false, personalRating: null, favorite: null }),
+}));
+vi.mock('@/features/favorites/hooks/useFavorites', () => ({
+  useFavorites: () => ({
+    addFavorite: vi.fn(),
+    removeFavorite: vi.fn(),
+    isAdding: false,
+    isRemoving: false,
+    favorites: [],
+    isLoading: false,
+    isError: false,
+    error: null,
+    refetch: vi.fn(),
+    updateRating: vi.fn(),
+    isUpdatingRating: false,
+  }),
+}));
+vi.mock('@/features/auth/hooks/useSession', () => ({
+  useSession: () => ({ isSignedIn: false, user: null }),
+}));
+
 import { MovieCard } from '@/features/movies/components/MovieCard';
 import copy from '@/config/copy.json';
 

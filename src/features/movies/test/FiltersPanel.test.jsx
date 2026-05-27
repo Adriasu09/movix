@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { vi } from 'vitest';
 
 // FiltersPanel renderiza GenreFilter, que usa useGenres → mockeamos el hook.
-vi.mock('@/features/movies/hooks/useGenres', () => ({
+vi.mock('@/shared/hooks/useGenres', () => ({
   useGenres: () => ({
     data: [
       { id: 28, name: 'Acción' },

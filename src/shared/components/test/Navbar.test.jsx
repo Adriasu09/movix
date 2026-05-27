@@ -1,5 +1,16 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { vi } from 'vitest';
+
+// Navbar usa <SignedIn>, <SignedOut> y <UserButton> de Clerk directamente.
+// Sin ClerkProvider explotan en tests — los sustituimos por stubs que
+// simulan el estado "usuario no autenticado" (SignedOut renderiza sus hijos).
+vi.mock('@clerk/clerk-react', () => ({
+  SignedIn: () => null,
+  SignedOut: ({ children }) => children,
+  UserButton: () => null,
+}));
+
 import { Navbar } from '@/shared/components/layout/Navbar';
 import copy from '@/config/copy.json';
 

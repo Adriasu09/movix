@@ -28,7 +28,7 @@ vi.mock('@/features/movies/hooks/useFeaturedMovies', () => ({
   }),
 }));
 
-vi.mock('@/features/movies/hooks/useGenres', () => ({
+vi.mock('@/shared/hooks/useGenres', () => ({
   useGenres: () => ({
     data: [
       { id: 12, name: 'Aventura' },

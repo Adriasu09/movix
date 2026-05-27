@@ -3,7 +3,7 @@ import { vi } from 'vitest';
 
 // Mock de useGenres: devolvemos la lista completa de TMDB (es-ES) para
 // comprobar que GenreFilter recorta a solo los 7 géneros featured.
-vi.mock('@/features/movies/hooks/useGenres', () => ({
+vi.mock('@/shared/hooks/useGenres', () => ({
   useGenres: () => ({
     data: [
       { id: 28, name: 'Acción' },
